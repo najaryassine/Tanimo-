@@ -2,9 +2,9 @@
 @import url(//fonts.googleapis.com/css?family=Noto+Sans);
 @import url(//fonts.googleapis.com/css?family=Paprika);
 
-@import "../css/reset.css";
-@import "../css/grid.css";
-@import "../css/superfish.css";
+@import "css";
+@import "ss";
+@import "ish.css";
 
 
 
