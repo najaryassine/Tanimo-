@@ -1,7 +1,7 @@
 <?php
 
-require_once "../config/config.php";
-require_once '../model/Article.php';
+require_once 'c:/xampp/htdocs/Tanimo-/config/config.php';
+require_once 'c:/xampp/htdocs/Tanimo-/model/Article.php';
 
 class ArticleC
 {
@@ -26,7 +26,7 @@ class ArticleC
 
     function afficherArticle(){
 
-        $sql="SELECT * FROM articles";
+        $sql="SELECT ar.id_art, ar.nom AS name, ar.prix, ar.image,  c.nom AS categorie, sc.nom AS souscategorie  FROM articles AS ar INNER JOIN sous_categories AS sc on ar.sous_cat_id = sc.id_sous_cat INNER JOIN categories AS c on c.id_cat = sc.id_cat ";
         $db = config::getConnexion();
         try{
             $liste = $db->query($sql);

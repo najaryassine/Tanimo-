@@ -1,3 +1,61 @@
+<?php
+include_once '../../../model/Article.php';
+include_once '../../../controller/ArticleC.php';
+
+include "../../../controller/CategorieC.php";
+include "../../../controller/SousCategorieC.php";
+
+$CategorieC=new CategorieC();
+$listeCategories=$CategorieC->afficherCategorie();
+
+$SousCategorieC=new SousCategorieC();
+$listeSousCategories=$SousCategorieC->afficherSousCategorie();
+
+$error = "";
+
+// create article
+$article = null;
+//Upload Image
+
+// create an instance of the controller
+$articleC = new ArticleC();
+if (
+    isset($_POST["prix"]) &&
+    isset($_POST["sous_cat_id"])&&
+    isset($_POST["nom"])
+) {
+    if (
+        !empty($_POST["prix"]) &&
+        !empty($_POST["sous_cat_id"])&&
+        !empty($_POST["nom"])
+
+    ) {
+        if (isset($_FILES['image'])) {
+            $uploaddir = "../../../uploads/";
+            $uploadfile = $uploaddir . basename($_FILES['image']['name']);
+            move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile);
+            $image = $_FILES['image']['name'];
+        } else {
+            $image = "";
+        }
+        //Add To DB
+        $article = new Article(
+            $_POST['prix'],
+            $image,
+            $_POST['sous_cat_id'],
+            $_POST['nom']
+
+        );
+        $articleC->ajouterArticle($article);
+        header('Location:AfficherArticles.php');
+    }
+    else
+        $error = "Missing information";
+
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +66,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Greendash Dashboard</title>
+  <title>Tanimo Dashboard</title>
   <!-- Iconic Fonts -->
   <link href="../vendors/iconic-fonts/font-awesome/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -53,11 +111,12 @@
 
   <!-- Sidebar Navigation Left -->
   <!-- Sidebar Navigation Left -->
+  <!-- Sidebar Navigation Left -->
   <aside id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left">
 
     <!-- Logo -->
     <div class="logo-sn ms-d-block-lg">
-      <a class="pl-0 ml-0 text-center" href="../index.html"> <img src="../assets/img/dashboard/logo.png" alt="logo"> </a>
+      <a class="pl-0 ml-0 text-center" href="index.html"> <img src="assets/img/dashboard/logo.png" alt="logo"> </a>
     </div>
 
 
@@ -69,80 +128,71 @@
           <span><i class="material-icons fs-16">dashboard</i>Dashboard </span>
         </a>
         <ul id="dashboard" class="collapse" aria-labelledby="dashboard" data-parent="#side-nav-accordion">
-          <li> <a href="../index.html">Tanimo</a> </li>
+          <li> <a href="index.html">Tanimo</a> </li>
 
 
         </ul>
       </li>
       <!-- /Dashboard -->
-    
-
-      <!-- gestion des produits/categories -->
-
-      <!-- gestion des produits-->
-      <li class="menu-item">
-        <a href="#" class="has-chevron" data-toggle="collapse" data-target="#Produit-page" aria-expanded="false" aria-controls="Produit-page">
-         <span><i class='fas fa-apple-alt' style='font-size:16px;color:white'></i>Gestion Des Produits</span>
-        </a>
-        <ul id="Produit-page" class="collapse" aria-labelledby="Produit-page" data-parent="#side-nav-accordion">
-          <li> <a href="../Produit/AjoutProduit.html">Ajouter Un Produit</a> </li>
-          <li> <a href="../Produit/ModifierProduit.html">Modifier Un Produit</a> </li>
-          <li> <a href="../Produit/SupprimerProduit.html">Supprimmer Un Produit</a> </li>
-          <li> <a href="../Produit/AfficherProduit.html"> Afficher les Produit</a> </li>
-         
-        </ul>
-      </li>
-      <!-- /gestion de produit-->
 
       <!-- gestion des categories-->
       <li class="menu-item">
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#Categorie-page" aria-expanded="false" aria-controls="Categorie-page">
-          <span><i class='far fa-clipboard' style='font-size:18px;color:white'></i>Gestion Des Catégories</span>
+          <span><i class='fas fa-bars' style='font-size:18px;color:white'></i>Gestion Des Catégories</span>
         </a>
         <ul id="Categorie-page" class="collapse" aria-labelledby="Categorie-page" data-parent="#side-nav-accordion">
-          <li> <a href="../Categorie/AjoutCategorie.html">Ajouter Une catégories</a> </li>
-          <li> <a href="../Categorie/ModifierCategorie.html">Modifier  Une catégories</a> </li>
-          <li> <a href="../Categorie/SupprimerCategorie.html">Supprimmer  Une catégories</a> </li>
-          <li> <a href="../Categorie/AfficherCategorie.html"> Afficher les Catégories</a> </li>
-         
+          <li> <a href="categorie/AjoutCategorie.html">Ajouter Une catégorie</a> </li>
+          <li> <a href="categorie/AfficherCategorie.html"> Afficher les Catégories</a> </li>
+
         </ul>
       </li>
       <!-- /gestion de categries-->
 
+      <!-- gestion des Sous Categorie/categories -->
 
+      <!-- gestion des Sous Categorie-->
+      <li class="menu-item">
+        <a href="#" class="has-chevron" data-toggle="collapse" data-target="#SousCategorie-page" aria-expanded="false" aria-controls="SousCategorie-page">
+          <span><i class='fas fa-plus-circle' style='font-size:16px;color:white'></i>Gestion Des Sous Categories</span>
+        </a>
+        <ul id="SousCategorie-page" class="collapse" aria-labelledby="SousCategorie-page" data-parent="#side-nav-accordion">
+          <li> <a href="sousCategorie/AjoutSousCategotie.html">Ajouter Un Sous Categorie</a> </li>
+          <li> <a href="sousCategorie/AfficherSousCategorie.html"> Afficher les Sous Categories</a> </li>
+
+        </ul>
+      </li>
+      <!-- /gestion de produit-->
 
       <!-- gestion commande -->
       <li class="menu-item">
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#Commande-page" aria-expanded="false" aria-controls="Commande-page">
-          <span><i class='far fa-address-book' style='font-size:18px;color:white'></i>Gestion De commande</span>
+          <span><i class='far fa-address-book' style='font-size:18px;color:white'></i>Gestion Des Commandes</span>
         </a>
         <ul id="Commande-page" class="collapse" aria-labelledby="Commande-page" data-parent="#side-nav-accordion">
-          <li> <a href="../Commande/AjoutCommande.html">Ajouter Une commande</a> </li>
-          <li> <a href="../Commande/ModifierCommande.html">Modifier Une commande</a> </li>
-          <li> <a href="../Commande/SupprimerCommande.html">Supprimmer Une commande</a> </li>
-          <li> <a href="../Commande/AfficherCommande.html"> Afficher les commandes</a> </li>
-         
+          <li> <a href="commande/AjoutCommande.html">Ajouter Une commande</a> </li>
+          <li> <a href="commande/AfficherCommande.html"> Afficher les commandes</a> </li>
+
         </ul>
       </li>
       <!-- /gestion commande -->
-     
+
 
 
       <!-- /gestion des promotions/publicité-->
 
       <!-- gestion des promotions -->
-<!--      <li class="menu-item">-->
-<!--        <a href="#" class="has-chevron" data-toggle="collapse" data-target="#Promotion-page" aria-expanded="false" aria-controls="Promotion-page">-->
-<!--          <span><i class='fas fa-donate' style='font-size:18px;color:white'></i>Gestion Des Promotions</span>-->
-<!--        </a>-->
-<!--        <ul id="Promotion-page" class="collapse" aria-labelledby="Promotion-page" data-parent="#side-nav-accordion">-->
-<!--          <li> <a href="../Promotion/AjoutPromotion.html">Ajouter Une Promotions</a> </li>-->
-<!--          <li> <a href="../Promotion/ModifierPromotion.html">Modifier Une Promotions</a> </li>-->
-<!--          <li> <a href="../Promotion/SupprimerPromotion.html">Supprimmer Une Promotions</a> </li>-->
-<!--          <li> <a href="../Promotion/AfficherPromotion.html"> Afficher les Promotions</a> </li>-->
-<!--         -->
-<!--        </ul>-->
-<!--      </li>-->
+      <!--      <li class="menu-item">-->
+      <!--        <a href="#" class="has-chevron" data-toggle="collapse" data-target="#Promotion-page" aria-expanded="false" aria-controls="Promotion-page">-->
+      <!--          <span><i class='fas fa-donate' style='font-size:18px;color:white'></i>Gestion Des Promotions</span>-->
+      <!--        </a>-->
+      <!--        <ul id="Promotion-page" class="collapse" aria-labelledby="Promotion-page" data-parent="#side-nav-accordion">-->
+      <!--          <li> <a href="../Promotion/AjoutPromotion.html">Ajouter Une Promotions</a> </li>-->
+      <!--          <li> <a href="../Promotion/ModifierPromotion.html">Modifier Une Promotions</a> </li>-->
+      <!--          <li> <a href="../Promotion/SupprimerPromotion.html">Supprimmer Une Promotions</a> </li>-->
+      <!--          <li> <a href="../Promotion/AfficherPromotion.html"> Afficher les Promotions</a> </li>-->
+      <!--         -->
+      <!--        </ul>-->
+      <!--      </li>-->
       <!-- /gestion de promotion -->
 
       <!-- /gestion des articles/commentaires-->
@@ -150,14 +200,12 @@
       <!-- gestion des articles -->
       <li class="menu-item">
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#Article-page" aria-expanded="false" aria-controls="Article-page">
-          <span><i class='far fa-comment-alt' style='font-size:18px;color:white'></i>Gestion Des Articles</span>
+          <span><i class='fa fa-shopping-cart' style='font-size:18px;color:white'></i>Gestion Des Articles</span>
         </a>
         <ul id="Article-page" class="collapse" aria-labelledby="Article-page" data-parent="#side-nav-accordion">
-          <li> <a href="AjoutArticle.html">Ajouter Un Article</a> </li>
-          <li> <a href="ModifierArticle.html">Modifier  Un Article</a> </li>
-          <li> <a href="SupprimerArticle.html">Supprimmer  Un Article</a> </li>
-          <li> <a href="AfficherArticle.php"> Afficher les Articles</a> </li>
-         
+          <li> <a href="article/AjoutArticle.php">Ajouter Un Article</a> </li>
+          <li> <a href="article/AfficherArticles.php"> Afficher les Articles</a> </li>
+
         </ul>
       </li>
       <!-- /gestion des articles -->
@@ -866,7 +914,9 @@
           <div class="modal-body">
 
             <div class="ms-form-group">
-              <label>Note Title</label>
+              <label>
+
+              </label>
               <input type="text" class="form-control" name="note-title" value="">
             </div>
 
@@ -891,10 +941,17 @@
 
 
    <!--            xttttttt          -->
+      <div id="error">
+          <?php
+          if($error != ""){
+              echo "<div class=\"alert alert-danger\" role=\"alert\">". $error ."</div>";
+          }
+
+          ?>
+      </div>
 
 
-
-<form action="AjoutArticle.php" method="GET" enctype="multipart/form-data" >
+<form action="" method="POST"  enctype="multipart/form-data">
 
 
 
@@ -914,8 +971,6 @@
 
 
 
-
-
             <div class="col-xl-6 col-md-12"  >
               <div class="ms-panel ms-panel-fh" style="width:1000px ; margin-left: 120px;"  >
                 <div class="ms-panel-body"  >
@@ -925,31 +980,53 @@
                               <h5>Ajout Article</h5><br>
              
 
-                  <label for="validationCustom10">Titre</label>
+                  <label for="nom">Nom</label>
                     <div class="input-group">
-                      <input type="text" name="titre" class="form-control" id="validationCustom10" placeholder="Entrer le titre de l'article " required="">
-                      <div class="invalid-feedback">
-                        Nom
-                      </div>
+                      <input type="text" name="nom" class="form-control" id="nom" placeholder="Entrer le nom de l'article " required="required">
+
                     </div>
 
 
-                    <label for="validationCustom10">Description</label>
+                    <label for="prix">Prix</label>
                       <div class="input-group">
-                        <input type="text" name="Description" class="form-control" id="validationCustom10" placeholder="Entrer le nom " required="">
-                          <div class="invalid-feedback">
-                            Nom
+                        <input type="number" name="prix" class="form-control" id="prix" placeholder="Entrer le prix " required="required" min="1" >
+
+                      </div>
+
+
+
+                          <label for="categorie">Categorie</label>
+                          <div class="input-group">
+                              <select name="categorie" id="categorie" required="required">
+                                  <option value="0">Please Select Option</option>
+                                  <?php
+                                  foreach ($listeCategories as $cat) {
+                                      echo '<option  value="'.$cat["id_cat"].'">'.$cat["nom"].'</option>';
+                                  }
+                                  ?>
+                              </select>
                           </div>
-                      </div>
 
-                   
 
-                    <label for="validationCustom10">Image pour l'article</label>
+                          <label for="sous_cat_id">Sous Categorie</label>
+                          <div class="input-group">
+                              <select name="sous_cat_id" id="sous_cat_id" required="required">
+                                  <option value="0">Please Select Option</option>
+                                  <?php
+                                  foreach ($listeSousCategories as $scat) {
+                                      echo '<option  value="'.$scat["id_sous_cat"].'">'.$scat["nom"].'</option>';
+                                  }
+                                  ?>
+                              </select>
+
+                          </div>
+
+
+
+                    <label for="image">Image pour l'article</label>
                      <div class="input-group">
-                      <input type="file" name="Image" class="form-control" id="Image" required="" >
-                      <div class="invalid-feedback">
-                        Nom
-                      </div>
+                      <input type="file" name="image" class="form-control" id="image" required="required"  accept="image/png, image/jpeg">
+
                     </div>
                   
                 
