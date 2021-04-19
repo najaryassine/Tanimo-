@@ -51,7 +51,7 @@ class ArticleC
     }
 
     function recupererArticleById($id){
-        $sql="SELECT * from articles where id_art=$id";
+        $sql="SELECT ar.id_art, ar.nom AS name, ar.prix, ar.image, c.id_cat , c.nom  AS categorie, sc.id_sous_cat,  sc.nom AS souscategorie  FROM articles AS ar INNER JOIN sous_categories AS sc on ar.sous_cat_id = sc.id_sous_cat INNER JOIN categories AS c on c.id_cat = sc.id_cat where ar.id_art=$id ";
         $db = config::getConnexion();
         try{
             $query=$db->prepare($sql);
