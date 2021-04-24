@@ -9,6 +9,7 @@ class Commande
     private ?int $id_art = null;
     private ?int $qte = null;
     private ?float $prix = null;
+    private ?string $etat = null;
     private ?int $id_btq = null;
     private ?int $id_user = null;
 
@@ -17,17 +18,36 @@ class Commande
      * @param int|null $id_art
      * @param int|null $qte
      * @param float|null $prix
+     * @param string|null $etat
      * @param int|null $id_btq
      * @param int|null $id_user
      */
-    public function __construct(?int $id_art, ?int $qte, ?float $prix, ?int $id_btq, ?int $id_user)
+    public function __construct(?int $id_art, ?int $qte, ?float $prix, ?string $etat, ?int $id_btq, ?int $id_user)
     {
         $this->id_art = $id_art;
         $this->qte = $qte;
         $this->prix = $prix;
+        $this->etat = $etat;
         $this->id_btq = $id_btq;
         $this->id_user = $id_user;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getEtat(): ?string
+    {
+        return $this->etat;
+    }
+
+    /**
+     * @param string|null $etat
+     */
+    public function setEtat(?string $etat): void
+    {
+        $this->etat = $etat;
+    }
+
 
     /**
      * @return int|null

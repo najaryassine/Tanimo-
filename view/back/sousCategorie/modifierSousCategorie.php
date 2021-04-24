@@ -1,12 +1,56 @@
 <?php
-include_once '../../../model/Article.php';
-include_once '../../../controller/ArticleC.php';
+include_once '../../../model/SousCategorie.php';
 
 include "../../../controller/CategorieC.php";
 include "../../../controller/SousCategorieC.php";
 
-$articleC=new ArticleC();
-$listeArticle=$articleC->afficherArticle();
+$CategorieC=new CategorieC();
+$listeCategories=$CategorieC->afficherCategories();
+
+$SousCategorieC=new SousCategorieC();
+
+
+if (isset($_GET['id'])) {
+    $oldsousCategorie = $SousCategorieC->recupererSousCategorieById($_GET['id']);
+}
+
+
+
+$error = "";
+
+// create sous categorie
+$sousCategorie = null;
+
+// create an instance of the controller
+
+if (
+
+    isset($_POST["id_cat"])&&
+    isset($_POST["nom"])
+) {
+    if (
+
+        !empty($_POST["id_cat"])&&
+        !empty($_POST["nom"])
+
+    ) {
+
+        //Add To DB
+        $sousCategorie = new SousCategorie(
+
+
+            $_POST['nom'],
+            $_POST['id_cat']
+
+        );
+        $SousCategorieC->modifierCategorie($sousCategorie,$_GET["id"]);
+        header('Location:AfficherSousCategories.php');
+    }
+    else
+        $error = "Missing information";
+
+}
+
 
 
 ?>
@@ -33,10 +77,6 @@ $listeArticle=$articleC->afficherArticle();
     <link href="../assets/css/style.css" rel="stylesheet">
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
-
-
-
-
 
 </head>
 
@@ -114,8 +154,8 @@ $listeArticle=$articleC->afficherArticle();
                 <span><i class='fas fa-plus-circle' style='font-size:16px;color:white'></i>Gestion Des Sous Categories</span>
             </a>
             <ul id="SousCategorie-page" class="collapse" aria-labelledby="SousCategorie-page" data-parent="#side-nav-accordion">
-                <li> <a href="sousCategorie/AjoutSousCategotie.html">Ajouter Un Sous Categorie</a> </li>
-                <li> <a href="sousCategorie/AfficherSousCategorie.html"> Afficher les Sous Categories</a> </li>
+                <li> <a href="AjoutSousCategorie.php">Ajouter Un Sous Categorie</a> </li>
+                <li> <a href="AfficherSousCategories.php"> Afficher les Sous Categories</a> </li>
 
             </ul>
         </li>
@@ -161,8 +201,8 @@ $listeArticle=$articleC->afficherArticle();
                 <span><i class='fa fa-shopping-cart' style='font-size:18px;color:white'></i>Gestion Des Articles</span>
             </a>
             <ul id="Article-page" class="collapse" aria-labelledby="Article-page" data-parent="#side-nav-accordion">
-                <li> <a href="AjoutArticle.php">Ajouter Un Article</a> </li>
-                <li> <a href="AfficherArticles.php"> Afficher les Articles</a> </li>
+                <li> <a href="../article/AjoutArticle.php">Ajouter Un Article</a> </li>
+                <li> <a href="../article/AfficherArticles.php"> Afficher les Articles</a> </li>
 
             </ul>
         </li>
@@ -899,7 +939,14 @@ $listeArticle=$articleC->afficherArticle();
 
 
     <!--            xttttttt          -->
+    <div id="error">
+        <?php
+        if($error != ""){
+            echo "<div class=\"alert alert-danger\" role=\"alert\">". $error ."</div>";
+        }
 
+        ?>
+    </div>
 
 
     <form action="" method="POST"  enctype="multipart/form-data">
@@ -914,8 +961,8 @@ $listeArticle=$articleC->afficherArticle();
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb pl-0">
                             <li class="breadcrumb-item"><a href="#"><i class="material-icons">home</i> Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Articles</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Afficher Articles</li>
+                            <li class="breadcrumb-item"><a href="#">Sous categorie</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Modifier une sous categorie</li>
                         </ol>
                     </nav>
                 </div>
@@ -928,42 +975,44 @@ $listeArticle=$articleC->afficherArticle();
                             <form class="needs-validation clearfix" novalidate="">
                                 <div class="form-row">
                                     <div class="col-xl-12 col-md-12 ">
-                                        <h5>Afficher les articles</h5><br>
-                                </div>
-                                    <table border=5 align = 'center'>
-                                        <tr>
-                                            <th>Id</th>
-                                            <th>Nom</th>
-                                            <th>Prix</th>
-                                            <th>Categorie</th>
-                                            <th>SousCategorie</th>
-                                            <th>Image</th>
-                                            <th>Supprimer</th>
-                                            <th>modifier</th>
-                                            
-                                        </tr>
+                                        <h5>Modifier Sous Categorie</h5><br>
 
-                                        <?PHP
-                                        foreach($listeArticle as $article){
-                                            ?>
-                                            <tr>
-                                                <td><?PHP echo $article['id_art']; ?></td>
-                                                <td><?PHP echo $article['name']; ?></td>
-                                                <td><?PHP echo $article['prix']; ?></td>
-                                                <td><?PHP echo $article['categorie']; ?></td>
-                                                <td><?PHP echo $article['souscategorie']; ?></td>
-                                                <td><img src="../../../uploads/<?PHP echo $article['image']; ?>" alt="aaaa"></td>
-                                                <td>
-                                                    <a href="supprimerArticle.php?id=<?PHP echo $article['id_art']; ?>"> supprimer </a>
-                                                </td>
-                                                <td>
-                                                    <a href="modifierArticle.php?id=<?PHP echo $article['id_art']; ?>"> Modifier </a>
-                                                </td>
-                                            </tr>
-                                            <?PHP
-                                        }
-                                        ?>
-                                    </table>
+
+                                        <label for="nom">Nom</label>
+                                        <div class="input-group">
+                                            <input type="text" name="nom" class="form-control" id="nom" placeholder="Entrer le nom de la sous categorie " required="required" value="<?php echo $oldsousCategorie["name"] ?>">
+
+                                        </div>
+
+
+
+                                        <label for="id_cat">Categorie</label>
+                                        <div class="input-group">
+                                            <select name="id_cat" id="id_cat" required="required">
+
+                                                <?php
+                                                foreach ($listeCategories as $cat) {
+                                                    if($cat["id_cat"]==$oldsousCategorie["id_cat"]){
+                                                        echo '<option selected="selected" value="'.$cat["id_cat"].'">'.$cat["nom"].'</option>';
+                                                    }
+                                                    else {
+                                                        echo '<option  value="'.$cat["id_cat"].'">'.$cat["nom"].'</option>';
+                                                    }
+
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <button class="btn btn-dark mr-2  ms-graph-metrics">Vider</button>
+                                        <button class="btn btn-primary " name="upload" type="submit">Modifier</button>
+                                    </div>
+
+                                </div>
                         </div>
     </form>
     </div>

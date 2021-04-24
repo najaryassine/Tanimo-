@@ -1,12 +1,41 @@
 <?php
-include_once '../../../model/Article.php';
-include_once '../../../controller/ArticleC.php';
+include_once '../../../model/Commande.php';
+include_once '../../../controller/CommandeC.php';
 
-include "../../../controller/CategorieC.php";
-include "../../../controller/SousCategorieC.php";
+$commandeC = new CommandeC();
 
-$articleC=new ArticleC();
-$listeArticle=$articleC->afficherArticle();
+
+if (isset($_GET['id'])) {
+    $oldcommande = $commandeC->afficherCommande($_GET['id']);
+}
+
+
+$error = "";
+
+// create commande
+$article = null;
+
+
+// create an instance of the controller
+
+if (
+    isset($_POST["etat"])
+) {
+    if (
+        !empty($_POST["etat"])
+
+    ) {
+
+        //Add To DB
+
+        $commandeC->modifierCommande($_POST["etat"],$_GET["id"]);
+        header('Location:AfficherCommande.php');
+    }
+    else
+        $error = "Missing information";
+
+}
+
 
 
 ?>
@@ -33,10 +62,6 @@ $listeArticle=$articleC->afficherArticle();
     <link href="../assets/css/style.css" rel="stylesheet">
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
-
-
-
-
 
 </head>
 
@@ -899,7 +924,14 @@ $listeArticle=$articleC->afficherArticle();
 
 
     <!--            xttttttt          -->
+    <div id="error">
+        <?php
+        if($error != ""){
+            echo "<div class=\"alert alert-danger\" role=\"alert\">". $error ."</div>";
+        }
 
+        ?>
+    </div>
 
 
     <form action="" method="POST"  enctype="multipart/form-data">
@@ -914,8 +946,8 @@ $listeArticle=$articleC->afficherArticle();
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb pl-0">
                             <li class="breadcrumb-item"><a href="#"><i class="material-icons">home</i> Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Articles</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Afficher Articles</li>
+                            <li class="breadcrumb-item"><a href="#">Commande</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Modifier l'état d'une commande</li>
                         </ol>
                     </nav>
                 </div>
@@ -928,42 +960,56 @@ $listeArticle=$articleC->afficherArticle();
                             <form class="needs-validation clearfix" novalidate="">
                                 <div class="form-row">
                                     <div class="col-xl-12 col-md-12 ">
-                                        <h5>Afficher les articles</h5><br>
-                                </div>
-                                    <table border=5 align = 'center'>
-                                        <tr>
-                                            <th>Id</th>
-                                            <th>Nom</th>
-                                            <th>Prix</th>
-                                            <th>Categorie</th>
-                                            <th>SousCategorie</th>
-                                            <th>Image</th>
-                                            <th>Supprimer</th>
-                                            <th>modifier</th>
-                                            
-                                        </tr>
+                                        <h5>Modifier Commande</h5><br>
 
-                                        <?PHP
-                                        foreach($listeArticle as $article){
-                                            ?>
-                                            <tr>
-                                                <td><?PHP echo $article['id_art']; ?></td>
-                                                <td><?PHP echo $article['name']; ?></td>
-                                                <td><?PHP echo $article['prix']; ?></td>
-                                                <td><?PHP echo $article['categorie']; ?></td>
-                                                <td><?PHP echo $article['souscategorie']; ?></td>
-                                                <td><img src="../../../uploads/<?PHP echo $article['image']; ?>" alt="aaaa"></td>
-                                                <td>
-                                                    <a href="supprimerArticle.php?id=<?PHP echo $article['id_art']; ?>"> supprimer </a>
-                                                </td>
-                                                <td>
-                                                    <a href="modifierArticle.php?id=<?PHP echo $article['id_art']; ?>"> Modifier </a>
-                                                </td>
-                                            </tr>
-                                            <?PHP
-                                        }
-                                        ?>
-                                    </table>
+<!---->
+                                        <label for="article">Article</label>
+                                        <div class="input-group">
+                                            <input type="text" disabled="disabled" name="article" class="form-control" id="article" placeholder="Entrer l'etat de la commande "  value="<?php echo $oldcommande["article"] ?>">
+
+                                        </div>
+                                        <label for="prix">Prix</label>
+                                        <div class="input-group">
+                                            <input type="text" disabled="disabled" name="prix" class="form-control" id="prix" placeholder="Entrer l'etat de la commande " required="required" value="<?php echo $oldcommande["prix"] ?>">
+
+                                        </div>
+                                        <label for="qte">Qte</label>
+                                        <div class="input-group">
+                                            <input type="text" disabled="disabled" name="qte" class="form-control" id="qte" placeholder="Entrer l'etat de la commande " required="required" value="<?php echo $oldcommande["qte"] ?>">
+
+                                        </div>
+                                        <label for="boutique">Boutique</label>
+                                        <div class="input-group">
+                                            <input type="text" disabled="disabled" name="boutique" class="form-control" id="boutique" placeholder="Entrer l'etat de la commande " required="required" value="<?php echo $oldcommande["boutique"] ?>">
+
+                                        </div>
+                                        <label for="user">User</label>
+                                        <div class="input-group">
+                                            <input type="text" disabled="disabled" name="user" class="form-control" id="user" placeholder="Entrer l'etat de la commande " required="required" value="<?php echo $oldcommande["username"] ?>">
+
+                                        </div>
+                                        <label for="etat">Etat</label>
+                                        <div class="input-group">
+                                            <select name="etat" id="etat" required="required">
+                                                <?php if($oldcommande["etat"] === "non livre") {
+                                                echo  '<option selected="selected" value="non livre">non livre</option>' ?>
+                                               <?php echo  '<option value="livre">livre</option>' ?>
+                                                <?php } else {
+                                                echo  '<option selected="selected" value="non livre">non livre</option>' ?>
+                                                <?php echo  '<option value="livre">livre</option>' ?>
+                                                <?php }?>
+
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <button class="btn btn-dark mr-2  ms-graph-metrics">Vider</button>
+                                        <button class="btn btn-primary " name="upload" type="submit">Modifier</button>
+                                    </div>
+
+                                </div>
                         </div>
     </form>
     </div>

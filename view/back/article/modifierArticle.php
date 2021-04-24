@@ -6,7 +6,7 @@ include "../../../controller/CategorieC.php";
 include "../../../controller/SousCategorieC.php";
 $articleC = new ArticleC();
 $CategorieC=new CategorieC();
-$listeCategories=$CategorieC->afficherCategorie();
+$listeCategories=$CategorieC->afficherCategories();
 
 if (isset($_GET['id'])) {
     $oldarticle = $articleC->recupererArticleById($_GET['id']);
@@ -36,7 +36,7 @@ if (
     ) {
         if (isset($_FILES['image'])) {
             $check = $_FILES["image"]["tmp_name"];
-            if($_FILES['image']['size'] !== 0 && $_FILES['image']['error'] !== 0) {
+            if($_FILES['image']['size'] !== 0) {
                 $uploaddir = "../../../uploads/";
                 $uploadfile = $uploaddir . basename($_FILES['image']['name']);
                 move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile);
@@ -55,10 +55,8 @@ if (
             $_POST['nom']
 
         );
-
-       echo $image;
         $articleC->modifierArticle($article,$_GET["id"]);
-        //header('Location:AfficherArticles.php');
+        header('Location:AfficherArticles.php');
     }
     else
         $error = "Missing information";
@@ -153,8 +151,8 @@ if (
                 <span><i class='fas fa-bars' style='font-size:18px;color:white'></i>Gestion Des Catégories</span>
             </a>
             <ul id="Categorie-page" class="collapse" aria-labelledby="Categorie-page" data-parent="#side-nav-accordion">
-                <li> <a href="categorie/AjoutCategorie.html">Ajouter Une catégorie</a> </li>
-                <li> <a href="categorie/AfficherCategorie.html"> Afficher les Catégories</a> </li>
+                <li> <a href="../categorie/AjoutCategorie.php">Ajouter Une catégorie</a> </li>
+                <li> <a href="../categorie/AfficherCategories.php"> Afficher les catégories</a> </li>
 
             </ul>
         </li>
@@ -215,8 +213,8 @@ if (
                 <span><i class='fa fa-shopping-cart' style='font-size:18px;color:white'></i>Gestion Des Articles</span>
             </a>
             <ul id="Article-page" class="collapse" aria-labelledby="Article-page" data-parent="#side-nav-accordion">
-                <li> <a href="article/AjoutArticle.php">Ajouter Un Article</a> </li>
-                <li> <a href="article/AfficherArticles.php"> Afficher les Articles</a> </li>
+                <li> <a href="AjoutArticle.php">Ajouter Un Article</a> </li>
+                <li> <a href="AfficherArticles.php"> Afficher les Articles</a> </li>
 
             </ul>
         </li>
@@ -976,7 +974,7 @@ if (
                         <ol class="breadcrumb pl-0">
                             <li class="breadcrumb-item"><a href="#"><i class="material-icons">home</i> Home</a></li>
                             <li class="breadcrumb-item"><a href="#">Articles</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Ajout d'un Article</li>
+                            <li class="breadcrumb-item active" aria-current="page">Modifier un Article</li>
                         </ol>
                     </nav>
                 </div>

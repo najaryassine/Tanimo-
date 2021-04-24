@@ -1,12 +1,11 @@
 <?php
-include_once '../../../model/Article.php';
-include_once '../../../controller/ArticleC.php';
+include_once '../../../model/Categorie.php';
+include_once '../../../controller/CategorieC.php';
 
-include "../../../controller/CategorieC.php";
-include "../../../controller/SousCategorieC.php";
 
-$articleC=new ArticleC();
-$listeArticle=$articleC->afficherArticle();
+
+$categorieC=new CategorieC();
+$listeCategorie=$categorieC->afficherCategories();
 
 
 ?>
@@ -99,8 +98,8 @@ $listeArticle=$articleC->afficherArticle();
                 <span><i class='fas fa-bars' style='font-size:18px;color:white'></i>Gestion Des Catégories</span>
             </a>
             <ul id="Categorie-page" class="collapse" aria-labelledby="Categorie-page" data-parent="#side-nav-accordion">
-                <li> <a href="../categorie/AjoutCategorie.php">Ajouter Une catégorie</a> </li>
-                <li> <a href="../categorie/AfficherCategories.php"> Afficher les catégories</a> </li>
+                <li> <a href="AjoutCategorie.php">Ajouter Une catégorie</a> </li>
+                <li> <a href="AfficherCategories.php"> Afficher les catégories</a> </li>
 
             </ul>
         </li>
@@ -161,8 +160,8 @@ $listeArticle=$articleC->afficherArticle();
                 <span><i class='fa fa-shopping-cart' style='font-size:18px;color:white'></i>Gestion Des Articles</span>
             </a>
             <ul id="Article-page" class="collapse" aria-labelledby="Article-page" data-parent="#side-nav-accordion">
-                <li> <a href="AjoutArticle.php">Ajouter Un Article</a> </li>
-                <li> <a href="AfficherArticles.php"> Afficher les Articles</a> </li>
+                <li> <a href="../article/AjoutArticle.php">Ajouter Un Article</a> </li>
+                <li> <a href="../article/AfficherArticles.php"> Afficher les Articles</a> </li>
 
             </ul>
         </li>
@@ -914,8 +913,8 @@ $listeArticle=$articleC->afficherArticle();
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb pl-0">
                             <li class="breadcrumb-item"><a href="#"><i class="material-icons">home</i> Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Articles</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Afficher Articles</li>
+                            <li class="breadcrumb-item"><a href="#">Categorie</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Afficher Categories</li>
                         </ol>
                     </nav>
                 </div>
@@ -928,36 +927,31 @@ $listeArticle=$articleC->afficherArticle();
                             <form class="needs-validation clearfix" novalidate="">
                                 <div class="form-row">
                                     <div class="col-xl-12 col-md-12 ">
-                                        <h5>Afficher les articles</h5><br>
+                                        <h5>Afficher les categories</h5><br>
                                 </div>
                                     <table border=5 align = 'center'>
                                         <tr>
                                             <th>Id</th>
                                             <th>Nom</th>
-                                            <th>Prix</th>
-                                            <th>Categorie</th>
-                                            <th>SousCategorie</th>
-                                            <th>Image</th>
                                             <th>Supprimer</th>
                                             <th>modifier</th>
                                             
                                         </tr>
 
                                         <?PHP
-                                        foreach($listeArticle as $article){
+                                        foreach($listeCategorie as $categorie){
                                             ?>
                                             <tr>
-                                                <td><?PHP echo $article['id_art']; ?></td>
-                                                <td><?PHP echo $article['name']; ?></td>
-                                                <td><?PHP echo $article['prix']; ?></td>
-                                                <td><?PHP echo $article['categorie']; ?></td>
-                                                <td><?PHP echo $article['souscategorie']; ?></td>
-                                                <td><img src="../../../uploads/<?PHP echo $article['image']; ?>" alt="aaaa"></td>
+                                                <td><?PHP echo $categorie['id_cat']; ?></td>
+                                                <td><?PHP echo $categorie['nom']; ?></td>
+
+
                                                 <td>
-                                                    <a href="supprimerArticle.php?id=<?PHP echo $article['id_art']; ?>"> supprimer </a>
+                                                    <a href="supprimerCategorie.php?id=<?PHP echo $categorie['id_cat']; ?>"> supprimer </a>
                                                 </td>
+
                                                 <td>
-                                                    <a href="modifierArticle.php?id=<?PHP echo $article['id_art']; ?>"> Modifier </a>
+                                                    <a href="modifierCategorie.php?id=<?PHP echo $categorie['id_cat']; ?>"> Modifier </a>
                                                 </td>
                                             </tr>
                                             <?PHP

@@ -1,12 +1,11 @@
 <?php
-include_once '../../../model/Article.php';
-include_once '../../../controller/ArticleC.php';
+include_once '../../../model/Commande.php';
+include_once '../../../controller/CommandeC.php';
 
-include "../../../controller/CategorieC.php";
-include "../../../controller/SousCategorieC.php";
 
-$articleC=new ArticleC();
-$listeArticle=$articleC->afficherArticle();
+
+$commandeC=new CommandeC();
+$listeCommande=$commandeC->afficherCommandes();
 
 
 ?>
@@ -100,11 +99,11 @@ $listeArticle=$articleC->afficherArticle();
             </a>
             <ul id="Categorie-page" class="collapse" aria-labelledby="Categorie-page" data-parent="#side-nav-accordion">
                 <li> <a href="../categorie/AjoutCategorie.php">Ajouter Une catégorie</a> </li>
-                <li> <a href="../categorie/AfficherCategories.php"> Afficher les catégories</a> </li>
+                <li> <a href="../categorie/AfficherCategories.php"> Afficher les Catégories</a> </li>
 
             </ul>
         </li>
-        <!-- /gestion de categries-->
+        <!-- /gestion de categories-->
 
         <!-- gestion des Sous Categorie/categories -->
 
@@ -114,12 +113,12 @@ $listeArticle=$articleC->afficherArticle();
                 <span><i class='fas fa-plus-circle' style='font-size:16px;color:white'></i>Gestion Des Sous Categories</span>
             </a>
             <ul id="SousCategorie-page" class="collapse" aria-labelledby="SousCategorie-page" data-parent="#side-nav-accordion">
-                <li> <a href="sousCategorie/AjoutSousCategotie.html">Ajouter Un Sous Categorie</a> </li>
-                <li> <a href="sousCategorie/AfficherSousCategorie.html"> Afficher les Sous Categories</a> </li>
+                <li> <a href="../sousCategorie/AjoutSousCategorie.php">Ajouter Un Sous Categorie</a> </li>
+                <li> <a href="../sousCategorie/AfficherSousCategories.php"> Afficher les Sous Categories</a> </li>
 
             </ul>
         </li>
-        <!-- /gestion de produit-->
+        <!-- /gestion des produits-->
 
         <!-- gestion commande -->
         <li class="menu-item">
@@ -127,8 +126,8 @@ $listeArticle=$articleC->afficherArticle();
                 <span><i class='far fa-address-book' style='font-size:18px;color:white'></i>Gestion Des Commandes</span>
             </a>
             <ul id="Commande-page" class="collapse" aria-labelledby="Commande-page" data-parent="#side-nav-accordion">
-                <li> <a href="commande/AjoutCommande.html">Ajouter Une commande</a> </li>
-                <li> <a href="commande/AfficherCommande.html"> Afficher les commandes</a> </li>
+                <li> <a href="AjoutCommande.php">Ajouter Une commande</a> </li>
+                <li> <a href="AfficherCommande.php"> Afficher les commandes</a> </li>
 
             </ul>
         </li>
@@ -161,8 +160,8 @@ $listeArticle=$articleC->afficherArticle();
                 <span><i class='fa fa-shopping-cart' style='font-size:18px;color:white'></i>Gestion Des Articles</span>
             </a>
             <ul id="Article-page" class="collapse" aria-labelledby="Article-page" data-parent="#side-nav-accordion">
-                <li> <a href="AjoutArticle.php">Ajouter Un Article</a> </li>
-                <li> <a href="AfficherArticles.php"> Afficher les Articles</a> </li>
+                <li> <a href="../article/AjoutArticle.php">Ajouter Un Article</a> </li>
+                <li> <a href="../article/AfficherArticles.php"> Afficher les Articles</a> </li>
 
             </ul>
         </li>
@@ -914,8 +913,8 @@ $listeArticle=$articleC->afficherArticle();
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb pl-0">
                             <li class="breadcrumb-item"><a href="#"><i class="material-icons">home</i> Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Articles</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Afficher Articles</li>
+                            <li class="breadcrumb-item"><a href="#">Commandes</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Afficher les Commandes</li>
                         </ol>
                     </nav>
                 </div>
@@ -928,49 +927,55 @@ $listeArticle=$articleC->afficherArticle();
                             <form class="needs-validation clearfix" novalidate="">
                                 <div class="form-row">
                                     <div class="col-xl-12 col-md-12 ">
-                                        <h5>Afficher les articles</h5><br>
-                                </div>
+                                        <h5>Afficher les commandes</h5><br>
+                                    </div>
                                     <table border=5 align = 'center'>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Nom</th>
+                                            <th>Article</th>
+                                            <th>Qte</th>
                                             <th>Prix</th>
-                                            <th>Categorie</th>
-                                            <th>SousCategorie</th>
-                                            <th>Image</th>
+                                            <th>Etat</th>
+                                            <th>Boutique</th>
+                                            <th>Username</th>
                                             <th>Supprimer</th>
-                                            <th>modifier</th>
-                                            
+                                            <th>Modifier</th>
+
+
                                         </tr>
 
                                         <?PHP
-                                        foreach($listeArticle as $article){
+                                        foreach($listeCommande as $commande){
                                             ?>
                                             <tr>
-                                                <td><?PHP echo $article['id_art']; ?></td>
-                                                <td><?PHP echo $article['name']; ?></td>
-                                                <td><?PHP echo $article['prix']; ?></td>
-                                                <td><?PHP echo $article['categorie']; ?></td>
-                                                <td><?PHP echo $article['souscategorie']; ?></td>
-                                                <td><img src="../../../uploads/<?PHP echo $article['image']; ?>" alt="aaaa"></td>
+                                                <td><?PHP echo $commande['id_cmd']; ?></td>
+                                                <td><?PHP echo $commande['article']; ?></td>
+                                                <td><?PHP echo $commande['qte']; ?></td>
+                                                <td><?PHP echo $commande['prix']; ?></td>
+                                                <td><?PHP echo $commande['etat']; ?></td>
+                                                <td><?PHP echo $commande['boutique']; ?></td>
+                                                <td><?PHP echo $commande['username']; ?></td>
+
                                                 <td>
-                                                    <a href="supprimerArticle.php?id=<?PHP echo $article['id_art']; ?>"> supprimer </a>
+                                                    <a href="supprimerCommande.php?id=<?PHP echo $commande['id_cmd']; ?>"> supprimer </a>
                                                 </td>
+
                                                 <td>
-                                                    <a href="modifierArticle.php?id=<?PHP echo $article['id_art']; ?>"> Modifier </a>
+                                                    <a href="modifierCommande.php?id=<?PHP echo $commande['id_cmd']; ?>"> Modifier </a>
                                                 </td>
+
                                             </tr>
                                             <?PHP
                                         }
                                         ?>
                                     </table>
+                                </div>
+                            </form>
                         </div>
-    </form>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </form>
 
 

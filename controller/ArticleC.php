@@ -97,17 +97,14 @@ class ArticleC
 
     function modifierArticle($Article, $id){
         try {
-            $db = config::getConnexion();
-            $query = $db->prepare(
-                'UPDATE articles SET
+            $sql ='UPDATE articles SET
 						prix = :prix,
 						image = :image,
-						sous_cat_id = :sous_cat_id
+						sous_cat_id = :sous_cat_id,
 						nom = :nom
-					WHERE id_art = :id'
-
-
-            );
+					WHERE id_art = :id';
+            $db = config::getConnexion();
+            $query = $db->prepare($sql);
             $query->execute([
                 'prix' => $Article->getPrix(),
                 'image' => $Article->getImage(),
@@ -115,9 +112,9 @@ class ArticleC
                 'nom' => $Article->getNom(),
                 'id' => $id
             ]);
-            echo $query->rowCount() . " records UPDATED successfully <br>";
+
         } catch (PDOException $e) {
-            $e->getMessage();
+            echo $e->getMessage();
         }
     }
 

@@ -1,12 +1,48 @@
 <?php
-include_once '../../../model/Article.php';
-include_once '../../../controller/ArticleC.php';
-
+include_once '../../../model/Categorie.php';
 include "../../../controller/CategorieC.php";
-include "../../../controller/SousCategorieC.php";
 
-$articleC=new ArticleC();
-$listeArticle=$articleC->afficherArticle();
+$categorieC = new CategorieC();
+
+
+if (isset($_GET['id'])) {
+    $oldcategorie = $categorieC->recupererCategorieById($_GET['id']);
+}
+
+
+
+$error = "";
+
+// create categorie
+$categorie = null;
+
+
+// create an instance of the controller
+
+if (
+
+    isset($_POST["nom"])
+) {
+    if (
+
+        !empty($_POST["nom"])
+
+    ) {
+
+        //Add To DB
+        $categorie = new Categorie(
+
+            $_POST['nom']
+
+        );
+        $categorieC->modifierCategorie($categorie,$_GET["id"]);
+        header('Location:AfficherCategories.php');
+    }
+    else
+        $error = "Missing information";
+
+}
+
 
 
 ?>
@@ -33,10 +69,6 @@ $listeArticle=$articleC->afficherArticle();
     <link href="../assets/css/style.css" rel="stylesheet">
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
-
-
-
-
 
 </head>
 
@@ -99,8 +131,8 @@ $listeArticle=$articleC->afficherArticle();
                 <span><i class='fas fa-bars' style='font-size:18px;color:white'></i>Gestion Des Catégories</span>
             </a>
             <ul id="Categorie-page" class="collapse" aria-labelledby="Categorie-page" data-parent="#side-nav-accordion">
-                <li> <a href="../categorie/AjoutCategorie.php">Ajouter Une catégorie</a> </li>
-                <li> <a href="../categorie/AfficherCategories.php"> Afficher les catégories</a> </li>
+                <li> <a href="categorie/AjoutCategorie.html">Ajouter Une catégorie</a> </li>
+                <li> <a href="categorie/AfficherCategorie.html"> Afficher les Catégories</a> </li>
 
             </ul>
         </li>
@@ -161,8 +193,8 @@ $listeArticle=$articleC->afficherArticle();
                 <span><i class='fa fa-shopping-cart' style='font-size:18px;color:white'></i>Gestion Des Articles</span>
             </a>
             <ul id="Article-page" class="collapse" aria-labelledby="Article-page" data-parent="#side-nav-accordion">
-                <li> <a href="AjoutArticle.php">Ajouter Un Article</a> </li>
-                <li> <a href="AfficherArticles.php"> Afficher les Articles</a> </li>
+                <li> <a href="../article/AjoutArticle.php">Ajouter Un Article</a> </li>
+                <li> <a href="../article/AfficherArticles.php"> Afficher les Articles</a> </li>
 
             </ul>
         </li>
@@ -899,7 +931,14 @@ $listeArticle=$articleC->afficherArticle();
 
 
     <!--            xttttttt          -->
+    <div id="error">
+        <?php
+        if($error != ""){
+            echo "<div class=\"alert alert-danger\" role=\"alert\">". $error ."</div>";
+        }
 
+        ?>
+    </div>
 
 
     <form action="" method="POST"  enctype="multipart/form-data">
@@ -914,8 +953,8 @@ $listeArticle=$articleC->afficherArticle();
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb pl-0">
                             <li class="breadcrumb-item"><a href="#"><i class="material-icons">home</i> Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Articles</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Afficher Articles</li>
+                            <li class="breadcrumb-item"><a href="#">Categories</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Modifier une categorie</li>
                         </ol>
                     </nav>
                 </div>
@@ -928,42 +967,25 @@ $listeArticle=$articleC->afficherArticle();
                             <form class="needs-validation clearfix" novalidate="">
                                 <div class="form-row">
                                     <div class="col-xl-12 col-md-12 ">
-                                        <h5>Afficher les articles</h5><br>
-                                </div>
-                                    <table border=5 align = 'center'>
-                                        <tr>
-                                            <th>Id</th>
-                                            <th>Nom</th>
-                                            <th>Prix</th>
-                                            <th>Categorie</th>
-                                            <th>SousCategorie</th>
-                                            <th>Image</th>
-                                            <th>Supprimer</th>
-                                            <th>modifier</th>
-                                            
-                                        </tr>
+                                        <h5>Modifier Categorie</h5><br>
 
-                                        <?PHP
-                                        foreach($listeArticle as $article){
-                                            ?>
-                                            <tr>
-                                                <td><?PHP echo $article['id_art']; ?></td>
-                                                <td><?PHP echo $article['name']; ?></td>
-                                                <td><?PHP echo $article['prix']; ?></td>
-                                                <td><?PHP echo $article['categorie']; ?></td>
-                                                <td><?PHP echo $article['souscategorie']; ?></td>
-                                                <td><img src="../../../uploads/<?PHP echo $article['image']; ?>" alt="aaaa"></td>
-                                                <td>
-                                                    <a href="supprimerArticle.php?id=<?PHP echo $article['id_art']; ?>"> supprimer </a>
-                                                </td>
-                                                <td>
-                                                    <a href="modifierArticle.php?id=<?PHP echo $article['id_art']; ?>"> Modifier </a>
-                                                </td>
-                                            </tr>
-                                            <?PHP
-                                        }
-                                        ?>
-                                    </table>
+
+                                        <label for="nom">Nom</label>
+                                        <div class="input-group">
+                                            <input type="text" name="nom" class="form-control" id="nom" placeholder="Entrer le nom de la catégorie " required="required" value="<?php echo $oldcategorie["nom"] ?>">
+
+                                        </div>
+
+
+
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <button class="btn btn-dark mr-2  ms-graph-metrics">Vider</button>
+                                        <button class="btn btn-primary " name="upload" type="submit">Modifier</button>
+                                    </div>
+
+                                </div>
                         </div>
     </form>
     </div>

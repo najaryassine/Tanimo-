@@ -101,15 +101,16 @@ $listeArticle=$articleC->afficherArticle();
 <header>
     <div class="container_12">
         <div class="grid_12">
-            <h1><a href="index.html"><img src="../images/logo.png" alt="Gerald Harris attorney at law"></a> </h1>
+            <h1><a href="index.html"><img src="../images/logo2.png" alt="Gerald Harris attorney at law"></a> </h1>
             <div class="menu_block">
                 <nav  class="" >
                     <ul class="sf-menu">
                         <li class="current"><a href="AfficherArticles.php">Articles</a></li>
-                        <li class="with_ul"><a href="../index-1.html">About Us </a> </li>
-                        <li><a href="../index-2.html">Compte</a></li>
-                        <li><a href="../index-3.html">Vétérinaire</a></li>
+                        <li class="with_ul"><a href="../index-1.html">Compte </a> </li>
+                        <li><a href="../index-2.html">Adoptions</a></li>
+                        <li><a href="../index-3.html">Vétérinaires</a></li>
                         <li><a href="../index-4.html">Boutiques </a></li>
+                        <li><a href="../index-5.html">Contacts </a></li>
                     </ul>
                 </nav>
                 <div class="clear"></div>
