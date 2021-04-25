@@ -932,14 +932,13 @@ $listeCommande=$commandeC->afficherCommandes();
                                     <table border=5 align = 'center'>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Article</th>
-                                            <th>Qte</th>
                                             <th>Prix</th>
                                             <th>Etat</th>
                                             <th>Boutique</th>
                                             <th>Username</th>
                                             <th>Supprimer</th>
                                             <th>Modifier</th>
+                                            <th>Detail</th>
 
 
                                         </tr>
@@ -949,8 +948,6 @@ $listeCommande=$commandeC->afficherCommandes();
                                             ?>
                                             <tr>
                                                 <td><?PHP echo $commande['id_cmd']; ?></td>
-                                                <td><?PHP echo $commande['article']; ?></td>
-                                                <td><?PHP echo $commande['qte']; ?></td>
                                                 <td><?PHP echo $commande['prix']; ?></td>
                                                 <td><?PHP echo $commande['etat']; ?></td>
                                                 <td><?PHP echo $commande['boutique']; ?></td>
@@ -964,6 +961,9 @@ $listeCommande=$commandeC->afficherCommandes();
                                                     <a href="modifierCommande.php?id=<?PHP echo $commande['id_cmd']; ?>"> Modifier </a>
                                                 </td>
 
+                                                <td>
+                                                    <a href="AfficherDetailCommande.php?id=<?PHP echo $commande['id_cmd']; ?>"> Detail </a>
+                                                </td>
                                             </tr>
                                             <?PHP
                                         }

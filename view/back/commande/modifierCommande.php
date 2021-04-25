@@ -963,21 +963,12 @@ if (
                                         <h5>Modifier Commande</h5><br>
 
 <!---->
-                                        <label for="article">Article</label>
-                                        <div class="input-group">
-                                            <input type="text" disabled="disabled" name="article" class="form-control" id="article" placeholder="Entrer l'etat de la commande "  value="<?php echo $oldcommande["article"] ?>">
-
-                                        </div>
                                         <label for="prix">Prix</label>
                                         <div class="input-group">
                                             <input type="text" disabled="disabled" name="prix" class="form-control" id="prix" placeholder="Entrer l'etat de la commande " required="required" value="<?php echo $oldcommande["prix"] ?>">
 
                                         </div>
-                                        <label for="qte">Qte</label>
-                                        <div class="input-group">
-                                            <input type="text" disabled="disabled" name="qte" class="form-control" id="qte" placeholder="Entrer l'etat de la commande " required="required" value="<?php echo $oldcommande["qte"] ?>">
 
-                                        </div>
                                         <label for="boutique">Boutique</label>
                                         <div class="input-group">
                                             <input type="text" disabled="disabled" name="boutique" class="form-control" id="boutique" placeholder="Entrer l'etat de la commande " required="required" value="<?php echo $oldcommande["boutique"] ?>">

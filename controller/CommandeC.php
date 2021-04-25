@@ -9,14 +9,12 @@ class CommandeC
      * @param $Commande
      */
     function ajouterCommande($Commande){
-        $sql="INSERT INTO commandes (id_art, qte, prix,etat, id_btq , id_user) VALUES (:id_art,:qte,:prix,'non livre', :id_btq,:id_user)";
+        $sql="INSERT INTO commandes (prix,etat, id_btq , id_user) VALUES (:prix,'non livre', :id_btq,:id_user)";
         $db = config::getConnexion();
         try{
             $query = $db->prepare($sql);
 
             $query->execute([
-                'id_art' => $Commande->getIdArt(),
-                'qte' => $Commande->getQte(),
                 'prix' => $Commande->getPrix(),
                 'id_btq' => $Commande->getIdBtq(),
                 'id_user' => $Commande->getIdUser()
@@ -34,7 +32,7 @@ class CommandeC
      */
     function afficherCommande($id){
 
-        $sql="SELECT cm.id_cmd, ar.nom as article, cm.qte, cm.prix,cm.etat, bt.nom as boutique, us.nom as username FROM commandes as cm INNER JOIN articles as ar ON cm.id_art = ar.id_art INNER JOIN boutiques as bt ON cm.id_btq = bt.id_btq INNER JOIN user as us ON us.id_user = cm.id_user WHERE cm.id_cmd = $id";
+        $sql="SELECT cm.id_cmd, cm.prix,cm.etat, bt.nom as boutique, us.nom as username FROM commandes as cm  INNER JOIN boutiques as bt ON cm.id_btq = bt.id_btq INNER JOIN user as us ON us.id_user = cm.id_user WHERE cm.id_cmd = $id";
         $db = config::getConnexion();
         try{
             $query=$db->prepare($sql);
@@ -47,12 +45,29 @@ class CommandeC
             die('Erreur: '.$e->getMessage());
         }
     }
+    /**
+     * @param $id
+     * @return false|PDOStatement
+     */
+    function afficherMesCommande($id){
+
+        $sql="SELECT cm.id_cmd, cm.prix,cm.etat, bt.nom as boutique, us.nom as username FROM commandes as cm  INNER JOIN boutiques as bt ON cm.id_btq = bt.id_btq INNER JOIN user as us ON us.id_user = cm.id_user WHERE cm.id_user = $id";
+        $db = config::getConnexion();
+        $db = config::getConnexion();
+        try{
+            $liste = $db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
 
     /**
      * @return false|PDOStatement
      */
     function afficherCommandes(){
-        $sql="SELECT cm.id_cmd, ar.nom as article, cm.qte, cm.prix,cm.etat, bt.nom as boutique, us.nom as username FROM commandes as cm INNER JOIN articles as ar ON cm.id_art = ar.id_art INNER JOIN boutiques as bt ON cm.id_btq = bt.id_btq INNER JOIN user as us ON us.id_user = cm.id_user";
+        $sql="SELECT cm.id_cmd, cm.prix,cm.etat, bt.nom as boutique, us.nom as username FROM commandes as cm  INNER JOIN boutiques as bt ON cm.id_btq = bt.id_btq INNER JOIN user as us ON us.id_user = cm.id_user";
         $db = config::getConnexion();
         try{
             $liste = $db->query($sql);
