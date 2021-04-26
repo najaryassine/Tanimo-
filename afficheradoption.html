@@ -1,3 +1,13 @@
+<?php
+include_once '../../../controller/adoptionc.php';
+$adoptionc = new adoptionc();
+$listAdoption=$adoptionc->afficheradoption();
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -899,6 +909,7 @@
 
 
 
+  
         <div class="ms-content-wrapper"  >
           <div class="row">
 
@@ -911,10 +922,61 @@
                 </div>
 
 
+<button> <a href="ajouteradoption.php"></button>
+  <hr>
+  <table border="1" align="center">
+    <tr> <th> Id </th>
+<th>espece</th>
+<th> sexe</th>
+<th>age</th>
+<th> region </th>
+  <th>Image</th>
+<th> supprimer </th>
+<th> modifier</th>
+  
 
 
+    </tr>
+    <?php 
 
-            <div class="col-xl-6 col-md-12"  >
+foreach ($listAdoption as $adop) {
+  
+
+  ?>
+  <tr> 
+<td> <?php  echo $adop['id']  ; ?> </td>
+<td> <?php  echo $adop['race']  ; ?> </td>
+<td> <?php  echo $adop['age']  ; ?> </td>
+<td> <?php  echo $adop['sexe']  ; ?> </td>
+<td> <?php  echo $adop['region']  ; ?> </td>
+<td> <?php  echo $adop['image']  ; ?> </td>
+
+
+ 
+<td> <form method="POST" action="supprimeradoption.php">
+<input type="submit" name="supprimer" value="supprimer">
+<input type="hidden" value=<?php echo $adop['id']; ?> name="id">
+
+</form>
+
+</td>
+
+
+<td> <a href="modifierAdoption.php?id=<?php echo $ado['id'] ; ?>"> modifier </a></td>
+
+
+  </tr>
+  <?php 
+}
+
+?>
+
+
+    
+  </table>
+
+
+            <div class="col-xl-6 col-md-12">
               <div class="ms-panel ms-panel-fh" style="width:1000px ; margin-left: 120px;"  >
                 
               </div>
