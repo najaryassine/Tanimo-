@@ -159,7 +159,7 @@ if (isset($_GET['id'])) {
         <div class="row">
 
             <ul class="list-group">
-                <li class="list-group-item"> <h5 style="color: black">Afficher  commande Ref: <?PHP echo $commande['id_cmd']; ?></h5>  </li>
+                <li class="list-group-item"> <h5 style="color: #000000">Afficher  commande Ref: <?PHP echo $commande['id_cmd']; ?></h5>  </li>
                 <li class="list-group-item">boutique:<?PHP echo $commande['boutique']; ?> </li>
                 <li class="list-group-item">etat:<?PHP echo $commande['etat']; ?> </li>
                 <li class="list-group-item">Total Prix:<?PHP echo $commande['prix']; ?>.Dt </li>

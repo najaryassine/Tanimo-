@@ -5,6 +5,17 @@ require_once 'c:/xampp/htdocs/Tanimo-/model/Article.php';
 
 class ArticleC
 {
+    function getArticlesByIds($ids){
+        $sql="SELECT ar.id_art, ar.nom AS name, ar.prix, ar.image,  c.nom AS categorie, sc.nom AS souscategorie  FROM articles AS ar INNER JOIN sous_categories AS sc on ar.sous_cat_id = sc.id_sous_cat INNER JOIN categories AS c on c.id_cat = sc.id_cat WHERE ar.id_art IN ('".implode("','",$ids)."')";
+        $db = config::getConnexion();
+        try{
+            $liste = $db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
     function ajouterArticle($Article){
         $sql="INSERT INTO articles (prix, image, sous_cat_id, nom) VALUES (:prix,:image,:sous_cat_id,:nom)";
         $db = config::getConnexion();

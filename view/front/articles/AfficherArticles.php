@@ -5,6 +5,11 @@ include_once '../../../controller/ArticleC.php';
 include "../../../controller/CategorieC.php";
 include "../../../controller/SousCategorieC.php";
 
+
+session_start();
+$_SESSION["user_id"] = 1;
+$_SESSION["user_name"] = "bbbb";
+
 $articleC=new ArticleC();
 $listeArticle=$articleC->afficherArticle();
 
@@ -157,7 +162,7 @@ $listeArticle=$articleC->afficherArticle();
                 foreach($listeArticle as $article) :
                 ?>
                 <div class="col-sm-4 ">
-                    <div class="column">
+                    <div class="column" style="width: 100%">
                         <div class="card">
 
                             <img class="card-img-top" src="../../../uploads/<?PHP echo $article['image']; ?>" alt="Card image cap">
