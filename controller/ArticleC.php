@@ -1,10 +1,21 @@
 <?php
 
-require_once "../config/config.php";
-require_once '../model/Article.php';
+require_once 'c:/xampp/htdocs/Tanimo-/config/config.php';
+require_once 'c:/xampp/htdocs/Tanimo-/model/Article.php';
 
 class ArticleC
 {
+    function getArticlesByIds($ids){
+        $sql="SELECT ar.id_art, ar.nom AS name, ar.prix, ar.image,  c.nom AS categorie, sc.nom AS souscategorie  FROM articles AS ar INNER JOIN sous_categories AS sc on ar.sous_cat_id = sc.id_sous_cat INNER JOIN categories AS c on c.id_cat = sc.id_cat WHERE ar.id_art IN ('".implode("','",$ids)."')";
+        $db = config::getConnexion();
+        try{
+            $liste = $db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
     function ajouterArticle($Article){
         $sql="INSERT INTO articles (prix, image, sous_cat_id, nom) VALUES (:prix,:image,:sous_cat_id,:nom)";
         $db = config::getConnexion();
@@ -26,7 +37,7 @@ class ArticleC
 
     function afficherArticle(){
 
-        $sql="SELECT * FROM articles";
+        $sql="SELECT ar.id_art, ar.nom AS name, ar.prix, ar.image,  c.nom AS categorie, sc.nom AS souscategorie  FROM articles AS ar INNER JOIN sous_categories AS sc on ar.sous_cat_id = sc.id_sous_cat INNER JOIN categories AS c on c.id_cat = sc.id_cat ";
         $db = config::getConnexion();
         try{
             $liste = $db->query($sql);
@@ -51,7 +62,7 @@ class ArticleC
     }
 
     function recupererArticleById($id){
-        $sql="SELECT * from articles where id_art=$id";
+        $sql="SELECT ar.id_art, ar.nom AS name, ar.prix, ar.image, c.id_cat , c.nom  AS categorie, sc.id_sous_cat,  sc.nom AS souscategorie  FROM articles AS ar INNER JOIN sous_categories AS sc on ar.sous_cat_id = sc.id_sous_cat INNER JOIN categories AS c on c.id_cat = sc.id_cat where ar.id_art=$id ";
         $db = config::getConnexion();
         try{
             $query=$db->prepare($sql);
@@ -97,17 +108,14 @@ class ArticleC
 
     function modifierArticle($Article, $id){
         try {
-            $db = config::getConnexion();
-            $query = $db->prepare(
-                'UPDATE articles SET
+            $sql ='UPDATE articles SET
 						prix = :prix,
 						image = :image,
-						sous_cat_id = :sous_cat_id
+						sous_cat_id = :sous_cat_id,
 						nom = :nom
-					WHERE id_art = :id'
-
-
-            );
+					WHERE id_art = :id';
+            $db = config::getConnexion();
+            $query = $db->prepare($sql);
             $query->execute([
                 'prix' => $Article->getPrix(),
                 'image' => $Article->getImage(),
@@ -115,9 +123,9 @@ class ArticleC
                 'nom' => $Article->getNom(),
                 'id' => $id
             ]);
-            echo $query->rowCount() . " records UPDATED successfully <br>";
+
         } catch (PDOException $e) {
-            $e->getMessage();
+            echo $e->getMessage();
         }
     }
 
