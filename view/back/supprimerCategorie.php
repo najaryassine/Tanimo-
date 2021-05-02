@@ -1,5 +1,5 @@
 <?PHP
-include_once '../../../controller/CategorieC.php';
+include_once '../../controller/CategorieC.php';
 
 $categorieC=new CategorieC();
 

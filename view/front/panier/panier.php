@@ -3,12 +3,23 @@
 include_once '../../../controller/ArticleC.php';
 include_once '../../../controller/PanierC.php';
 
+class Boutique
+{
+    public $id_btq;
+    public $nom;
+}
 $panierC=new PanierC();
 $articleC = new ArticleC();
-
+$boutique1  = new Boutique();
+$boutique1->id_btq = 1;
+$boutique1->nom = "mnihla";
+$boutique2  = new Boutique();
+$boutique2->id_btq = 2;
+$boutique2->nom = "ben arous";
+$magasins = [$boutique1, $boutique2];
 session_start();
 $erreur = false;
-
+$magasin =
 $action = (isset($_POST['action'])? $_POST['action']:  (isset($_GET['action'])? $_GET['action']:null )) ;
 if($action !== null)
 {
@@ -43,6 +54,7 @@ if (!$erreur){
     switch($action){
         Case "ajout":
             $panierC->ajouterArticle($l,$q,$p);
+            header('Location:panier.php');;
             break;
 
         Case "suppression":
@@ -237,9 +249,9 @@ if (!$erreur){
                                     {
                                         echo "<tr>";
                                         echo "<td>".htmlspecialchars($_SESSION['panier']['libelleProduit'][$i])."</ td>";
-                                        echo "<td><input type=\"text\" size=\"4\" name=\"q[]\" value=\"".htmlspecialchars($_SESSION['panier']['qteProduit'][$i])."\"/></td>";
+                                        echo "<td><input type=\"number\" size=\"4\" min =\"0\" max =\"10\" name=\"q[]\" value=\"".htmlspecialchars($_SESSION['panier']['qteProduit'][$i])."\"/></td>";
                                         echo "<td>".htmlspecialchars($_SESSION['panier']['prixProduit'][$i])."</td>";
-                                        echo "<td><a href=\"".htmlspecialchars("panier.php?action=suppression&l=".rawurlencode($_SESSION['panier']['libelleProduit'][$i]))."\">XX</a></td>";
+                                        echo "<td><a href=\"".htmlspecialchars("panier.php?action=suppression&l=".rawurlencode($_SESSION['panier']['libelleProduit'][$i]))."\">Supprimer</a></td>";
                                         echo "</tr>";
                                     }
 
@@ -263,6 +275,14 @@ if (!$erreur){
                     <div class="checkout_btn_inner d-flex align-items-center">
                         <a href="../articles/AfficherArticles.php"><input type="submit" class="gray_btn" value="Continuez vos achats" /></a>
                         <form action="paiment.php" method="post">
+                            <label for="btq">Boutique</label>
+                            <select name="btq" id="btq" required="required">
+                                <?php
+                                foreach ($magasins as $magasin) {
+                                    echo '<option  value="'.$magasin->id_btq.'">'.$magasin->nom.'</option>';
+                                }
+                                ?>
+                            </select>
                             <input type="submit" name="button" class="primary-btn ml-2" value="Commandez"/>
                             <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
                             <input type="hidden" name="total" value="<?php echo $total; ?>">

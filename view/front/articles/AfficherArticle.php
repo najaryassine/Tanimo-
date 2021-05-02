@@ -198,8 +198,7 @@ if (isset($_GET['id'])) {
 
                 <td>
 
-                    <button type="submit" class="btn btn-success"><a href="../panier/panier.php?action=ajout&amp;l=<?php echo $article['id_art']; ?>&amp;q=1&amp;p=<?php echo $article['prix']; ?>" onclick="window.open(this.href, '',
-'toolbar=no, location=no, directories=no, status=yes, scrollbars=yes, resizable=yes, copyhistory=no, width=600, height=350'); return false;">Commander</a></button>
+                    <button type="submit" class="btn btn-success"><a href="../panier/panier.php?action=ajout&amp;l=<?php echo $article['id_art']; ?>&amp;q=1&amp;p=<?php echo $article['prix']; ?>">Commander</a></button>
 
 
                 </td>

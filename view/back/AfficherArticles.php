@@ -1,16 +1,25 @@
 <?php
-include_once '../../../model/Categorie.php';
-include_once '../../../controller/CategorieC.php';
+include_once '../../model/Article.php';
+include_once '../../controller/ArticleC.php';
 
+include "../../controller/CategorieC.php";
+include "../../controller/SousCategorieC.php";
 
+$articleC=new ArticleC();
+$listeArticle=$articleC->afficherArticle();
 
-$categorieC=new CategorieC();
-$listeCategorie=$categorieC->afficherCategories();
-
-require '../header.php';
+require 'header.php';
 ?>
+
     <!--            xttttttt          -->
+
+
+
     <form action="" method="POST"  enctype="multipart/form-data">
+
+
+
+
         <div class="ms-content-wrapper"  >
             <div class="row">
 
@@ -18,8 +27,8 @@ require '../header.php';
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb pl-0">
                             <li class="breadcrumb-item"><a href="#"><i class="material-icons">home</i> Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Categorie</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Afficher Categories</li>
+                            <li class="breadcrumb-item"><a href="#">Articles</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Afficher Articles</li>
                         </ol>
                     </nav>
                 </div>
@@ -32,31 +41,36 @@ require '../header.php';
                             <form class="needs-validation clearfix" novalidate="">
                                 <div class="form-row">
                                     <div class="col-xl-12 col-md-12 ">
-                                        <h5>Afficher les categories</h5><br>
+                                        <h5>Afficher les articles</h5><br>
                                 </div>
                                     <table border=5 align = 'center'>
                                         <tr>
                                             <th>Id</th>
                                             <th>Nom</th>
+                                            <th>Prix</th>
+                                            <th>Categorie</th>
+                                            <th>SousCategorie</th>
+                                            <th>Image</th>
                                             <th>Supprimer</th>
                                             <th>modifier</th>
                                             
                                         </tr>
 
                                         <?PHP
-                                        foreach($listeCategorie as $categorie){
+                                        foreach($listeArticle as $article){
                                             ?>
                                             <tr>
-                                                <td><?PHP echo $categorie['id_cat']; ?></td>
-                                                <td><?PHP echo $categorie['nom']; ?></td>
-
-
+                                                <td><?PHP echo $article['id_art']; ?></td>
+                                                <td><?PHP echo $article['name']; ?></td>
+                                                <td><?PHP echo $article['prix']; ?></td>
+                                                <td><?PHP echo $article['categorie']; ?></td>
+                                                <td><?PHP echo $article['souscategorie']; ?></td>
+                                                <td><img src="../../uploads/<?PHP echo $article['image']; ?>" alt="aaaa"></td>
                                                 <td>
-                                                    <a href="supprimerCategorie.php?id=<?PHP echo $categorie['id_cat']; ?>"> supprimer </a>
+                                                    <a href="supprimerArticle.php?id=<?PHP echo $article['id_art']; ?>"> supprimer </a>
                                                 </td>
-
                                                 <td>
-                                                    <a href="modifierCategorie.php?id=<?PHP echo $categorie['id_cat']; ?>"> Modifier </a>
+                                                    <a href="modifierArticle.php?id=<?PHP echo $article['id_art']; ?>"> Modifier </a>
                                                 </td>
                                             </tr>
                                             <?PHP
@@ -72,4 +86,4 @@ require '../header.php';
     </div>
     </form>
     <!--            xttttttt          -->
-<?php require '../footer.php';
+<?php require 'footer.php'; ?>

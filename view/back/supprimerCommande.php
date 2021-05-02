@@ -1,5 +1,5 @@
 <?PHP
-include_once '../../../controller/CommandeC.php';
+include_once '../../controller/CommandeC.php';
 
 $commandeC=new CommandeC();
 

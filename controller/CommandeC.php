@@ -5,6 +5,7 @@ require_once 'c:/xampp/htdocs/Tanimo-/model/Commande.php';
 
 class CommandeC
 {
+
     /**
      * @param $Commande
      */
@@ -20,6 +21,8 @@ class CommandeC
                 'id_user' => $Commande->getIdUser()
 
             ]);
+            $LAST_ID = $db->lastInsertId();
+            return $LAST_ID;
         }
         catch (Exception $e){
             echo 'Erreur: '.$e->getMessage();

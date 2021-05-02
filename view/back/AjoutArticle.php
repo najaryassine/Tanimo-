@@ -1,9 +1,9 @@
 <?php
-include_once '../../../model/Article.php';
-include_once '../../../controller/ArticleC.php';
+include_once '../../model/Article.php';
+include_once '../../controller/ArticleC.php';
 
-include "../../../controller/CategorieC.php";
-include "../../../controller/SousCategorieC.php";
+include "../../controller/CategorieC.php";
+include "../../controller/SousCategorieC.php";
 
 $CategorieC=new CategorieC();
 $listeCategories=$CategorieC->afficherCategories();
@@ -31,7 +31,7 @@ if (
 
     ) {
         if (isset($_FILES['image'])) {
-            $uploaddir = "../../../uploads/";
+            $uploaddir = "../../uploads/";
             $uploadfile = $uploaddir . basename($_FILES['image']['name']);
             move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile);
             $image = $_FILES['image']['name'];
@@ -54,7 +54,7 @@ if (
 
 }
 
-require '../header.php';
+require 'header.php';
 ?>
 
       <div id="error">
@@ -163,5 +163,5 @@ require '../header.php';
         </div> 
 </form>
 
-<?php require '../footer.php';?>
+<?php require 'footer.php';?>
 

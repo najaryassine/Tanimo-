@@ -1,5 +1,5 @@
 <?PHP
-include_once '../../../controller/ArticleC.php';
+include_once '../../controller/ArticleC.php';
 
 $articleC=new ArticleC();
 

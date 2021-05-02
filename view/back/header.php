@@ -12,15 +12,15 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Tanimo Dashboard</title>
     <!-- Iconic Fonts -->
-    <link href="../vendors/iconic-fonts/font-awesome/css/all.min.css" rel="stylesheet">
+    <link href="vendors/iconic-fonts/font-awesome/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="../vendors/iconic-fonts/flat-icons/flaticon.css">
+    <link rel="stylesheet" href="vendors/iconic-fonts/flat-icons/flaticon.css">
     <!-- Bootstrap core CSS -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <!-- jQuery UI -->
-    <link href="../assets/css/jquery-ui.min.css" rel="stylesheet">
+    <link href="assets/css/jquery-ui.min.css" rel="stylesheet">
     <!-- Greendash styles -->
-    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
 
@@ -60,7 +60,7 @@
 
     <!-- Logo -->
     <div class="logo-sn ms-d-block-lg">
-        <a class="pl-0 ml-0 text-center" href="index.html"> <img src="assets/img/dashboard/logo.png" alt="logo"> </a>
+        <a class="pl-0 ml-0 text-center" href="index.php"> <img src="assets/img/dashboard/logo.png" alt="logo"> </a>
     </div>
 
 
@@ -72,7 +72,7 @@
                 <span><i class="material-icons fs-16">dashboard</i>Dashboard </span>
             </a>
             <ul id="dashboard" class="collapse" aria-labelledby="dashboard" data-parent="#side-nav-accordion">
-                <li> <a href="index.html">Tanimo</a> </li>
+                <li> <a href="index.php">Tanimo</a> </li>
 
 
             </ul>
@@ -85,14 +85,12 @@
                 <span><i class='fas fa-bars' style='font-size:18px;color:white'></i>Gestion Des Catégories</span>
             </a>
             <ul id="Categorie-page" class="collapse" aria-labelledby="Categorie-page" data-parent="#side-nav-accordion">
-                <li> <a href="../categorie/AjoutCategorie.php">Ajouter Une catégorie</a> </li>
-                <li> <a href="../categorie/AfficherCategories.php"> Afficher les catégories</a> </li>
+                <li> <a href="AjoutCategorie.php">Ajouter Une catégorie</a> </li>
+                <li> <a href="AfficherCategories.php"> Afficher les catégories</a> </li>
 
             </ul>
         </li>
-        <!-- /gestion de categries-->
 
-        <!-- gestion des Sous Categorie/categories -->
 
         <!-- gestion des Sous Categorie-->
         <li class="menu-item">
@@ -100,12 +98,12 @@
                 <span><i class='fas fa-plus-circle' style='font-size:16px;color:white'></i>Gestion Des Sous Categories</span>
             </a>
             <ul id="SousCategorie-page" class="collapse" aria-labelledby="SousCategorie-page" data-parent="#side-nav-accordion">
-                <li> <a href="sousCategorie/AjoutSousCategotie.html">Ajouter Un Sous Categorie</a> </li>
-                <li> <a href="sousCategorie/AfficherSousCategorie.html"> Afficher les Sous Categories</a> </li>
+                <li> <a href="AjoutSousCategorie.php">Ajouter Une Sous Categorie</a> </li>
+                <li> <a href="AfficherSousCategories.php"> Afficher les Sous Categories</a> </li>
 
             </ul>
         </li>
-        <!-- /gestion de produit-->
+
 
         <!-- gestion commande -->
         <li class="menu-item">
@@ -113,35 +111,16 @@
                 <span><i class='far fa-address-book' style='font-size:18px;color:white'></i>Gestion Des Commandes</span>
             </a>
             <ul id="Commande-page" class="collapse" aria-labelledby="Commande-page" data-parent="#side-nav-accordion">
-                <li> <a href="../commande/AjoutCommande.php">Ajouter Une commande</a> </li>
-                <li> <a href="../commande/AfficherCommande.php"> Afficher les commandes</a> </li>
+
+                <li> <a href="AfficherCommande.php"> Afficher les commandes</a> </li>
 
             </ul>
         </li>
-        <!-- /gestion commande -->
 
 
 
-        <!-- /gestion des promotions/publicité-->
 
-        <!-- gestion des promotions -->
-        <!--      <li class="menu-item">-->
-        <!--        <a href="#" class="has-chevron" data-toggle="collapse" data-target="#Promotion-page" aria-expanded="false" aria-controls="Promotion-page">-->
-        <!--          <span><i class='fas fa-donate' style='font-size:18px;color:white'></i>Gestion Des Promotions</span>-->
-        <!--        </a>-->
-        <!--        <ul id="Promotion-page" class="collapse" aria-labelledby="Promotion-page" data-parent="#side-nav-accordion">-->
-        <!--          <li> <a href="../Promotion/AjoutPromotion.html">Ajouter Une Promotions</a> </li>-->
-        <!--          <li> <a href="../Promotion/ModifierPromotion.html">Modifier Une Promotions</a> </li>-->
-        <!--          <li> <a href="../Promotion/SupprimerPromotion.html">Supprimmer Une Promotions</a> </li>-->
-        <!--          <li> <a href="../Promotion/AfficherPromotion.html"> Afficher les Promotions</a> </li>-->
-        <!--         -->
-        <!--        </ul>-->
-        <!--      </li>-->
-        <!-- /gestion de promotion -->
 
-        <!-- /gestion des articles/commentaires-->
-
-        <!-- gestion des articles -->
         <li class="menu-item">
             <a href="#" class="has-chevron" data-toggle="collapse" data-target="#Article-page" aria-expanded="false" aria-controls="Article-page">
                 <span><i class='fa fa-shopping-cart' style='font-size:18px;color:white'></i>Gestion Des Articles</span>
@@ -172,28 +151,28 @@
         </div>
 
         <div class="logo-sn logo-sm ms-d-block-sm">
-            <a class="pl-0 ml-0 text-center navbar-brand mr-0" href="../index.html"><img src="../assets/img/dashboard/greendash-logo-84x41.png" alt="logo"> </a>
+            <a class="pl-0 ml-0 text-center navbar-brand mr-0" href="index.html"><img src="assets/img/dashboard/greendash-logo-84x41.png" alt="logo"> </a>
         </div>
 
         <ul class="ms-nav-list ms-inline mb-0" id="ms-nav-options">
             <li class="ms-nav-item ms-nav-user dropdown">
-                <a href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="ms-user-img ms-img-round float-right" src="../assets/img/dashboard/yass.jpg" alt="people"> </a>
+                <a href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="ms-user-img ms-img-round float-right" src="assets/img/dashboard/yass.jpg" alt="people"> </a>
                 <ul class="dropdown-menu dropdown-menu-right user-dropdown" aria-labelledby="userDropdown">
                     <li class="dropdown-menu-header">
                         <h6 class="dropdown-header ms-inline m-0"><span class="text-disabled">Welcome, Anny Farisha</span></h6>
                     </li>
                     <li class="dropdown-divider"></li>
                     <li class="ms-dropdown-list">
-                        <a class="media fs-14 p-2" href="../prebuilt-pages/user-profile.html"> <span><i class="flaticon-user mr-2"></i> Profile</span> </a>
-                        <a class="media fs-14 p-2" href="../apps/email.html"> <span><i class="flaticon-mail mr-2"></i> Inbox</span> <span class="badge badge-pill badge-info">3</span> </a>
-                        <a class="media fs-14 p-2" href="../prebuilt-pages/user-profile.html"> <span><i class="flaticon-gear mr-2"></i> Account Settings</span> </a>
+                        <a class="media fs-14 p-2" href="prebuilt-pages/user-profile.html"> <span><i class="flaticon-user mr-2"></i> Profile</span> </a>
+                        <a class="media fs-14 p-2" href="apps/email.html"> <span><i class="flaticon-mail mr-2"></i> Inbox</span> <span class="badge badge-pill badge-info">3</span> </a>
+                        <a class="media fs-14 p-2" href="prebuilt-pages/user-profile.html"> <span><i class="flaticon-gear mr-2"></i> Account Settings</span> </a>
                     </li>
                     <li class="dropdown-divider"></li>
                     <li class="dropdown-menu-footer">
-                        <a class="media fs-14 p-2" href="../prebuilt-pages/lock-screen.html"> <span><i class="flaticon-security mr-2"></i> Lock</span> </a>
+                        <a class="media fs-14 p-2" href="prebuilt-pages/lock-screen.html"> <span><i class="flaticon-security mr-2"></i> Lock</span> </a>
                     </li>
                     <li class="dropdown-menu-footer">
-                        <a class="media fs-14 p-2" href="../prebuilt-pages/default-login.html"> <span><i class="flaticon-shut-down mr-2"></i> Logout</span> </a>
+                        <a class="media fs-14 p-2" href="prebuilt-pages/default-login.html"> <span><i class="flaticon-shut-down mr-2"></i> Logout</span> </a>
                     </li>
                 </ul>
             </li>
@@ -276,7 +255,7 @@
                         <div class="ms-chat-header px-3">
                             <div class="ms-chat-user-container media clearfix">
                                 <div class="ms-chat-status ms-status-online ms-chat-img mr-3 align-self-center">
-                                    <img src="../assets/img/dashboard/rakhan-potik-1.jpg" class="ms-img-round" alt="people">
+                                    <img src="assets/img/dashboard/rakhan-potik-1.jpg" class="ms-img-round" alt="people">
                                 </div>
                                 <div class="media-body ms-chat-user-info mt-1">
                                     <h6>Anny Farisha</h6>
@@ -325,7 +304,7 @@
                                         <li class="ms-chat-user-container ms-open-chat ms-deletable p-3 media clearfix">
                                             <div class="ms-chat-status ms-status-away ms-has-new-msg ms-chat-img mr-3 align-self-center">
                                                 <span class="msg-count">3</span>
-                                                <img src="../assets/img/dashboard/rakhan-potik-2.jpg" class="ms-img-round" alt="people">
+                                                <img src="assets/img/dashboard/rakhan-potik-2.jpg" class="ms-img-round" alt="people">
                                             </div>
                                             <div class="media-body ms-chat-user-info mt-1">
                                                 <h6>James Zathila</h6> <span class="ms-chat-time">2 Hours ago</span>
@@ -335,7 +314,7 @@
                                         </li>
                                         <li class="ms-chat-user-container ms-open-chat ms-deletable p-3 media clearfix">
                                             <div class="ms-chat-status ms-status-online ms-chat-img mr-3 align-self-center">
-                                                <img src="../assets/img/dashboard/rakhan-potik-3.jpg" class="ms-img-round" alt="people">
+                                                <img src="assets/img/dashboard/rakhan-potik-3.jpg" class="ms-img-round" alt="people">
                                             </div>
                                             <div class="media-body ms-chat-user-info mt-1">
                                                 <h6>Raymart Sandiago</h6> <span class="ms-chat-time">3 Hours ago</span>
@@ -345,7 +324,7 @@
                                         </li>
                                         <li class="ms-chat-user-container ms-open-chat ms-deletable p-3 media clearfix">
                                             <div class="ms-chat-status ms-status-offline ms-chat-img mr-3 align-self-center">
-                                                <img src="../assets/img/dashboard/rakhan-potik-4.jpg" class="ms-img-round" alt="people">
+                                                <img src="assets/img/dashboard/rakhan-potik-4.jpg" class="ms-img-round" alt="people">
                                             </div>
                                             <div class="media-body ms-chat-user-info mt-1">
                                                 <h6>Heather Brown</h6> <span class="ms-chat-time">12 Hours ago</span>
@@ -355,7 +334,7 @@
                                         </li>
                                         <li class="ms-chat-user-container ms-open-chat ms-deletable p-3 media clearfix">
                                             <div class="ms-chat-status ms-status-busy ms-chat-img mr-3 align-self-center">
-                                                <img src="../assets/img/dashboard/rakhan-potik-5.jpg" class="ms-img-round" alt="people">
+                                                <img src="assets/img/dashboard/rakhan-potik-5.jpg" class="ms-img-round" alt="people">
                                             </div>
                                             <div class="media-body ms-chat-user-info mt-1">
                                                 <h6>Micheal John</h6> <span class="ms-chat-time">Yesterday</span>
@@ -365,7 +344,7 @@
                                         </li>
                                         <li class="ms-chat-user-container ms-open-chat ms-deletable p-3 media clearfix">
                                             <div class="ms-chat-status ms-status-online ms-chat-img mr-3 align-self-center">
-                                                <img src="../assets/img/dashboard/rakhan-potik-4.jpg" class="ms-img-round" alt="people">
+                                                <img src="assets/img/dashboard/rakhan-potik-4.jpg" class="ms-img-round" alt="people">
                                             </div>
                                             <div class="media-body ms-chat-user-info mt-1">
                                                 <h6>John Doe</h6> <span class="ms-chat-time">3 Days ago</span>
@@ -379,43 +358,43 @@
                                     <ul class="ms-scrollable ms-quickbar-container">
                                         <li class="ms-chat-user-container ms-open-chat p-3 media clearfix">
                                             <div class="ms-chat-img mr-3 align-self-center">
-                                                <img src="../assets/img/dashboard/rakhan-potik-1.jpg" class="ms-img-round" alt="people">
+                                                <img src="assets/img/dashboard/rakhan-potik-1.jpg" class="ms-img-round" alt="people">
                                             </div>
                                             <div class="media-body ms-chat-user-info mt-1">
                                                 <h6>James Zathila</h6> <a href="#" class="ms-chat-time"> <i class="flaticon-chat"></i> </a>
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc</p>
                                                 <ul class="ms-group-members clearfix mt-3 mb-0">
-                                                    <li> <img src="../assets/img/dashboard/rakhan-potik-1.jpg" alt="member"> </li>
-                                                    <li> <img src="../assets/img/dashboard/rakhan-potik-2.jpg" alt="member"> </li>
-                                                    <li> <img src="../assets/img/dashboard/rakhan-potik-3.jpg" alt="member"> </li>
+                                                    <li> <img src="assets/img/dashboard/rakhan-potik-1.jpg" alt="member"> </li>
+                                                    <li> <img src="assets/img/dashboard/rakhan-potik-2.jpg" alt="member"> </li>
+                                                    <li> <img src="assets/img/dashboard/rakhan-potik-3.jpg" alt="member"> </li>
                                                     <li class="ms-group-count"> + 12 more </li>
                                                 </ul>
                                             </div>
                                         </li>
                                         <li class="ms-chat-user-container ms-open-chat p-3 media clearfix">
                                             <div class="ms-chat-img mr-3 align-self-center">
-                                                <img src="../assets/img/dashboard/rakhan-potik-2.jpg" class="ms-img-round" alt="people">
+                                                <img src="assets/img/dashboard/rakhan-potik-2.jpg" class="ms-img-round" alt="people">
                                             </div>
                                             <div class="media-body ms-chat-user-info mt-1">
                                                 <h6>Raymart Sandiago</h6> <a href="#" class="ms-chat-time"> <i class="flaticon-chat"></i> </a>
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc</p>
                                                 <ul class="ms-group-members clearfix mt-3 mb-0">
-                                                    <li> <img src="../assets/img/dashboard/rakhan-potik-3.jpg" alt="member"> </li>
-                                                    <li> <img src="../assets/img/dashboard/rakhan-potik-4.jpg" alt="member"> </li>
+                                                    <li> <img src="assets/img/dashboard/rakhan-potik-3.jpg" alt="member"> </li>
+                                                    <li> <img src="assets/img/dashboard/rakhan-potik-4.jpg" alt="member"> </li>
                                                 </ul>
                                             </div>
                                         </li>
                                         <li class="ms-chat-user-container ms-open-chat p-3 media clearfix">
                                             <div class="ms-chat-img mr-3 align-self-center">
-                                                <img src="../assets/img/dashboard/rakhan-potik-1.jpg" class="ms-img-round" alt="people">
+                                                <img src="assets/img/dashboard/rakhan-potik-1.jpg" class="ms-img-round" alt="people">
                                             </div>
                                             <div class="media-body ms-chat-user-info mt-1">
                                                 <h6>John Doe</h6> <a href="#" class="ms-chat-time"> <i class="flaticon-chat"></i> </a>
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc</p>
                                                 <ul class="ms-group-members clearfix mt-3 mb-0">
-                                                    <li> <img src="../assets/img/dashboard/rakhan-potik-2.jpg" alt="member"> </li>
-                                                    <li> <img src="../assets/img/dashboard/rakhan-potik-3.jpg" alt="member"> </li>
-                                                    <li> <img src="../assets/img/dashboard/rakhan-potik-4.jpg" alt="member"> </li>
+                                                    <li> <img src="assets/img/dashboard/rakhan-potik-2.jpg" alt="member"> </li>
+                                                    <li> <img src="assets/img/dashboard/rakhan-potik-3.jpg" alt="member"> </li>
+                                                    <li> <img src="assets/img/dashboard/rakhan-potik-4.jpg" alt="member"> </li>
                                                     <li class="ms-group-count"> + 4 more </li>
                                                 </ul>
                                             </div>
@@ -426,7 +405,7 @@
                                     <ul class="ms-scrollable ms-quickbar-container">
                                         <li class="ms-chat-user-container ms-open-chat p-3 media clearfix">
                                             <div class="ms-chat-img mr-3 align-self-center">
-                                                <img src="../assets/img/dashboard/rakhan-potik-5.jpg" class="ms-img-round" alt="people">
+                                                <img src="assets/img/dashboard/rakhan-potik-5.jpg" class="ms-img-round" alt="people">
                                             </div>
                                             <div class="media-body ms-chat-user-info mt-1">
                                                 <h6>John Doe</h6> <a href="#" class="ms-chat-time"> <i class="flaticon-chat"></i> </a>
@@ -435,7 +414,7 @@
                                         </li>
                                         <li class="ms-chat-user-container ms-open-chat p-3 media clearfix">
                                             <div class="ms-chat-img mr-3 align-self-center">
-                                                <img src="../assets/img/dashboard/rakhan-potik-7.jpg" class="ms-img-round" alt="people">
+                                                <img src="assets/img/dashboard/rakhan-potik-7.jpg" class="ms-img-round" alt="people">
                                             </div>
                                             <div class="media-body ms-chat-user-info mt-1">
                                                 <h6>Raymart Sandiago</h6> <a href="#" class="ms-chat-time"> <i class="flaticon-chat"></i> </a>
@@ -444,7 +423,7 @@
                                         </li>
                                         <li class="ms-chat-user-container ms-open-chat p-3 media clearfix">
                                             <div class="ms-chat-img mr-3 align-self-center">
-                                                <img src="../assets/img/dashboard/rakhan-potik-8.jpg" class="ms-img-round" alt="people">
+                                                <img src="assets/img/dashboard/rakhan-potik-8.jpg" class="ms-img-round" alt="people">
                                             </div>
                                             <div class="media-body ms-chat-user-info mt-1">
                                                 <h6>Micheal John</h6> <a href="#" class="ms-chat-time"> <i class="flaticon-chat"></i> </a>
@@ -453,7 +432,7 @@
                                         </li>
                                         <li class="ms-chat-user-container ms-open-chat p-3 media clearfix">
                                             <div class="ms-chat-img mr-3 align-self-center">
-                                                <img src="../assets/img/dashboard/rakhan-potik-1.jpg" class="ms-img-round" alt="people">
+                                                <img src="assets/img/dashboard/rakhan-potik-1.jpg" class="ms-img-round" alt="people">
                                             </div>
                                             <div class="media-body ms-chat-user-info mt-1">
                                                 <h6>Heather Brown</h6> <a href="#" class="ms-chat-time"> <i class="flaticon-chat"></i> </a>
@@ -462,7 +441,7 @@
                                         </li>
                                         <li class="ms-chat-user-container ms-open-chat p-3 media clearfix">
                                             <div class="ms-chat-img mr-3 align-self-center">
-                                                <img src="../assets/img/dashboard/rakhan-potik-2.jpg" class="ms-img-round" alt="people">
+                                                <img src="assets/img/dashboard/rakhan-potik-2.jpg" class="ms-img-round" alt="people">
                                             </div>
                                             <div class="media-body ms-chat-user-info mt-1">
                                                 <h6>Mila Freign</h6> <a href="#" class="ms-chat-time"> <i class="flaticon-chat"></i> </a>
@@ -471,7 +450,7 @@
                                         </li>
                                         <li class="ms-chat-user-container ms-open-chat p-3 media clearfix">
                                             <div class="ms-chat-img mr-3 align-self-center">
-                                                <img src="../assets/img/dashboard/rakhan-potik-3.jpg" class="ms-img-round" alt="people">
+                                                <img src="assets/img/dashboard/rakhan-potik-3.jpg" class="ms-img-round" alt="people">
                                             </div>
                                             <div class="media-body ms-chat-user-info mt-1">
                                                 <h6>James Zathila</h6> <a href="#" class="ms-chat-time"> <i class="flaticon-chat"></i> </a>
@@ -499,7 +478,7 @@
                         <ul class="ms-scrollable ms-quickbar-container">
                             <li class="p-3  media ms-email clearfix">
                                 <div class="ms-email-img mr-3 ">
-                                    <img src="../assets/img/dashboard/rakhan-potik-1.jpg" class="ms-img-round" alt="people">
+                                    <img src="assets/img/dashboard/rakhan-potik-1.jpg" class="ms-img-round" alt="people">
                                 </div>
                                 <div class="media-body ms-email-details">
                                     <span class="ms-email-sender">James Zathila</span>
@@ -509,7 +488,7 @@
                             </li>
                             <li class="p-3  media ms-email clearfix">
                                 <div class="ms-email-img mr-3 ">
-                                    <img src="../assets/img/dashboard/rakhan-potik-2.jpg" class="ms-img-round" alt="people">
+                                    <img src="assets/img/dashboard/rakhan-potik-2.jpg" class="ms-img-round" alt="people">
                                 </div>
                                 <div class="media-body ms-email-details">
                                     <span class="ms-email-sender">John Doe</span>
@@ -519,7 +498,7 @@
                             </li>
                             <li class="p-3  media ms-email clearfix">
                                 <div class="ms-email-img mr-3 ">
-                                    <img src="../assets/img/dashboard/rakhan-potik-3.jpg" class="ms-img-round" alt="people">
+                                    <img src="assets/img/dashboard/rakhan-potik-3.jpg" class="ms-img-round" alt="people">
                                 </div>
                                 <div class="media-body ms-email-details">
                                     <span class="ms-email-sender">Heather Brown</span>
@@ -644,8 +623,8 @@
                                     vel varius metus. Pellentesque eget orci malesuada, venenatis magna et
                                 </p>
                                 <ul class="ms-note-members clearfix mb-0">
-                                    <li class="ms-deletable"> <img src="../assets/img/dashboard/rakhan-potik-2.jpg" alt="member"> </li>
-                                    <li class="ms-deletable"> <img src="../assets/img/dashboard/rakhan-potik-3.jpg" alt="member"> </li>
+                                    <li class="ms-deletable"> <img src="assets/img/dashboard/rakhan-potik-2.jpg" alt="member"> </li>
+                                    <li class="ms-deletable"> <img src="assets/img/dashboard/rakhan-potik-3.jpg" alt="member"> </li>
                                 </ul>
                             </div>
                             <div class="ms-card-footer clearfix">
@@ -662,7 +641,7 @@
                                         <li class="ms-scrollable ms-dropdown-list ms-members-list">
                                             <a class="media p-2" href="#">
                                                 <div class="mr-2 align-self-center">
-                                                    <img src="../assets/img/dashboard/rakhan-potik-4.jpg" class="ms-img-round" alt="people">
+                                                    <img src="assets/img/dashboard/rakhan-potik-4.jpg" class="ms-img-round" alt="people">
                                                 </div>
                                                 <div class="media-body">
                                                     <span>John Doe</span>
@@ -670,7 +649,7 @@
                                             </a>
                                             <a class="media p-2" href="#">
                                                 <div class="mr-2 align-self-center">
-                                                    <img src="../assets/img/dashboard/rakhan-potik-5.jpg" class="ms-img-round" alt="people">
+                                                    <img src="assets/img/dashboard/rakhan-potik-5.jpg" class="ms-img-round" alt="people">
                                                 </div>
                                                 <div class="media-body">
                                                     <span>Raymart Sandiago</span>
@@ -678,7 +657,7 @@
                                             </a>
                                             <a class="media p-2" href="#">
                                                 <div class="mr-2 align-self-center">
-                                                    <img src="../assets/img/dashboard/rakhan-potik-7.jpg" class="ms-img-round" alt="people">
+                                                    <img src="assets/img/dashboard/rakhan-potik-7.jpg" class="ms-img-round" alt="people">
                                                 </div>
                                                 <div class="media-body">
                                                     <span>Heather Brown</span>
@@ -705,7 +684,7 @@
                                     vel varius metus. Pellentesque eget orci malesuada, venenatis magna et
                                 </p>
                                 <ul class="ms-note-members clearfix mb-0">
-                                    <li class="ms-deletable"> <img src="../assets/img/dashboard/rakhan-potik-2.jpg" alt="member"> </li>
+                                    <li class="ms-deletable"> <img src="assets/img/dashboard/rakhan-potik-2.jpg" alt="member"> </li>
                                 </ul>
                             </div>
                             <div class="ms-card-footer clearfix">
@@ -722,7 +701,7 @@
                                         <li class="ms-scrollable ms-dropdown-list ms-members-list">
                                             <a class="media p-2" href="#">
                                                 <div class="mr-2 align-self-center">
-                                                    <img src="../assets/img/dashboard/rakhan-potik-1.jpg" class="ms-img-round" alt="people">
+                                                    <img src="assets/img/dashboard/rakhan-potik-1.jpg" class="ms-img-round" alt="people">
                                                 </div>
                                                 <div class="media-body">
                                                     <span>John Doe</span>
@@ -730,7 +709,7 @@
                                             </a>
                                             <a class="media p-2" href="#">
                                                 <div class="mr-2 align-self-center">
-                                                    <img src="../assets/img/dashboard/rakhan-potik-7.jpg" class="ms-img-round" alt="people">
+                                                    <img src="assets/img/dashboard/rakhan-potik-7.jpg" class="ms-img-round" alt="people">
                                                 </div>
                                                 <div class="media-body">
                                                     <span>Raymart Sandiago</span>
@@ -738,7 +717,7 @@
                                             </a>
                                             <a class="media p-2" href="#">
                                                 <div class="mr-2 align-self-center">
-                                                    <img src="../assets/img/dashboard/rakhan-potik-8.jpg" class="ms-img-round" alt="people">
+                                                    <img src="assets/img/dashboard/rakhan-potik-8.jpg" class="ms-img-round" alt="people">
                                                 </div>
                                                 <div class="media-body">
                                                     <span>Heather Brown</span>
@@ -881,3 +860,7 @@
             </div>
         </div>
     </div>
+
+
+
+
