@@ -54,6 +54,7 @@ $pdf->AddPage();
 $output='';
 foreach($listeArticles as $article):
 $output.= '
+                
                     <tr>
                         <th scope="row">'.$article['name'].'</th>
                         <td>'. $article['unit_prix'].'</td>
@@ -62,14 +63,17 @@ $output.= '
                    ';
 endforeach;
 $html='';                                                      
-$html .= '    <ul class="list-group">
+$html .= '    
+            
+            <ul class="list-group">
+                
                 <li class="list-group-item"> <h5 style="color: black">Afficher  commande Ref: '. $commande['id_cmd'].'</h5>  </li>
-                <li class="list-group-item">boutique:'. $commande['boutique'].' </li>
-                <li class="list-group-item">etat:'.$commande['etat'].' </li>
-                <li class="list-group-item">Total Prix:'. $commande['prix'].'.Dt </li>
-
-            </ul>
-            <table class="table" >
+            </ul>    
+                
+                
+                
+            
+                <table class="table" border="2" >
                 <thead>
                 <tr>
                     <th scope="col">Article</th>
@@ -81,7 +85,19 @@ $html .= '    <ul class="list-group">
                 <tbody>
                '.$output.'
                 </tbody>
-            </table>';
+            </table>
+                
+            <ul class="list-group">
+                
+               
+                <li class="list-group-item">boutique:'. $commande['boutique'].' </li>
+                <li class="list-group-item">etat:'.$commande['etat'].' </li>
+                <li class="list-group-item">Total Prix:'. $commande['prix'].'.Dt </li>
+
+            </ul>  ';
+
+
+
 
  
 $pdf->writeHTML($html, true, false, true, false, '');
