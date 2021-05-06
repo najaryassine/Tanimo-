@@ -121,8 +121,8 @@ $listeevent=$eventC->afficherEvents();
          <span><i class='fas fa-plus-circle' style='font-size:16px;color:white'></i>Gestion Des evenements</span>
         </a>
         <ul id="SousCategorie-page" class="collapse" aria-labelledby="SousCategorie-page" data-parent="#side-nav-accordion">
-          <li> <a href="evenement/evenement.html">Ajouter Un evenement</a> </li>
-          <li> <a href="evenement/afficherevenement.php"> Afficher les evenements</a> </li>
+          <li> <a href="evenement.html">Ajouter Un evenement</a> </li>
+          <li> <a href="afficherevenement.php"> Afficher les evenements</a> </li>
          
         </ul>
       </li>
@@ -752,11 +752,11 @@ $listeevent=$eventC->afficherEvents();
 
   <tr>
 <td>Id/ </td>
-<td>Nom/ </td>
-<td>Budget/ </td>
-<td>Gearnt/ </td>
+<td>Titre/ </td>
 <td>Description/ </td>
-<td>Adresse/ </td>
+<td>DateD/ </td>
+<td>DateF/ </td>
+<td>Image/ </td>
 <td>supprimer/ </td>
 <td>modifier</td>
 </tr>
@@ -769,18 +769,18 @@ $listeevent=$eventC->afficherEvents();
 foreach($listeevent as $row){
   ?>
   <tr>
-  <td><?PHP echo $row['id']; ?></td>
+  <td><?PHP echo $row['Id']; ?></td>
   <td><?PHP echo $row['Titre']; ?></td>
   <td><?PHP echo $row['Description']; ?></td>
   <td><?PHP echo $row['DateD']; ?></td>
   <td><?PHP echo $row['DateF']; ?></td>
-  <td><?PHP echo $row['Image']; ?></td>
+  <td><img class= "" src="../assets/img/<?PHP echo $row['Image']; ?>"></td>
   <td><form method="POST" action="supprimerevenemt.php">
   <input type="submit" name="supprimer" value="supprimer">
-  <input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
+  <input type="hidden" value="<?PHP echo $row['Id']; ?>" name="Id">
    </form>
   </td>
-  <td><a href="modifierevenement.php?id=<?PHP echo $row['id']; ?>">
+  <td><a href="modifierevenement.php?Id=<?PHP echo $row['Id']; ?>">
   <input type="submit" name="modifier" value="modifier"></a></td>
   </tr>
   <?PHP
@@ -812,6 +812,7 @@ foreach($listeevent as $row){
 
 
 
+  <!-- SCRIPTS -->
   <!-- SCRIPTS -->
   <!-- Global Required Scripts Start -->
   <script src="../assets/js/jquery-3.3.1.min.js"></script>

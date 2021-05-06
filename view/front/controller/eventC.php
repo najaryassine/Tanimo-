@@ -1,6 +1,5 @@
 <?php
-include "C:/wamp/www/pro/config/config.php";
-
+require_once "C:/wamp/www/pro/config/config.php";
 
   class EventC
   {
@@ -133,4 +132,29 @@ try{
         }
         
     }
+
+    function trierdate(){
+        $sql="SELECT * from event order by DateD desc";
+        $db = config::getConnexion();
+        try{
+        $liste=$db->query($sql);
+        return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
+    
+    function trierdatef(){
+        $sql="SELECT * from event order by DateF desc";
+        $db = config::getConnexion();
+        try{
+        $liste=$db->query($sql);
+        return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
+
 }

@@ -2,10 +2,10 @@
 include "../../../model/boutique.php";
 include "../../../controller/boutiqueC.php";
 
-if (isset($_GET['Id']) and isset($_GET['Nom']) and isset($_GET['Budget']) and isset($_GET['Gearnt'])and isset($_GET['Description'])and isset($_GET['Adresse'])){
+if(isset($_POST['Id']) and isset($_POST['Nom']) and isset($_POST['Email']) and isset($_POST['Gearnt'])and isset($_POST['Description'])and isset($_POST['Adresse'])and isset($_POST['Image'])){
 
 
-$boutique1=new Boutique($_GET['Id'],$_GET['Nom'],$_GET['Budget'],$_GET['Gearnt'],$_GET['Description'],$_GET['Adresse']);
+$boutique1=new Boutique($_POST['Id'],$_POST['Nom'],$_POST['Email'],$_POST['Gearnt'],$_POST['Description'],$_POST['Adresse'],$_POST['Image']);
 
 $boutique1C=new BoutiqueC();
 $boutique1C->ajouterBoutique($boutique1);

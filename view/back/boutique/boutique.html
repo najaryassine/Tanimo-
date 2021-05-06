@@ -889,10 +889,13 @@
    <!--            xttttttt          -->
 
 
-
+   
    
 
-   <form method="GET" action="ajoutboutique.php" enctype="multipart/form-data" >
+
+
+
+   <form method="post" action="ajoutboutique.php">
 
 
 
@@ -904,8 +907,8 @@
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb pl-0">
                   <li class="breadcrumb-item"><a href="#"><i class="material-icons">home</i> Home</a></li>
-                  <li class="breadcrumb-item"><a href="#">Articles</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Ajout d'un Article</li>
+                  <li class="breadcrumb-item"><a href="#">boutique</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Ajout d'un boutique</li>
                 </ol>
               </nav>
             </div>
@@ -923,42 +926,55 @@
                           <h5>Ajout boutique</h5><br>
          
 
-                          
-              <label for="nop">ID</label>
-              
-                <input type="text" name="Id" class="form-control" id="Id" placeholder="Entrer l'Id de boutique " required="">
-                
-              <label for="nop">Nom</label>
-                
-                  <input type="text" name="Nom" class="form-control" id="nom" placeholder="Entrer le Nom de boutique " required="">
-                  
-                <label for="budget">Budget</label>
-                  
-                    <input type="text" name="Budget" class="form-control" id="budget" placeholder="Entrer la Budget ">
+              <label for="validationCustom10">id</label>
+                <div class="input-group">
+                  <input type="text" name="Id" class="form-control" id="validationCustom10" placeholder="Entrer le titre de l'article ">
+                 
+                </div>
+
+
+                <label for="validationCustom10">Nom</label>
+                  <div class="input-group">
+                    <input type="text" name="Nom" class="form-control" id="validationCustom10" placeholder="Entrer le nom ">
                      
+                  </div>
 
-
-                  <label for="gearnt">Gearnt</label>
-                  
-                    <input type="text" name="Gearnt" class="form-control" id="gearnt" placeholder="Entrer la Gearnt ">
-                    
                
-                  <label for="description">Description</label>
-                  
-                    <input type="text" name="Description" class="form-control" id="description" placeholder="Entrer la description " >
-                    
 
-                  <label for="adresse">Adresse</label>
+                <label for="validationCustom10">Email</label>
+                 <div class="input-group">
+                  <input type="Email" name="Email" class="form-control" id="Image">
                   
-                    <input type="text" name="Adresse" class="form-control" id="adresse" placeholder="Entrer L'adresse " >
-                     
+                </div>
+
+                <label for="validationCustom10">Gearnt</label>
+                 <div class="input-group">
+                  <input type="text" name="Gearnt" class="form-control" id="Image">
+                 
+                </div>
+
+                <label for="validationCustom10">Description</label>
+                 <div class="input-group">
+                  <input type="text" name="Description" class="form-control" id="Image">
+                  
+                </div>
+
+                <label for="validationCustom10">Adresse</label>
+                 <div class="input-group">
+                  <input type="text" name="Adresse" class="form-control" id="Image">
+                  
+                </div>
               
+                <label for="validationCustom10">Image</label>
+                     <div class="input-group">
+                      <input type="file" name="Image" class="form-control">
+                    </div>
             
              </div>
 
               <div class="col-md-12">
-                <button class="btn btn-dark mr-2  ms-graph-metrics"> <a href="boutique.html">Vider </a> </button>
-                <button class="btn btn-primary " name="submit" type="submit" id="submit">Ajouter</button>
+                <button class="btn btn-dark mr-2  ms-graph-metrics">Vider</button>
+                <button class="btn btn-primary " name="submit" type="submit">Ajouter</button>
               </div>
          
                   </div>
@@ -970,7 +986,7 @@
       </div>
     </div> 
 
-
+  </form>
     <button class="button share_twitter" style="background-color:#55ACEE ;" data-url="http://....">
       Partager sur twitter
   </button>
@@ -984,7 +1000,7 @@
       Partager sur linkedin
   </button>
 <script src="../assets/js/social.js"></script>
-</form>
+
 
 
 

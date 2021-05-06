@@ -1,5 +1,5 @@
 <?php
-include "C:/wamp/www/pro/config/config.php";
+require_once "C:/wamp/www/pro/config/config.php";
 
 
   class BoutiqueC

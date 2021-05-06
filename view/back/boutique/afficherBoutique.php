@@ -118,14 +118,12 @@ $listeboutique=$boutiqueC->afficherBoutiques();
 
       <!-- gestion commande -->
       <li class="menu-item">
-        <a href="#" class="has-chevron" data-toggle="collapse" data-target="#Commande-page" aria-expanded="false" aria-controls="Commande-page">
-          <span><i class='far fa-address-book' style='font-size:18px;color:white'></i>Gestion De commande</span>
+        <a href="#" class="has-chevron" data-toggle="collapse" data-target="#SousCategorie-page" aria-expanded="false" aria-controls="SousCategorie-page">
+         <span><i class='fas fa-plus-circle' style='font-size:16px;color:white'></i>Gestion Des evenements</span>
         </a>
-        <ul id="Commande-page" class="collapse" aria-labelledby="Commande-page" data-parent="#side-nav-accordion">
-          <li> <a href="../Commande/AjoutCommande.html">Ajouter Une commande</a> </li>
-          <li> <a href="../Commande/ModifierCommande.html">Modifier Une commande</a> </li>
-          <li> <a href="../Commande/SupprimerCommande.html">Supprimmer Une commande</a> </li>
-          <li> <a href="../Commande/AfficherCommande.html"> Afficher les commandes</a> </li>
+        <ul id="SousCategorie-page" class="collapse" aria-labelledby="SousCategorie-page" data-parent="#side-nav-accordion">
+          <li> <a href="../evenement/evenement.html">Ajouter Un evenement</a> </li>
+          <li> <a href="../evenement/afficherevenement.php"> Afficher les evenements</a> </li>
          
         </ul>
       </li>
@@ -743,26 +741,33 @@ $listeboutique=$boutiqueC->afficherBoutiques();
 
 
 
-        <div class="col-xl-6 col-md-12"  >
-          <div class="ms-panel ms-panel-fh" style="width:1000px ; margin-left: 120px;"  >
+        <div class="col-xl-6 col-md-10"  >
+          <div class="ms-panel ms-panel-fh" style="width:900px ; margin-left: 120px;"  >
             <div class="ms-panel-body"  >
               
                 <div class="form-row">
                   <div class="col-xl-12 col-md-12 ">
-                          <h5>afficher boutique</h5><br>
-                          <table>
+                          <h5>afficher boutique</h5>
+                          <div align="right"><input  type="text" id="myInput"class="col-x1" onkeyup="myFunction()" placeholder="Search">
+                          </div>
+                          <div class="table-responsive">
+                          <table class="table "  id="dataTable"> 
+                          </div>
                             <thead>
 
-  <tr>
-<td>Id/ </td>
-<td>Nom/ </td>
-<td>Budget/ </td>
-<td>Gearnt/ </td>
-<td>Description/ </td>
-<td>Adresse/ </td>
-<td>supprimer/ </td>
-<td>modifier</td>
-</tr>
+  
+<th>Id/ </th>
+<th>Nom/ </th>
+<th>Email/ </th>
+<th>Gearnt/ </th>
+<th>Description/ </th>
+<th>Adresse/ </th>
+<th>Image/ </th>
+</thead> 
+<tbody>
+
+
+   
 
                
 
@@ -774,10 +779,11 @@ foreach($listeboutique as $row){
   <tr>
   <td><?PHP echo $row['Id']; ?></td>
   <td><?PHP echo $row['Nom']; ?></td>
-  <td><?PHP echo $row['Budget']; ?></td>
+  <td><?PHP echo $row['Email']; ?></td>
   <td><?PHP echo $row['Gearnt']; ?></td>
   <td><?PHP echo $row['Description']; ?></td>
   <td><?PHP echo $row['Adresse']; ?></td>
+  <td><img class= "" src="../assets/img/<?PHP echo $row['Image']; ?>"></td>
   <td><form method="POST" action="supprimerboutique.php">
   <input type="submit" name="supprimer" value="supprimer">
   <input type="hidden" value="<?PHP echo $row['Id']; ?>" name="Id">
@@ -816,6 +822,27 @@ foreach($listeboutique as $row){
 
 
   <!-- SCRIPTS -->
+  <script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("dataTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+              }
+        }
+    }
+</script>
+
   <!-- Global Required Scripts Start -->
   <script src="../assets/js/jquery-3.3.1.min.js"></script>
   <script src="../assets/js/popper.min.js"></script>
