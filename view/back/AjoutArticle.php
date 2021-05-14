@@ -67,7 +67,7 @@ require 'header.php';
       </div>
 
 
-<form action="" method="POST"  enctype="multipart/form-data">
+<form name="addArticle" action="" method="POST"  onsubmit="return validateForm()" enctype="multipart/form-data">
 
 
 
@@ -105,7 +105,7 @@ require 'header.php';
 
                     <label for="prix">Prix</label>
                       <div class="input-group">
-                        <input type="number" name="prix" class="form-control" id="prix" placeholder="Entrer le prix " required="required" min="1" >
+                        <input type="text" name="prix" class="form-control" id="prix" placeholder="Entrer le prix " required="required" min="1.0" >
 
                       </div>
 
@@ -165,3 +165,14 @@ require 'header.php';
 
 <?php require 'footer.php';?>
 
+<script>
+    function validateForm() {
+        var x = document.forms["addArticle"]["prix"].value;
+        x = parseFloat(x);
+        if (isNaN(x)) {
+            alert("Prix doit étre un nombre");
+            return false;
+        }
+    }
+
+</script>

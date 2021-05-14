@@ -36,7 +36,16 @@ class SousCategorieC
         }
     }
 
-
+    function recupererSousCategorieByCatId($id){
+        $sql = "SELECT sc.id_sous_cat, sc.nom as name, c.nom as categorie FROM sous_categories as sc INNER JOIN categories as c on sc.id_cat=c.id_cat where c.id_cat =$id";
+        $db = config::getConnexion();
+        try {
+            $liste = $db->query($sql);
+            return $liste;
+        } catch (Exception $e) {
+            die('Erreur: ' . $e->getMessage());
+        }
+    }
     /**
      * @param $sousCategorie
      */

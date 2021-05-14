@@ -1,7 +1,7 @@
 <?php
-include_once '../../../model/Commande.php';
-include_once '../../../controller/CommandeC.php';
-include_once '../../../controller/ArtcomC.php';
+include_once '../../model/Commande.php';
+include_once '../../controller/CommandeC.php';
+include_once '../../controller/ArtcomC.php';
 
 
 session_start();
@@ -59,6 +59,7 @@ $output.= '
                         <th scope="row">'.$article['name'].'</th>
                         <td>'. $article['unit_prix'].'</td>
                         <td>'.$article['Qte'].'</td>
+                        <td><img class="card-img-top" src="../../uploads/'.$article['image'].'" alt="Card image cap"></td>
                     </tr>
                    ';
 endforeach;
@@ -79,6 +80,7 @@ $html .= '
                     <th scope="col">Article</th>
                     <th scope="col">Prix Unitaire</th>
                     <th scope="col">Qte</th>
+                    <th scope="col">Image</th>
 
                 </tr>
                 </thead>
