@@ -2,22 +2,19 @@
 <?php
 include_once '../../controller/ArticleC.php';
 include_once '../../controller/PanierC.php';
+include_once '../../controller/boutiqueC.php';
 
-class Boutique
-{
-    public $id_btq;
-    public $nom;
-}
 $panierC=new PanierC();
 $articleC = new ArticleC();
-$boutique1  = new Boutique();
-$boutique1->id_btq = 1;
-$boutique1->nom = "mnihla";
-$boutique2  = new Boutique();
-$boutique2->id_btq = 2;
-$boutique2->nom = "ben arous";
-$magasins = [$boutique1, $boutique2];
+$boutiqueC = new BoutiqueC();
+
 session_start();
+if(!isset($_SESSION["user_id"]) || empty($_SESSION["user_id"])){
+    header('Location:index.php');
+}
+
+$magasins = $boutiqueC->afficherBoutiques();
+
 $erreur = false;
 $magasin =
 $action = (isset($_POST['action'])? $_POST['action']:  (isset($_GET['action'])? $_GET['action']:null )) ;
@@ -138,7 +135,7 @@ include "header.php";
                             <select name="btq" id="btq" required="required">
                                 <?php
                                 foreach ($magasins as $magasin) {
-                                    echo '<option  value="'.$magasin->id_btq.'">'.$magasin->nom.'</option>';
+                                    echo '<option  value="'.$magasin["Id"].'">'.$magasin["Nom"].'</option>';
                                 }
                                 ?>
                             </select>

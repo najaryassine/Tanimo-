@@ -7,6 +7,9 @@ session_start();
 $_SESSION["user_id"] = 1;
 $_SESSION["user_name"] = "bbbb";
 
+if(!isset($_SESSION["user_id"]) || empty($_SESSION["user_id"])){
+    header('Location:index.php');
+}
 $commandeC=new CommandeC();
 
 $listeCommande=$commandeC->afficherMesCommande($_SESSION["user_id"]);

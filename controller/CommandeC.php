@@ -35,7 +35,7 @@ class CommandeC
      */
     function afficherCommande($id){
 
-        $sql="SELECT cm.id_cmd, cm.prix,cm.etat, bt.nom as boutique, us.nom as username FROM commandes as cm  INNER JOIN boutiques as bt ON cm.id_btq = bt.id_btq INNER JOIN user as us ON us.id_user = cm.id_user WHERE cm.id_cmd = $id";
+        $sql="SELECT cm.id_cmd, cm.prix,cm.etat, bt.Nom as boutique, us.nom as username FROM commandes as cm  INNER JOIN boutique as bt ON cm.id_btq = bt.Id INNER JOIN user as us ON us.id = cm.id_user WHERE cm.id_cmd = $id";
         $db = config::getConnexion();
         try{
             $query=$db->prepare($sql);
@@ -54,7 +54,7 @@ class CommandeC
      */
     function afficherMesCommande($id){
 
-        $sql="SELECT cm.id_cmd, cm.prix,cm.etat, bt.nom as boutique, us.nom as username FROM commandes as cm  INNER JOIN boutiques as bt ON cm.id_btq = bt.id_btq INNER JOIN user as us ON us.id_user = cm.id_user WHERE cm.id_user = $id";
+        $sql="SELECT cm.id_cmd, cm.prix,cm.etat, bt.Nom as boutique, us.nom as username FROM commandes as cm  INNER JOIN boutique as bt ON cm.id_btq = bt.Id INNER JOIN user as us ON us.id = cm.id_user WHERE cm.id_user = $id";
         $db = config::getConnexion();
         try{
             $liste = $db->query($sql);
@@ -69,7 +69,7 @@ class CommandeC
      * @return false|PDOStatement
      */
     function afficherCommandes(){
-        $sql="SELECT cm.id_cmd, cm.prix,cm.etat, bt.nom as boutique, us.nom as username FROM commandes as cm  INNER JOIN boutiques as bt ON cm.id_btq = bt.id_btq INNER JOIN user as us ON us.id_user = cm.id_user";
+        $sql="SELECT cm.id_cmd, cm.prix,cm.etat, bt.Nom as boutique, us.nom as username FROM commandes as cm  INNER JOIN boutique as bt ON cm.id_btq = bt.Id INNER JOIN user as us ON us.id = cm.id_user";
         $db = config::getConnexion();
         try{
             $liste = $db->query($sql);
@@ -120,7 +120,7 @@ class CommandeC
 
     function triercommandes()
     {
-        $sql = "SELECT cm.id_cmd, cm.prix,cm.etat, bt.nom as boutique, us.nom as username FROM commandes as cm  INNER JOIN boutiques as bt ON cm.id_btq = bt.id_btq INNER JOIN user as us ON us.id_user = cm.id_user ORDER BY etat ASC";
+        $sql = "SELECT cm.id_cmd, cm.prix,cm.etat, bt.Nom as boutique, us.nom as username FROM commandes as cm  INNER JOIN boutique as bt ON cm.id_btq = bt.Id INNER JOIN user as us ON us.id = cm.id_user ORDER BY etat ASC";
         $db = config::getConnexion();
         try {
             $req = $db->query($sql);
@@ -134,7 +134,7 @@ class CommandeC
 
     function rechercherCommande($boutique)
     {
-        $sql="SELECT cm.id_cmd, cm.prix,cm.etat, bt.nom as boutique, us.nom as username FROM commandes as cm  INNER JOIN boutiques as bt ON cm.id_btq = bt.id_btq INNER JOIN user as us ON us.id_user = cm.id_user where cm.id_btq =$boutique";
+        $sql="SELECT cm.id_cmd, cm.prix,cm.etat, bt.Nom as boutique, us.nom as username FROM commandes as cm  INNER JOIN boutique as bt ON cm.id_btq = bt.Id INNER JOIN user as us ON us.id = cm.id_user where cm.id_btq =$boutique";
         $db = config::getConnexion();
         try{
             $req=$db->query($sql);

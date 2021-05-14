@@ -1,22 +1,11 @@
 <?php
 include_once '../../model/Commande.php';
 include_once '../../controller/CommandeC.php';
+include_once '../../controller/boutiqueC.php';
 
-class Boutique
-{
-    public $id_btq;
-    public $nom;
-}
 
-$boutique1  = new Boutique();
-$boutique1->id_btq = 1;
-$boutique1->nom = "mnihla";
-
-$boutique2  = new Boutique();
-$boutique2->id_btq = 2;
-$boutique2->nom = "ben arous";
-
-$magasins = [$boutique1, $boutique2];
+$boutiqueC = new BoutiqueC();
+$magasins = $boutiqueC->afficherBoutiques();
 
 $commandeC=new CommandeC();
 $listeCommande=$commandeC->afficherCommandes();
@@ -62,7 +51,7 @@ require 'header.php';
                                     <select name="btq" id="btq">
                                         <?php
                                         foreach ($magasins as $magasin) {
-                                            echo '<option  value="'.$magasin->id_btq.'">'.$magasin->nom.'</option>';
+                                            echo '<option  value="'.$magasin["Id"].'">'.$magasin["Nom"].'</option>';
                                         }
                                         ?>
                                     </select>
