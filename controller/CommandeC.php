@@ -56,7 +56,6 @@ class CommandeC
 
         $sql="SELECT cm.id_cmd, cm.prix,cm.etat, bt.nom as boutique, us.nom as username FROM commandes as cm  INNER JOIN boutiques as bt ON cm.id_btq = bt.id_btq INNER JOIN user as us ON us.id_user = cm.id_user WHERE cm.id_user = $id";
         $db = config::getConnexion();
-        $db = config::getConnexion();
         try{
             $liste = $db->query($sql);
             return $liste;
@@ -102,7 +101,8 @@ class CommandeC
      * @param $commande
      * @param $id
      */
-    function modifierCommande($etat, $id){
+    function modifierCommande($etat, $id)
+    {
         try {
             $sql ='UPDATE commandes SET etat=:etat WHERE id_cmd=:id';
             $db = config::getConnexion();
@@ -117,6 +117,33 @@ class CommandeC
         }
     }
 
+
+    function triercommandes()
+    {
+        $sql = "SELECT cm.id_cmd, cm.prix,cm.etat, bt.nom as boutique, us.nom as username FROM commandes as cm  INNER JOIN boutiques as bt ON cm.id_btq = bt.id_btq INNER JOIN user as us ON us.id_user = cm.id_user ORDER BY etat ASC";
+        $db = config::getConnexion();
+        try {
+            $req = $db->query($sql);
+            return $req;
+        } catch (Exception $e)
+        {
+            die('Erreur: ' . $e->getMessage());
+        }
+    }
+
+
+    function rechercherCommande($boutique)
+    {
+        $sql="SELECT cm.id_cmd, cm.prix,cm.etat, bt.nom as boutique, us.nom as username FROM commandes as cm  INNER JOIN boutiques as bt ON cm.id_btq = bt.id_btq INNER JOIN user as us ON us.id_user = cm.id_user where cm.id_btq =$boutique";
+        $db = config::getConnexion();
+        try{
+            $req=$db->query($sql);
+            return $req;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
 
 }
 

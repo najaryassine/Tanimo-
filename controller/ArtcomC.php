@@ -47,7 +47,7 @@ class ArtcomC
      * @return mixed
      */
     function afficherMesCommandeByIdCmd($id, $user_id){
-        $sql="SELECT ar.nom AS name, ar.prix AS unit_prix, arc.qte as Qte FROM artcom AS arc INNER JOIN articles AS ar on ar.id_art = arc.id_art INNER JOIN commandes as cm on cm.id_cmd = arc.id_cmd where arc.id_cmd=$id  and cm.id_user = $user_id";
+        $sql="SELECT ar.nom AS name, ar.prix AS unit_prix, arc.qte as Qte, ar.image as image FROM artcom AS arc INNER JOIN articles AS ar on ar.id_art = arc.id_art INNER JOIN commandes as cm on cm.id_cmd = arc.id_cmd where arc.id_cmd=$id  and cm.id_user = $user_id";
         $db = config::getConnexion();
         try {
             $liste = $db->query($sql);

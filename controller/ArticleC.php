@@ -77,14 +77,11 @@ class ArticleC
     }
 
     function recupererArticleBySousCategorie($id_sous_cat){
-        $sql="SELECT * from articles where id_sous_cat=$id_sous_cat";
+        $sql="SELECT a.id_art, a.nom AS name, a.prix, a.image,  c.nom AS categorie, sc.nom AS souscategorie   from articles as a INNER JOIN sous_categories as sc on a.sous_cat_id = sc.id_sous_cat INNER JOIN categories as c on c.id_cat = sc.id_cat   where id_sous_cat=$id_sous_cat";
         $db = config::getConnexion();
         try{
-            $query=$db->prepare($sql);
-            $query->execute();
-
-            $article=$query->fetch();
-            return $article;
+            $liste = $db->query($sql);
+            return $liste;
         }
         catch (Exception $e){
             die('Erreur: '.$e->getMessage());
@@ -92,14 +89,11 @@ class ArticleC
     }
 
     function recupererArticleByCategorie($id_cat){
-        $sql="SELECT * from articles as a INNER JOIN sous_categories as sc on a.sous_cat_id = sc.id_sous_cat INNER JOIN categories as c on c.id_cat = sc.id_cat where id_cat=$id_cat";
+        $sql="SELECT a.id_art, a.nom AS name, a.prix, a.image,  c.nom AS categorie, sc.nom AS souscategorie   from articles as a INNER JOIN sous_categories as sc on a.sous_cat_id = sc.id_sous_cat INNER JOIN categories as c on c.id_cat = sc.id_cat where c.id_cat=$id_cat";
         $db = config::getConnexion();
         try{
-            $query=$db->prepare($sql);
-            $query->execute();
-
-            $article=$query->fetch();
-            return $article;
+            $liste = $db->query($sql);
+            return $liste;
         }
         catch (Exception $e){
             die('Erreur: '.$e->getMessage());

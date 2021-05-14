@@ -2,7 +2,21 @@
 include_once '../../model/Commande.php';
 include_once '../../controller/CommandeC.php';
 
+class Boutique
+{
+    public $id_btq;
+    public $nom;
+}
 
+$boutique1  = new Boutique();
+$boutique1->id_btq = 1;
+$boutique1->nom = "mnihla";
+
+$boutique2  = new Boutique();
+$boutique2->id_btq = 2;
+$boutique2->nom = "ben arous";
+
+$magasins = [$boutique1, $boutique2];
 
 $commandeC=new CommandeC();
 $listeCommande=$commandeC->afficherCommandes();
@@ -10,14 +24,9 @@ $listeCommande=$commandeC->afficherCommandes();
 require 'header.php';
 ?>
 
-
-
-
     <!--            xttttttt          -->
 
-
-
-    <form action="" method="POST"  enctype="multipart/form-data">
+    <form action="rechercherCommande.php" method="POST"  enctype="multipart/form-data">
 
 
 
@@ -40,11 +49,31 @@ require 'header.php';
                 <div class="col-xl-6 col-md-12"  >
                     <div class="ms-panel ms-panel-fh" style="width:1000px ; margin-left: 120px;"  >
                         <div class="ms-panel-body"  >
+                            <div class="col-xl-12 col-md-12 ">
+                                <h5>Afficher les commandes</h5><br>
+                            </div>
+                            <div class="col-xl-12 col-md-12 ">
+                                <a href="triercommandes.php">Trier</a>
+                            </div>
+
+                            <div class="col-xl-12 col-md-auto ">
+                                <form action="rechercherCommande.php" method="POST">
+                                    <label for="btq">Boutique</label>
+                                    <select name="btq" id="btq">
+                                        <?php
+                                        foreach ($magasins as $magasin) {
+                                            echo '<option  value="'.$magasin->id_btq.'">'.$magasin->nom.'</option>';
+                                        }
+                                        ?>
+                                    </select>
+                                    <input type="submit" name="submit"  value="Rechercher"/>
+                                </form>
+                            </div>
+
                             <form class="needs-validation clearfix" novalidate="">
                                 <div class="form-row">
-                                    <div class="col-xl-12 col-md-12 ">
-                                        <h5>Afficher les commandes</h5><br>
-                                    </div>
+
+
                                     <table border=5 align = 'center'>
                                         <tr>
                                             <th>Id</th>
@@ -85,6 +114,11 @@ require 'header.php';
                                         }
                                         ?>
                                     </table>
+
+
+
+
+
                                 </div>
                             </form>
                         </div>

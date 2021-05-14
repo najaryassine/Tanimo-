@@ -1,8 +1,8 @@
 <?php
-include_once '../../../controller/ArtcomC.php';
-include_once '../../../controller/CommandeC.php';
-include_once '../../../model/Artcom.php';
-include_once '../../../model/Commande.php';
+include_once '../../controller/ArtcomC.php';
+include_once '../../controller/CommandeC.php';
+include_once '../../model/Artcom.php';
+include_once '../../model/Commande.php';
 
 session_start();
 $commandeC = new CommandeC();
@@ -29,7 +29,7 @@ if (
             $artcomC->ajouterArtcom($artcom);
         }
 
-        header('Location:../commandes/HistoriqueCommande.php');
+        header('Location:HistoriqueCommande.php');
     }
     else
         $error = "Missing information";

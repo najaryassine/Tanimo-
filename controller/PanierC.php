@@ -19,7 +19,7 @@ class PanierC
 
 
     /**
-     * Ajoute un article dans le panier
+     * Ajouter un article dans le panier
      * @param string $libelleProduit
      * @param int $qteProduit
      * @param float $prixProduit
@@ -47,7 +47,7 @@ class PanierC
 
 
     /**
-     * Modifie la quantité d'un article
+     * Modifier la quantité d'un article
      * @param $libelleProduit
      * @param $qteProduit
      * @return void
@@ -71,7 +71,7 @@ class PanierC
     }
 
     /**
-     * Supprime un article du panier
+     * Supprimer un article du panier
      * @param $libelleProduit
      * @return unknown_type
      */
