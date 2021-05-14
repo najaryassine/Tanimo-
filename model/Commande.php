@@ -28,6 +28,7 @@ class Commande
     }
 
     /**
+<<<<<<< HEAD
      * @return float|null
      */
     public function getPrix(): ?float

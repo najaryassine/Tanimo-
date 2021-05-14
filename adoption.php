@@ -4,7 +4,11 @@ private ?int $id = null ;
 private ?string $espece = null;
 private ?string $race = null;
 private ?string $sexe = null;
+<<<<<<< HEAD
 private ?int $age = null;
+=======
+private ?string $age = null;
+>>>>>>> 65e142153bebd23674b25694b5f7781e63add880
 private ?string $region = null;
 private ?string $image = null;
  
