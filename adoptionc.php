@@ -1,11 +1,8 @@
 <?php
-<<<<<<< HEAD
-require_once '../../../config/config.php';
-require_once '../../../model/adoption.php';
-=======
+
 require_once 'C:/xampp/htdocs/monprojet/Tanimo--master/config/config.php';
 require_once 'C:/xampp/htdocs/monprojet/Tanimo--master/model/adoption.php';
->>>>>>> 65e142153bebd23674b25694b5f7781e63add880
+
 
 /**
  * 
@@ -51,13 +48,9 @@ function supprimerAdoption($id){
 		}
 
 
-<<<<<<< HEAD
 
-		function afficheradoption(){
-=======
 function afficheradoption()
 		{
->>>>>>> 65e142153bebd23674b25694b5f7781e63add880
 			
 			$sql="SELECT * FROM adoption";
 			$db = config::getConnexion();
@@ -69,8 +62,7 @@ function afficheradoption()
 				die('Erreur: '.$e->getMessage());
 			}	
 		}
-<<<<<<< HEAD
-=======
+
 
 
 
@@ -125,9 +117,6 @@ function afficheradoption()
 		}
 
 
-
-		
->>>>>>> 65e142153bebd23674b25694b5f7781e63add880
 }
 
 
