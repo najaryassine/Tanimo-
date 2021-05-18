@@ -812,8 +812,13 @@ if (isset($_GET['Id'])){
   }
 
 if (isset($_POST['modifier'])){
+<<<<<<< HEAD
   $Event=new event($_POST['Id'],$_POST['Titre'],$_POST['Description'],$_POST['DateD'],$_POST['DateF'],$_POST['Image']);
   $EventC->modifierEvent($Event,$_POST['Id']);
+=======
+  $event = new Event($_POST['Id'],$_POST['Titre'],$_POST['Description'],$_POST['DateD'],$_POST['DateF'],$_POST['Image']);
+  $boutiqueC->modifierEvent($event,$_POST['Id']);
+>>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900
 echo'<script>location.replace("afficherevenement.php")</script>';  
 }
 }?>
