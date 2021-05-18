@@ -898,10 +898,11 @@ if (isset($_GET['Id'])){
     foreach($result as $row){
       $Id=$row['Id'];
       $Nom=$row['Nom'];
-      $Budget=$row['Budget'];
+      $Email=$row['Email'];
       $Gearnt=$row['Gearnt'];
       $Description=$row['Description'];
       $Adresse=$row['Adresse'];
+      $Image=$row['Image'];
    
 ?>
 
@@ -947,9 +948,9 @@ if (isset($_GET['Id'])){
                 </div>
 
 
-                <label>Budget</label>
+                <label>Email</label>
                   <div class="input-group">
-                    <input type="number" name="Budget" class="form-control" id="Budget" placeholder="Entrer la Budget "value="<?PHP echo $Budget ?>">
+                    <input type="email" name="Email" class="form-control" id="Email" placeholder="Entrer l'Email "value="<?PHP echo $Email ?>">
                       <div class="invalid-feedback">
                       </div>
                   </div>
@@ -978,7 +979,10 @@ if (isset($_GET['Id'])){
                       </div>
                   </div>
                 
-              
+                  <label for="validationCustom10">Image</label>
+             <div class="input-group">
+              <input type="file" name="Image" class="form-control" value="<?PHP echo $Image ?>">
+            </div>
             
              </div>
 
@@ -993,7 +997,7 @@ if (isset($_GET['Id'])){
   }
 
 if (isset($_POST['modifier'])){
-  $Boutique = new boutique($_POST['Id'],$_POST['Nom'],$_POST['Budget'],$_POST['Gearnt'],$_POST['Description'],$_POST['Adresse']);
+  $Boutique = new boutique($_POST['Id'],$_POST['Nom'],$_POST['Email'],$_POST['Gearnt'],$_POST['Description'],$_POST['Adresse'],$_POST['Image']);
   $boutiqueC->modifierBoutique($Boutique,$_POST['Id']);
 echo'<script>location.replace("afficherBoutique.php")</script>';  
 }

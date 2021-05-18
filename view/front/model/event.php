@@ -10,7 +10,7 @@
 
         
         
-        function __construct($Id, $Titre, $Description, $DateD, $DateF, $Image){
+        function __construct($Id,$Titre,$Description,$DateD,$DateF,$Image){
             
             $this->Id=$Id;
             $this->Titre=$Titre;
@@ -21,7 +21,7 @@
             
         }
         
-      function getId() {
+      function getid() {
             return $this->Id;
         }
        function getTitre() {
@@ -42,8 +42,8 @@
         
 
         
-       function setId($Id) {
-            $this->Id=$Id;
+       function setid($Id) {
+            $this->id=$id;
         }
        function setTitre($Titre) {
             $this->Titre=$Titre;

@@ -1,6 +1,5 @@
 <?php
-include "C:/wamp/www/pro/config/config.php";
-
+require_once "C:/wamp/www/pro/config/config.php";
 
   class EventC
   {
@@ -103,21 +102,19 @@ include "C:/wamp/www/pro/config/config.php";
       
 
     function modifierEvent($event,$Id){
-        $sql="UPDATE event SET Id=:Id, Titre=:Titre, Description=:Description, DateD=:DateD, DateF=:DateF, Image=:Image WHERE Id=:Id";
+        $sql="UPDATE event SET Id=:Id,Titre=:Titre,Description=:Description,DateD=:DateD,DateF=:DateF,Image=:Image WHERE Id=:Id";
         
         $db = config::getConnexion();
        
 try{        
-       $req = $db->prepare($sql);
+    $req = $db->prepare($sql);
        $Id=$event->getId();
        $Titre=$event->getTitre();
        $Description=$event->getDescription();
        $DateD=$event->getDateD();
        $DateF=$event->getDateF();
        $Image=$event->getImage();
-
         $datas=array(':Id'=>$Id,':Titre'=>$Titre,':Description'=>$Description,':DateD'=>$DateD,':DateF'=>$DateF,':Image'=>$Image);
-        
         $req->bindVAlue(':Id',$Id);
         $req->bindVAlue(':Titre',$Titre);
         $req->bindVAlue(':Description',$Description);
@@ -136,21 +133,28 @@ try{
         
     }
 
-
-
-    function rechercherEvent($str){
-     
-        $sql="select * from event where Id like '%".$str."%' or Titre like '%".$str."%' or Description like '%".$str."%' or DateD like '%".$str."%' or DateF like '%".$str."%'";
+    function trierdate(){
+        $sql="SELECT * from event order by DateD desc";
         $db = config::getConnexion();
         try{
         $liste=$db->query($sql);
         return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
     }
-    catch (Exception $e){
-        die('erreur:'. $e->getMessage());
+    
+    function trierdatef(){
+        $sql="SELECT * from event order by DateF desc";
+        $db = config::getConnexion();
+        try{
+        $liste=$db->query($sql);
+        return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
     }
 
-    }
 }
-
-?>

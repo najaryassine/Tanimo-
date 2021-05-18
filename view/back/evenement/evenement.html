@@ -97,26 +97,26 @@
       <!-- gestion des categories-->
       <li class="menu-item">
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#Categorie-page" aria-expanded="false" aria-controls="Categorie-page">
-          <span><i class='far fa-clipboard' style='font-size:18px;color:white'></i>Gestion Des boutique</span>
+          <span><i class='fas fa-bars' style='font-size:18px;color:white'></i>Gestion Des Boutique</span>
         </a>
         <ul id="Categorie-page" class="collapse" aria-labelledby="Categorie-page" data-parent="#side-nav-accordion">
-          <li> <a href="../boutique/boutique.html">Ajouter Une boutique</a> </li>
-          <li> <a href="../boutique/afficherBoutique.php"> Afficher les boutique</a> </li>
-         
+          <li> <a href="../boutique/boutique.html">Ajouter Un boutiques</a> </li>
+          <li> <a href="../boutique/afficherBoutique.php"> Afficher les boutiques</a> </li>
+
         </ul>
       </li>
       <!-- /gestion de categries-->
 
+      <!-- gestion des Sous Categorie/categories -->
 
-
-      <!-- gestion commande -->
+      <!-- gestion des Sous Categorie-->
       <li class="menu-item">
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#SousCategorie-page" aria-expanded="false" aria-controls="SousCategorie-page">
          <span><i class='fas fa-plus-circle' style='font-size:16px;color:white'></i>Gestion Des evenements</span>
         </a>
         <ul id="SousCategorie-page" class="collapse" aria-labelledby="SousCategorie-page" data-parent="#side-nav-accordion">
-          <li> <a href="evenement/evenement.html">Ajouter Un evenement</a> </li>
-          <li> <a href="evenement/afficherevenement.php"> Afficher les evenements</a> </li>
+          <li> <a href="evenement.html">Ajouter Un evenement</a> </li>
+          <li> <a href="afficherevenement.php"> Afficher les evenements</a> </lis>
          
         </ul>
       </li>
@@ -126,10 +126,8 @@
           <span><i class='far fa-comment-alt' style='font-size:18px;color:white'></i>Gestion Des Articles</span>
         </a>
         <ul id="Article-page" class="collapse" aria-labelledby="Article-page" data-parent="#side-nav-accordion">
-          <li> <a href="AjoutArticle.html">Ajouter Un Article</a> </li>
-          <li> <a href="ModifierArticle.html">Modifier  Un Article</a> </li>
-          <li> <a href="SupprimerArticle.html">Supprimmer  Un Article</a> </li>
-          <li> <a href="AfficherArticle.php"> Afficher les Articles</a> </li>
+          <li> <a href="../AjoutArticle.html">Ajouter Un Article</a> </li>
+          
          
         </ul>
       </li>
@@ -867,9 +865,9 @@
 
 
 
-<form action="ajouterevent.php" method="POST" enctype="multipart/form-data" >
 
 
+   <form action="ajouterevent.php" method="post">
 
 
         <div class="ms-content-wrapper"  >
@@ -883,11 +881,7 @@
                       <li class="breadcrumb-item active" aria-current="page">Ajout d'un Evenement</li>
                     </ol>
                   </nav>
-                </div>
-
-
-
-
+                </div>     
 
             <div class="col-xl-6 col-md-12"  >
               <div class="ms-panel ms-panel-fh" style="width:1000px ; margin-left: 120px;"  >
@@ -898,9 +892,9 @@
                               <h5>Ajout Evenement</h5><br>
              
 
-                  <label for="validationCustom10">id</label>
+                  <label for="validationCustom10">Id</label>
                     <div class="input-group">
-                      <input type="number" name="id" class="form-control"  placeholder="Entrer l'ID de l'Evenement " required>
+                      <input type="number" name="Id" class="form-control"  placeholder="Entrer l'ID de l'Evenement " required>
                     </div>
 
 

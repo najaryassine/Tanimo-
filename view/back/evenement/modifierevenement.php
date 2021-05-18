@@ -105,17 +105,18 @@
          
         </ul>
       </li>
-      <!-- /gestion de produit-->
+      <!-- /gestion de categries-->
 
-      <!-- gestion des categories-->
 
+
+      <!-- gestion commande -->
       <li class="menu-item">
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#SousCategorie-page" aria-expanded="false" aria-controls="SousCategorie-page">
          <span><i class='fas fa-plus-circle' style='font-size:16px;color:white'></i>Gestion Des evenements</span>
         </a>
         <ul id="SousCategorie-page" class="collapse" aria-labelledby="SousCategorie-page" data-parent="#side-nav-accordion">
-          <li> <a href="../evenement/evenement.html">Ajouter Un evenement</a> </li>
-          <li> <a href="../evenement/afficherevenement.php"> Afficher les evenements</a> </li>
+          <li> <a href="evenement.html">Ajouter Un evenement</a> </li>
+          <li> <a href="afficherevenement.php"> Afficher les evenements</a> </li>
          
         </ul>
       </li>
@@ -315,172 +316,11 @@
               </form>
             </div>
 
-            <div class="ms-chat-body">
-              <ul class="nav nav-tabs tabs-bordered d-flex nav-justified px-3" role="tablist">
-                <li role="presentation" class="fs-12"><a href="#chats" aria-controls="chats" class="active show" role="tab" data-toggle="tab"> Chats </a></li>
-                <li role="presentation" class="fs-12"><a href="#groups" aria-controls="groups" role="tab" data-toggle="tab"> Groups </a></li>
-                <li role="presentation" class="fs-12"><a href="#contacts" aria-controls="contacts" role="tab" data-toggle="tab"> Contacts </a></li>
-              </ul>
-
-              <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active show fade in" id="chats">
-                  <ul class="ms-scrollable ms-quickbar-container">
-                    <li class="ms-chat-user-container ms-open-chat ms-deletable p-3 media clearfix">
-                      <div class="ms-chat-status ms-status-away ms-has-new-msg ms-chat-img mr-3 align-self-center">
-                        <span class="msg-count">3</span>
-                        <img src="../assets/img/dashboard/rakhan-potik-2.jpg" class="ms-img-round" alt="people">
-                      </div>
-                      <div class="media-body ms-chat-user-info mt-1">
-                        <h6>James Zathila</h6> <span class="ms-chat-time">2 Hours ago</span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc</p>
-                        <i class="flaticon-trash ms-delete-trigger"> </i>
-                      </div>
-                    </li>
-                    <li class="ms-chat-user-container ms-open-chat ms-deletable p-3 media clearfix">
-                      <div class="ms-chat-status ms-status-online ms-chat-img mr-3 align-self-center">
-                        <img src="../assets/img/dashboard/rakhan-potik-3.jpg" class="ms-img-round" alt="people">
-                      </div>
-                      <div class="media-body ms-chat-user-info mt-1">
-                        <h6>Raymart Sandiago</h6> <span class="ms-chat-time">3 Hours ago</span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc</p>
-                        <i class="flaticon-trash ms-delete-trigger"> </i>
-                      </div>
-                    </li>
-                    <li class="ms-chat-user-container ms-open-chat ms-deletable p-3 media clearfix">
-                      <div class="ms-chat-status ms-status-offline ms-chat-img mr-3 align-self-center">
-                        <img src="../assets/img/dashboard/rakhan-potik-4.jpg" class="ms-img-round" alt="people">
-                      </div>
-                      <div class="media-body ms-chat-user-info mt-1">
-                        <h6>Heather Brown</h6> <span class="ms-chat-time">12 Hours ago</span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc</p>
-                        <i class="flaticon-trash ms-delete-trigger"> </i>
-                      </div>
-                    </li>
-                    <li class="ms-chat-user-container ms-open-chat ms-deletable p-3 media clearfix">
-                      <div class="ms-chat-status ms-status-busy ms-chat-img mr-3 align-self-center">
-                        <img src="../assets/img/dashboard/rakhan-potik-5.jpg" class="ms-img-round" alt="people">
-                      </div>
-                      <div class="media-body ms-chat-user-info mt-1">
-                        <h6>Micheal John</h6> <span class="ms-chat-time">Yesterday</span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc</p>
-                        <i class="flaticon-trash ms-delete-trigger"> </i>
-                      </div>
-                    </li>
-                    <li class="ms-chat-user-container ms-open-chat ms-deletable p-3 media clearfix">
-                      <div class="ms-chat-status ms-status-online ms-chat-img mr-3 align-self-center">
-                        <img src="../assets/img/dashboard/rakhan-potik-4.jpg" class="ms-img-round" alt="people">
-                      </div>
-                      <div class="media-body ms-chat-user-info mt-1">
-                        <h6>John Doe</h6> <span class="ms-chat-time">3 Days ago</span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc</p>
-                        <i class="flaticon-trash ms-delete-trigger"> </i>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <div role="tabpanel" class="tab-pane fade" id="groups">
-                  <ul class="ms-scrollable ms-quickbar-container">
-                    <li class="ms-chat-user-container ms-open-chat p-3 media clearfix">
-                      <div class="ms-chat-img mr-3 align-self-center">
-                        <img src="../assets/img/dashboard/rakhan-potik-1.jpg" class="ms-img-round" alt="people">
-                      </div>
-                      <div class="media-body ms-chat-user-info mt-1">
-                        <h6>James Zathila</h6> <a href="#" class="ms-chat-time"> <i class="flaticon-chat"></i> </a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc</p>
-                        <ul class="ms-group-members clearfix mt-3 mb-0">
-                          <li> <img src="../assets/img/dashboard/rakhan-potik-1.jpg" alt="member"> </li>
-                          <li> <img src="../assets/img/dashboard/rakhan-potik-2.jpg" alt="member"> </li>
-                          <li> <img src="../assets/img/dashboard/rakhan-potik-3.jpg" alt="member"> </li>
-                          <li class="ms-group-count"> + 12 more </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="ms-chat-user-container ms-open-chat p-3 media clearfix">
-                      <div class="ms-chat-img mr-3 align-self-center">
-                        <img src="../assets/img/dashboard/rakhan-potik-2.jpg" class="ms-img-round" alt="people">
-                      </div>
-                      <div class="media-body ms-chat-user-info mt-1">
-                        <h6>Raymart Sandiago</h6> <a href="#" class="ms-chat-time"> <i class="flaticon-chat"></i> </a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc</p>
-                        <ul class="ms-group-members clearfix mt-3 mb-0">
-                          <li> <img src="../assets/img/dashboard/rakhan-potik-3.jpg" alt="member"> </li>
-                          <li> <img src="../assets/img/dashboard/rakhan-potik-4.jpg" alt="member"> </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="ms-chat-user-container ms-open-chat p-3 media clearfix">
-                      <div class="ms-chat-img mr-3 align-self-center">
-                        <img src="../assets/img/dashboard/rakhan-potik-1.jpg" class="ms-img-round" alt="people">
-                      </div>
-                      <div class="media-body ms-chat-user-info mt-1">
-                        <h6>John Doe</h6> <a href="#" class="ms-chat-time"> <i class="flaticon-chat"></i> </a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc</p>
-                        <ul class="ms-group-members clearfix mt-3 mb-0">
-                          <li> <img src="../assets/img/dashboard/rakhan-potik-2.jpg" alt="member"> </li>
-                          <li> <img src="../assets/img/dashboard/rakhan-potik-3.jpg" alt="member"> </li>
-                          <li> <img src="../assets/img/dashboard/rakhan-potik-4.jpg" alt="member"> </li>
-                          <li class="ms-group-count"> + 4 more </li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <div role="tabpanel" class="tab-pane fade" id="contacts">
-                  <ul class="ms-scrollable ms-quickbar-container">
-                    <li class="ms-chat-user-container ms-open-chat p-3 media clearfix">
-                      <div class="ms-chat-img mr-3 align-self-center">
-                        <img src="../assets/img/dashboard/rakhan-potik-5.jpg" class="ms-img-round" alt="people">
-                      </div>
-                      <div class="media-body ms-chat-user-info mt-1">
-                        <h6>John Doe</h6> <a href="#" class="ms-chat-time"> <i class="flaticon-chat"></i> </a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc</p>
-                      </div>
-                    </li>
-                    <li class="ms-chat-user-container ms-open-chat p-3 media clearfix">
-                      <div class="ms-chat-img mr-3 align-self-center">
-                        <img src="../assets/img/dashboard/rakhan-potik-7.jpg" class="ms-img-round" alt="people">
-                      </div>
-                      <div class="media-body ms-chat-user-info mt-1">
-                        <h6>Raymart Sandiago</h6> <a href="#" class="ms-chat-time"> <i class="flaticon-chat"></i> </a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc</p>
-                      </div>
-                    </li>
-                    <li class="ms-chat-user-container ms-open-chat p-3 media clearfix">
-                      <div class="ms-chat-img mr-3 align-self-center">
-                        <img src="../assets/img/dashboard/rakhan-potik-8.jpg" class="ms-img-round" alt="people">
-                      </div>
-                      <div class="media-body ms-chat-user-info mt-1">
-                        <h6>Micheal John</h6> <a href="#" class="ms-chat-time"> <i class="flaticon-chat"></i> </a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc</p>
-                      </div>
-                    </li>
-                    <li class="ms-chat-user-container ms-open-chat p-3 media clearfix">
-                      <div class="ms-chat-img mr-3 align-self-center">
-                        <img src="../assets/img/dashboard/rakhan-potik-1.jpg" class="ms-img-round" alt="people">
-                      </div>
-                      <div class="media-body ms-chat-user-info mt-1">
-                        <h6>Heather Brown</h6> <a href="#" class="ms-chat-time"> <i class="flaticon-chat"></i> </a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc</p>
-                      </div>
-                    </li>
-                    <li class="ms-chat-user-container ms-open-chat p-3 media clearfix">
-                      <div class="ms-chat-img mr-3 align-self-center">
-                        <img src="../assets/img/dashboard/rakhan-potik-2.jpg" class="ms-img-round" alt="people">
-                      </div>
-                      <div class="media-body ms-chat-user-info mt-1">
-                        <h6>Mila Freign</h6> <a href="#" class="ms-chat-time"> <i class="flaticon-chat"></i> </a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc</p>
-                      </div>
-                    </li>
-                    <li class="ms-chat-user-container ms-open-chat p-3 media clearfix">
-                      <div class="ms-chat-img mr-3 align-self-center">
-                        <img src="../assets/img/dashboard/rakhan-potik-3.jpg" class="ms-img-round" alt="people">
-                      </div>
-                      <div class="media-body ms-chat-user-info mt-1">
-                        <h6>James Zathila</h6> <a href="#" class="ms-chat-time"> <i class="flaticon-chat"></i> </a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc</p>
-                      </div>
-                    </li>
+          
+               
+                      
+                   
+                    
                   </ul>
                 </div>
               </div>
@@ -504,31 +344,14 @@
                 <div class="ms-email-img mr-3 ">
                   <img src="../assets/img/dashboard/rakhan-potik-1.jpg" class="ms-img-round" alt="people">
                 </div>
-                <div class="media-body ms-email-details">
-                  <span class="ms-email-sender">James Zathila</span>
-                  <h6 class="ms-email-subject">[WordPress] New Comment</h6> <span class="ms-email-time">2 Hours ago</span>
-                  <p class="ms-email-msg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc</p>
-                </div>
+               
               </li>
               <li class="p-3  media ms-email clearfix">
-                <div class="ms-email-img mr-3 ">
-                  <img src="../assets/img/dashboard/rakhan-potik-2.jpg" class="ms-img-round" alt="people">
-                </div>
-                <div class="media-body ms-email-details">
-                  <span class="ms-email-sender">John Doe</span>
-                  <h6 class="ms-email-subject">[WordPress] New Comment</h6> <span class="ms-email-time">8 Hours ago</span>
-                  <p class="ms-email-msg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc</p>
-                </div>
+              
+                
               </li>
               <li class="p-3  media ms-email clearfix">
-                <div class="ms-email-img mr-3 ">
-                  <img src="../assets/img/dashboard/rakhan-potik-3.jpg" class="ms-img-round" alt="people">
-                </div>
-                <div class="media-body ms-email-details">
-                  <span class="ms-email-sender">Heather Brown</span>
-                  <h6 class="ms-email-subject">[WordPress] New Comment</h6> <span class="ms-email-time">1 Day ago</span>
-                  <p class="ms-email-msg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc</p>
-                </div>
+               
               </li>
             </ul>
           </div>
@@ -890,11 +713,11 @@
 include "../../../controller/EventC.php";
 include "../../../model/event.php";
 
-if (isset($_GET['id'])){
+if (isset($_GET['Id'])){
     $EventC=new EventC();
-      $result=$EventC->recupererEvent($_GET['id']);
+      $result=$EventC->recupererEvent($_GET['Id']);
     foreach($result as $row){
-      $id=$row['id'];
+      $Id=$row['Id'];
       $Titre=$row['Titre'];
       $Description=$row['Description'];
       $DateD=$row['DateD'];
@@ -912,7 +735,7 @@ if (isset($_GET['id'])){
                 <ol class="breadcrumb pl-0">
                   <li class="breadcrumb-item"><a href="#"><i class="material-icons">home</i> Home</a></li>
                   <li class="breadcrumb-item"><a href="#">boutiques</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">modifier un boutique</li>
+                  <li class="breadcrumb-item active" aria-current="page">modifier un evenement</li>
                 </ol>
               </nav>
             </div>
@@ -927,11 +750,11 @@ if (isset($_GET['id'])){
               <form method="POST"  class="needs-validation clearfix" novalidate="">
                 <div class="form-row">
                   <div class="col-xl-12 col-md-12 ">
-                          <h5>modifier Event</h5><br>
+                          <h5>modifier evenement</h5><br>
 
-               <label>id</label>
+               <label>Id</label>
                   <div class="input-group">
-                       <input type="number" name="id" class="form-control" id="id" placeholder="Entrer l'Id de event"  value="<?PHP echo $id ?>">
+                       <input type="number" name="Id" class="form-control" id="Id" placeholder="Entrer l'Id de evenement"  value="<?PHP echo $Id ?>">
                        <div class="invalid-feedback">
                        </div>
                      </div>
@@ -939,7 +762,7 @@ if (isset($_GET['id'])){
 
               <label>Titre</label>
                 <div class="input-group">
-                  <input type="text" name="Titre" class="form-control" id="Titre" placeholder="Entrer le Titre" value="<?PHP echo $Titre ?>">
+                  <input type="text" name="Titre" class="form-control" id="Nom" placeholder="Entrer le Titre " value="<?PHP echo $Titre ?>">
                   <div class="invalid-feedback">
                   </div>
                 </div>
@@ -953,35 +776,33 @@ if (isset($_GET['id'])){
                   </div>
 
 
-                  <label>Date de Debut</label>
+                  <label>DateD</label>
                   <div class="input-group">
-                    <input type="date" name="DateD" class="form-control" id="DateD" placeholder="Entrer la Date de Debut "value="<?PHP echo $DateD ?>">
+                    <input type="date" name="DateD" class="form-control" id="Gearnt" placeholder="Entrer la DateD "value="<?PHP echo $DateD ?>">
                       <div class="invalid-feedback">
                       </div>
                   </div>
 
                
-                  <label>Date de Fin</label>
+                  <label>DateF</label>
                   <div class="input-group">
-                    <input type="date" name="DateF" class="form-control" id="DateF" placeholder="Entrer la Date de Fin "value="<?PHP echo $DateF ?>" >
+                    <input type="date" name="DateF" class="form-control" id="Description" placeholder="Entrer la DateF "value="<?PHP echo $DateF ?>" >
                       <div class="invalid-feedback">
                       </div>
                   </div>
 
 
-                  <label>Image</label>
-                  <div class="input-group">
-                    <input type="file" name="Image" class="form-control" id="Image" placeholder="Entrer L'Image "value="<?PHP echo $Image ?>" >
-                      <div class="invalid-feedback">
-                      </div>
-                  </div>
+                  
                 
-              
+                  <label for="validationCustom10">Image</label>
+             <div class="input-group">
+              <input type="file" name="Image" class="form-control" value="<?PHP echo $Image ?>">
+            </div>
             
              </div>
 
               <div class="col-md-12">
-              <input type="submit" name="modifier" value="Modifier event!">
+              <input type="submit" name="modifier" value="Modifier evenement!">
               </div>
          
                   </div>
@@ -991,8 +812,8 @@ if (isset($_GET['id'])){
   }
 
 if (isset($_POST['modifier'])){
-  $event = new event($_POST['id'],$_POST['Titre'],$_POST['Description'],$_POST['DateD'],$_POST['DateF'],$_POST['Image']);
-  $eventC->modifierEvent($event,$_POST['id']);
+  $Event=new event($_POST['Id'],$_POST['Titre'],$_POST['Description'],$_POST['DateD'],$_POST['DateF'],$_POST['Image']);
+  $EventC->modifierEvent($Event,$_POST['Id']);
 echo'<script>location.replace("afficherevenement.php")</script>';  
 }
 }?>
