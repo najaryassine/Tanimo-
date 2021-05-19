@@ -1,6 +1,6 @@
 <?php
 
-require_once "../config/config.php";
+require_once "c:/xampp/htdocs/Tanimo-/config/config.php";
 
 class ReclamationRep {
 	

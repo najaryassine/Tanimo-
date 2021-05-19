@@ -1,7 +1,7 @@
 <?php
-set_include_path('C:\xampp\htdocs\front\ali-project-front-mvc\src');
-require_once('model/vetModel.php');
-require 'config/config.php';
+//set_include_path('C:\xampp\htdocs\front\ali-project-front-mvc\src');
+require_once('c:/xampp/htdocs/Tanimo-/model/vetModel.php');
+require_once ('c:/xampp/htdocs/Tanimo-/config/config.php');
 
 class VetController {
     public static function getAllVet() {
@@ -91,3 +91,5 @@ class VetController {
         }
     }
 }
+
+?>

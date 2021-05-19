@@ -53,9 +53,9 @@ else if (isset($_POST['sorttype']))
 }
 
 function afficherRec(){
-		require_once("../model/Reclamation.php");
+		include_once "c:/xampp/htdocs/Tanimo-/model/Reclamation.php";
 
-require_once "c:/xampp/htdocs/Tanimo-/config/config.php";
+include_once "c:/xampp/htdocs/Tanimo-/config/config.php";
 	$cnx = config::getConnexion();
   $req="SELECT * from reclamation";	
  $res= $cnx->query($req) or die($cnx->errorInfo());
@@ -63,7 +63,7 @@ require_once "c:/xampp/htdocs/Tanimo-/config/config.php";
 }
 
 function afficherRecDate(){
-require_once("../model/Reclamation.php");
+require_once("c:/xampp/htdocs/Tanimo-/model/Reclamation.php");
 
 require_once "c:/xampp/htdocs/Tanimo-/config/config.php";
 	$cnx = config::getConnexion();
@@ -73,7 +73,7 @@ require_once "c:/xampp/htdocs/Tanimo-/config/config.php";
 }
 
 function afficherRecType(){
-require_once("../model/Reclamation.php");
+require_once("c:/xampp/htdocs/Tanimo-/model/Reclamation.php");
 
 require_once "c:/xampp/htdocs/Tanimo-/config/config.php";
 	$cnx = config::getConnexion();
@@ -91,7 +91,7 @@ function ajouterRec($reclamation)
 
 function getRec($id)
 {	
-	require_once("../../model/Reclamation.php");
+	require_once("c:/xampp/htdocs/Tanimo-/model/Reclamation.php");
 
 require_once "c:/xampp/htdocs/Tanimo-/config/config.php";
 	$cnx = config::getConnexion();

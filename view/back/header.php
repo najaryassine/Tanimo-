@@ -172,6 +172,18 @@
         <!--  -->
 
 
+        <!-- /gestion des vétérinaires -->
+        <li class="menu-item">
+            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#vétérinaire-page" aria-expanded="false" aria-controls="vétérinaire-page">
+                <span><i class='fa fa-shopping-cart' style='font-size:18px;color:white'></i>Gestion Des Vétérinaires</span>
+            </a>
+            <ul id="vétérinaire-page" class="collapse" aria-labelledby="vétérinaire-page" data-parent="#side-nav-accordion">
+                <li> <a href="vetGestion.php"> Afficher les vétérinaires</a> </li>
+
+            </ul>
+        </li>
+
+
 
 
 

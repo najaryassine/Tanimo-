@@ -9,7 +9,7 @@ if ($_POST) {
   $telephone = $_POST['telephone'];
 
   $name = $_FILES['image']['name'];
-  $target_dir = "../../../../upload/";
+  $target_dir = "../../upload";
   $target_file = $target_dir . basename($_FILES["image"]["name"]);
 
   // Select file type
@@ -29,12 +29,15 @@ if ($_POST) {
   
     // Upload file
     move_uploaded_file($_FILES['image']['tmp_name'],$target_dir.$name);
+      header('Location: vetGestion.php');
   }
-
+    require 'header.php';
 ?>
   <a href="vetGestion.php">Acceuil</a>
 <?php
   echo "veterinaire modifié";
 }
+
+require 'footer.php';
 
 ?>

@@ -44,4 +44,3 @@ if ($_POST) {
 }
 
 require 'footer.php'; ?>
-?>
