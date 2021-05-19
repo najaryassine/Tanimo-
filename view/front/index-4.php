@@ -3,10 +3,7 @@
      <head>
      <title>Contacts</title>
      <meta charset="utf-8">
-<<<<<<< HEAD
 <<<<<<< HEAD:view/front/view/index-4.html
-=======
->>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900
      <link rel="icon" href="../images/favicon.ico">
      <link rel="shortcut icon" href="../images/favicon.ico" />
      <link rel="stylesheet" href="../css/style.css">
@@ -18,7 +15,6 @@
      <script src="../js/jquery.equalheights.js"></script>
      <script src="../js/jquery.easing.1.3.js"></script>
           <script src="../js/jquery.ui.totop.js"></script>
-<<<<<<< HEAD
 =======
      <link rel="icon" href="images/favicon.ico">
      <link rel="shortcut icon" href="images/favicon.ico" />
@@ -32,8 +28,6 @@
      <script src="js/jquery.easing.1.3.js"></script>
           <script src="js/jquery.ui.totop.js"></script>
 >>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900:view/front/index-4.php
-=======
->>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900
 
      <script>
     
@@ -49,7 +43,6 @@
       </div>
     <![endif]-->
     <!--[if lt IE 9]>
-<<<<<<< HEAD
       <script src="js/html5shiv.js"></script>
       <link rel="stylesheet" media="screen" href="css/ie.css">
 
@@ -61,17 +54,10 @@
 	}
 	
 	</style>
-=======
-         <script src="js/html5shiv.js"></script>
-         <link rel="stylesheet" media="screen" href="css/ie.css">
-
-         <![endif]-->
->>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900
      </head>
      <body>
 <!--==============================header=================================-->
  <header> 
-<<<<<<< HEAD
 <<<<<<< HEAD:view/front/view/index-4.html
   <div class="container_12">
     <div class="grid_12"> 
@@ -86,23 +72,12 @@
             <ul class="sf-menu">
                    <li class="current"><a href="index.php">Home</a></li>
                    <li class="with_ul"><a href="index-1.php">About Us </a>
-=======
-  <div class="container_12">
-    <div class="grid_12"> 
-    <h1><a href="index.html"><img src="../images/logo.png" alt="Gerald Harris attorney at law"></a> </h1>
-         <div class="menu_block">
-           <nav  class="" >
-            <ul class="sf-menu">
-                   <li><a href="index.html">Home</a></li>
-                   <li><a href="index-1.html">About Us </a>
->>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900
                      <ul>
                          <li><a href="#"> Testimonials</a></li>
                          <li><a href="#">Archive</a></li>
                      </ul>
                    </li>
                    <li><a href="index-2.php">Services</a></li>
-<<<<<<< HEAD
 <<<<<<< HEAD:view/front/view/index-4.html
                    <li><a href="index-3.html">Blog</a></li>
                    <li class="current"><a href="index-4.html">Contacts </a></li>
@@ -116,24 +91,14 @@
                      </ul>
                    </li>
 >>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900:view/front/index-4.php
-=======
-                   <li><a href="index-3.html">Blog</a></li>
-                   <li class="current"><a href="index-4.html">Contacts </a></li>
->>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900
                  </ul>
               </nav>
            <div class="clear"></div>
            </div>
-<<<<<<< HEAD
 		  <a href="index-6.php"><span id="pr"> <img src="../../picture/<?php echo $_SESSION['picture'];?>"  width="5%"> </span></a>
            <div class="clear"></div>
       </div>
 	  </div>
-=======
-           <div class="clear"></div>
-      </div>
-    </div>
->>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900
 </header>
 
 

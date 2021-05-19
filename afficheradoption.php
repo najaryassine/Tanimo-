@@ -1,60 +1,22 @@
-
-<?php 
-
-
-include_once '../../../model/adoption.php';
+<?php
 include_once '../../../controller/adoptionc.php';
-
-$error = "";
-$adoption = null ; 
-$adoptionc = new adoptionc(); 
-
-
-if( isset($_POST["espece"]) && isset($_POST["race"]) && isset($_POST["age"]) && isset($_POST["sexe"]) && isset($_POST["region"]) )
-{
- if (! empty($_POST["espece"]) && ! empty($_POST["race"]) && ! empty($_POST["age"]) && ! empty($_POST["sexe"]) && ! empty($_POST["region"] ) )
- { if (isset($_FILES['img'])) {
-  $photos = $_FILES['img']['name'];
-            $upload = "up/" . $photos;
-           move_uploaded_file($_FILES['img']['tmp_name'], $upload);
-
-            
-
-
-  $adoption = new adoption ($_POST["espece"] , $_POST["race"], $_POST["age"] , $_POST["sexe"], $_POST["region"],$photos);
-   $adoptionc->ajouterAdoption($adoption) ;
-   header('Location:afficheradoption.php');
-
- }
-  else
-    $error = "missing ";
- }
+$adoptionc = new adoptionc();
+$listAdoption=$adoptionc->afficheradoption();
+if (isset($_GET['key'])){
+  $listAdoption = $adoptionc->rechercherAdop($_GET['key']);
 }
 
 ?>
 
+
+
 <!DOCTYPE html>
-
 <html lang="en">
+
+
+<!-- Mirrored from slidesigma.com/themes/html/greendash/pages/product/product-grid.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 14 Apr 2020 10:13:35 GMT -->
 <head>
- <style >  
-  .select {
-  padding: 8px 12px ; 
- color: #333333;
-background-color: #eeeeee;
-border: 1px solid #dddddd;
-cursor: pointer;
-border-radius:  5px ; 
-background-size: 10px;
-padding-right: 90px;
 
-
-}
- 
-
-
- 
-  </style>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -77,35 +39,7 @@ padding-right: 90px;
 
 <body class="ms-body ms-aside-left-open ms-primary-theme ">
 
-<script>
-function myFunction(s1,s2)
-{
-var s1= document.getElementById(s1);
-var s2= document.getElementById(s2);
-s2.innerHTML= ""; 
-if(s1.value == "chien" ) 
-{
-var optionArray = ['berge|Berge','doberman|Doberman', 'caniche|Caniche' , 'rottweiller|Rottweiler'];
 
-}
-if(s1.value == "chat" ) 
-{
-var optionArray = ['british|British','persan|Persan' , 'ragdoll|Ragdoll'];
-
-}
-
- for( var option in optionArray)
- {var pair =optionArray[option].split("|");
- 
- var newoption = document.createElement("option");
- newoption.value = pair[0];
- newoption.innerHTML=pair[1];
- s2.options.add(newoption);
- 
- }
-
-}
-</script>
 
   <!-- Preloader -->
   <div id="preloader-wrap">
@@ -971,8 +905,15 @@ var optionArray = ['british|British','persan|Persan' , 'ragdoll|Ragdoll'];
    <!--            xttttttt          -->
 
 
+<h1> afficher les adoptions </h1>
+ 
 
-<form action="ajouteradoption.php" method="POST" enctype="multipart/form-data" >
+
+
+
+        <div class="ms-content-wrapper"  >
+          <div class="row">
+
                 <div class="col-md-12" >
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb pl-0">
@@ -980,95 +921,85 @@ var optionArray = ['british|British','persan|Persan' , 'ragdoll|Ragdoll'];
                     </ol>
                   </nav>
                 </div>
+                <div>
 
 
-            <div class="col-xl-6 col-md-12"  >
-              <div class="ms-panel ms-panel-fh" style="width:1000px ; margin-left: 120px;"  >
-                
-              </div>
-            </div>
-
-            <div class="col-xl-6 col-md-12"  >
-              <div class="ms-panel ms-panel-fh" style="width:1000px ; margin-left: 120px;"  >
-                <div class="ms-panel-body"  >
-                  <form class="needs-validation clearfix" enctype="multipart/form-data">
-                    <div class="form-row">
-                      <div class="col-xl-12 col-md-12 ">
-                              <h5>Ajout une adoption </h5>
-                              <br>
-   <pre>
-
- <label for="validationCustom10">Espece</label> 
-   <select   class="select" id="mySelect1"   name="espece"    onchange="myFunction(this.id,'race')">
-  <option  value="chien">chien</option>
-  <option    value="chat">chat</option>
-  <option  value="oiseau">oiseau</option>
- 
-</select>
-</pre>
-<br>
- <pre>
-  <label for="validationCustom10">Race</label>  
-    <select class="select"  name="race"  id="race">
-
- 
-</select>
-</pre>
-<br>
-
-
-
-                   
-                       
-<pre>
-<label for="validationCustom10">sexe</label>       <input type="radio" name="sexe"  value="feminin">feminin      <input type="radio" name="sexe"  value="mascul"> mascul  </div> </pre>
-
-
-
-                 
-                   <br>
-                   <pre>
-<label for="validationCustom10">age</label>       <input type="radio" name="age"  value="BéBé">BéBé      <input type="radio" name="age"  value="junior"> junior  <input type="radio" name="age"  value="Adulte"> Adulte  <input type="radio" name="age"  value="Senior"> Senior </div> </pre>
-
-
- <br>
-   <pre> <label for="validationCustom10">Region</label>   <select   class="select"     name="region"     ">
-  <option  value="Tunis">tunis</option>
-  <option    value="sfax">Sfax</option>
-  <option  value="mednine">Mednine</option>
- 
-</select>
-</pre>
-                      
-
-                    <br>
-                       <div class="input-group">
-                       <label for="img">Image pour l'article</label>
-                     
-                      <input type="file" name="img" class="form-control" id="img" required="required"  accept="image/png, image/jpeg">
-
-                    </div>  
-                      
-                    
-                    
-                   
-                  
-                
-                  
-                  
-                
-                 
-                    <button class="btn btn-dark mr-2  ms-graph-metrics">Vider</button>
-                    <button class="btn btn-primary " name="upload" type="submit">Ajouter</button>
-                  </div>
-             
+<button> <a href="ajouteradoption.php"></button>
+  <hr>
+  <form>
+                    <tr>
+                      <td>
+<div align="center"><input  type="text" name="key" class="col-x1"  placeholder="Search....">
+                    <button type="submit">Search</button>
                       </div>
-                    </div>
-                  </form>
-                </div>
+                      </td>
+                      </tr>
+                      </form>
+  <table border="1" align="center">
+    <tr>  <td>
+      
+
+      
+    </td></tr>
+    <tr> <th> Id </th>
+<th>espece</th>
+<th>race</th>
+<th> sexe</th>
+<th>age</th>
+<th> region </th>
+<th>Image</th>
+<th> supprimer </th>
+<th> modifier</th>
+  
+
+
+    </tr>
+    <?php 
+
+foreach ($listAdoption as $adop) :
+  
+
+  ?>
+  <tr> 
+<td> <?php  echo $adop['id']  ; ?> </td>
+<td> <?php  echo $adop['espece']  ; ?> </td>
+<td> <?php  echo $adop['race']  ; ?> </td>
+<td> <?php  echo $adop['age']  ; ?> </td>
+<td> <?php  echo $adop['sexe']  ; ?> </td>
+<td> <?php  echo $adop['region']  ; ?> </td>
+<td> <img src="up/<?PHP echo $adop['image']; ?>" alt="aaaa"> </td>
+
+<td> 
+  <form method="POST" action="supprimerAdoption.php">
+<input type="submit" name="supprimer" value="supprimer" class="btn btn-danger">
+ <input type="hidden" value=<?PHP echo $adop['id']; ?> name="id">
+
+</form>
+
+</td>
+
+
+<td>
+   <a href="modifierAdop.php?id=<?PHP echo $adop['id']; ?>"> Modifier </a>
+          </td>
+
+
+  </tr>
+<?php endforeach; ?>
+
+
+    
+  </table>
+
+
+            <div class="col-xl-6 col-md-12">
+              <div class="ms-panel ms-panel-fh" style="width:1000px ; margin-left: 120px;"  >
+                
               </div>
             </div>
-</form>
+          </div>
+        </div> 
+
 
 
 

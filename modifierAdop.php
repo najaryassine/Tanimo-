@@ -1,60 +1,51 @@
-
-<?php 
-
-
-include_once '../../../model/adoption.php';
+<?php
+require_once 'C:/xampp/htdocs/monprojet/Tanimo--master/config/config.php';
 include_once '../../../controller/adoptionc.php';
+include_once '../../../model/adoption.php';
+ 
+  $error="";
+$adoptionc = new adoptionc();
+ if(isset($_GET['id'])) {
+$oldadoption = $adoptionc->recupererAdoption($_GET['id']);}
+var_dump('cccc');
+var_dump($oldadoption['espece']);
 
-$error = "";
-$adoption = null ; 
-$adoptionc = new adoptionc(); 
+if(isset($_POST['modifier']))
+{  
+ 
+ $check=$_FILES["img1"]["tmp_name"];
+ if($_FILES['img1']['size'] !==0)
+ {
+ $uploaddir = "up/";
+ $uploadfile = $uploaddir . basename($_FILES['img1']['name']);
+  move_uploaded_file($_FILES['img1']['tmp_name'], $uploadfile);
+    $image = $_FILES['img1']['name'];
 
-
-if( isset($_POST["espece"]) && isset($_POST["race"]) && isset($_POST["age"]) && isset($_POST["sexe"]) && isset($_POST["region"]) )
-{
- if (! empty($_POST["espece"]) && ! empty($_POST["race"]) && ! empty($_POST["age"]) && ! empty($_POST["sexe"]) && ! empty($_POST["region"] ) )
- { if (isset($_FILES['img'])) {
-  $photos = $_FILES['img']['name'];
-            $upload = "up/" . $photos;
-           move_uploaded_file($_FILES['img']['tmp_name'], $upload);
-
-            
-
-
-  $adoption = new adoption ($_POST["espece"] , $_POST["race"], $_POST["age"] , $_POST["sexe"], $_POST["region"],$photos);
-   $adoptionc->ajouterAdoption($adoption) ;
-   header('Location:afficheradoption.php');
-
- }
-  else
-    $error = "missing ";
- }
+}else {$image = $oldadoption["image"];}
+    $adoption = new adoption($_POST['espece'],$_POST['race'],$_POST['age'],$_POST['sexe'],$_POST['region'],$image);
+    $id= $oldadoption['id'];
+    $adoptionc->modifierAdoption($adoption, $id);
+   
+     var_dump($_POST['espece']);
+  
 }
+ 
+
+
+ 
 
 ?>
 
+
+
 <!DOCTYPE html>
-
 <html lang="en">
+
+
+ 
+<!-- Mirrored from slidesigma.com/themes/html/greendash/pages/product/product-grid.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 14 Apr 2020 10:13:35 GMT -->
 <head>
- <style >  
-  .select {
-  padding: 8px 12px ; 
- color: #333333;
-background-color: #eeeeee;
-border: 1px solid #dddddd;
-cursor: pointer;
-border-radius:  5px ; 
-background-size: 10px;
-padding-right: 90px;
 
-
-}
- 
-
-
- 
-  </style>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -76,6 +67,8 @@ padding-right: 90px;
 
 
 <body class="ms-body ms-aside-left-open ms-primary-theme ">
+ 
+  
 
 <script>
 function myFunction(s1,s2)
@@ -105,7 +98,9 @@ var optionArray = ['british|British','persan|Persan' , 'ragdoll|Ragdoll'];
  }
 
 }
+    
 </script>
+
 
   <!-- Preloader -->
   <div id="preloader-wrap">
@@ -390,7 +385,7 @@ var optionArray = ['british|British','persan|Persan' , 'ragdoll|Ragdoll'];
                   </ul>
                 </div>
               </div>
-              <form class="ms-form my-3" method="post">
+              <form class="ms-form my-3" method="POST">
                 <div class="ms-form-group my-0 mb-0 has-icon fs-14">
                   <input type="search" class="ms-form-input w-100" name="search" placeholder="Search for People and Groups" value="">
                   <i class="flaticon-search text-disabled"></i>
@@ -621,7 +616,7 @@ var optionArray = ['british|British','persan|Persan' , 'ragdoll|Ragdoll'];
         <div role="tabpanel" class="tab-pane" id="qa-toDo">
           <div class="ms-quickbar-container ms-todo-list-container ms-scrollable">
 
-            <form class="ms-add-task-block">
+            <form method="POST" class="ms-add-task-block">
               <div class="form-group mx-3 mt-0  fs-14 clearfix">
                 <input type="text" class="form-control fs-14 float-left" id="task-block" name="todo-block" placeholder="Add Task Block" value="">
                 <button type="submit" class="ms-btn-icon bg-primary float-right"><i class="material-icons text-disabled">add</i></button>
@@ -850,7 +845,7 @@ var optionArray = ['british|British','persan|Persan' , 'ragdoll|Ragdoll'];
           <div class="ms-quickbar-container text-center ms-invite-member">
             <i class="flaticon-network"></i>
             <p>Invite Team Members</p>
-            <form>
+            <form method="POST">
               <div class="ms-form-group">
                 <input type="text" placeholder="Member Email" class="form-control" name="invite-email" value="">
               </div>
@@ -880,7 +875,7 @@ var optionArray = ['british|British','persan|Persan' , 'ragdoll|Ragdoll'];
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
 
-        <form>
+        <form method="POST">
 
           <div class="modal-body">
 
@@ -928,7 +923,185 @@ var optionArray = ['british|British','persan|Persan' , 'ragdoll|Ragdoll'];
       </div>
     </div>
   </div>
+   <!-- modifier adop -->
 
+
+   <button><a href="afficheradoption.php">Retour à la liste</a></button>
+   <div> <?php echo $error; ?> </div>
+   
+
+    <form  action="" method="POST" enctype="multipart/form-data">
+      <table align="center">
+        <tr>
+          
+<td >
+<label for="id"> Id :</label>
+</td>
+
+  <td>
+  <input type="text" name="id"  id="id" value="<?php echo $oldadoption['id'];?>" disabled> 
+<?php echo $oldadoption['id'];   ?>
+</td>
+
+ </tr>
+
+
+
+
+ <tr>  <td><label for="validationCustom10">Espece</label> </td>
+  <td> <select   class="select"   id="espece" name="espece"    onchange="myFunction(this.id,'race')">
+    <option  value="<?php echo $oldadoption['espece'];?> "><?php echo $oldadoption['espece'];?></option>
+  <option  value="chien">chien</option>
+  <option    value="chat">chat</option>
+  <option  value="oiseau">oiseau</option> 
+ 
+</select>
+
+</td>
+ </tr>
+  
+ <tr>
+     <td> <label for="validationCustom10">Race</label>  </td>
+   <td> <select   id="race"  name="race"  >
+        <option  value=" <?php echo $oldadoption['race'];?>"><?php echo $oldadoption['race'];?></option> 
+<option>
+  
+
+</option>
+
+ 
+</select>
+
+</td>
+
+ </tr>
+        
+<tr>
+<td> <label >sexe</label>    </td>
+ <td> <input type="radio" name="sexe"  value="mascul"
+ <?php
+if($oldadoption['sexe']=='mascul')
+{
+echo"checked";
+
+}
+?> >  mascul
+ </td>
+<td><input type="radio" name="sexe" id="sexe"   value="feminin"
+ <?php
+if($oldadoption['sexe']=='feminin')
+{
+echo"checked";
+
+} 
+?> >feminin  </td>
+</tr>
+
+       
+
+<tr>
+  
+<td> <label> age</label></td>
+<td><input type="radio" name="age"    value="BéBé"
+ <?php
+if($oldadoption['age']=='BéBé')
+{
+echo"checked";
+
+} 
+?> >bebe  </td>
+<td><input type="radio" name="age"    value="junior"
+ <?php
+if($oldadoption['age']=='junior')
+{
+echo"checked";
+
+} 
+?> >junior </td>
+
+
+ 
+  
+ 
+<td><input type="radio" name="age"   value="Adulte"
+ <?php
+if($oldadoption['age']=='Adulte')
+{
+echo"checked";
+
+} 
+?> >adulte  </td>
+
+<td><input type="radio" name="age"    value="senior"
+ <?php
+if($oldadoption['age']=='senior')
+{
+echo"checked";
+
+} 
+?> >senior </td>
+
+</tr>
+
+
+<tr>
+  <td>
+    
+
+
+  <label> region</label>
+  </td>
+  <td>
+    
+<select class="select"  name="region"   >
+        <option  value="<?php echo $oldadoption['region'];?> "><?php echo $oldadoption['region'];?></option>
+        <option  value=" tunis"> Tunis </option> 
+          <option  value=" sfax"> sfax </option> 
+<option>
+  
+
+  </td>
+
+
+
+</tr>
+ </table>
+ <br>
+ <table  align="center">
+  <td>
+    
+  <label for="img">Image pour l'article</label> </td>
+  <td>
+  <input type="file" name="img1" id="img1" class="form-control"  required="required"  accept="image/png, image/jpeg"  >   
+
+  </td>
+
+
+</tr>
+  
+ <tr> 
+  <td><input type="submit" value="modifier" name="modifier">   </td>
+
+<td>
+  <input type="reset" value="Annuler">   
+ </td>
+
+ </tr>
+ </table>
+ 
+
+
+
+     
+      
+
+
+    </form>
+  <?php  
+
+
+
+  ?>
   <!-- Notes Modal -->
   <div class="modal fade" id="notes-modal" tabindex="-1" role="dialog" aria-labelledby="notes-modal">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -972,110 +1145,7 @@ var optionArray = ['british|British','persan|Persan' , 'ragdoll|Ragdoll'];
 
 
 
-<form action="ajouteradoption.php" method="POST" enctype="multipart/form-data" >
-                <div class="col-md-12" >
-                  <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb pl-0">
-                      <li class="breadcrumb-item"><a href="#"><i class="material-icons">home</i> Home</a></li>
-                    </ol>
-                  </nav>
-                </div>
-
-
-            <div class="col-xl-6 col-md-12"  >
-              <div class="ms-panel ms-panel-fh" style="width:1000px ; margin-left: 120px;"  >
-                
-              </div>
-            </div>
-
-            <div class="col-xl-6 col-md-12"  >
-              <div class="ms-panel ms-panel-fh" style="width:1000px ; margin-left: 120px;"  >
-                <div class="ms-panel-body"  >
-                  <form class="needs-validation clearfix" enctype="multipart/form-data">
-                    <div class="form-row">
-                      <div class="col-xl-12 col-md-12 ">
-                              <h5>Ajout une adoption </h5>
-                              <br>
-   <pre>
-
- <label for="validationCustom10">Espece</label> 
-   <select   class="select" id="mySelect1"   name="espece"    onchange="myFunction(this.id,'race')">
-  <option  value="chien">chien</option>
-  <option    value="chat">chat</option>
-  <option  value="oiseau">oiseau</option>
  
-</select>
-</pre>
-<br>
- <pre>
-  <label for="validationCustom10">Race</label>  
-    <select class="select"  name="race"  id="race">
-
- 
-</select>
-</pre>
-<br>
-
-
-
-                   
-                       
-<pre>
-<label for="validationCustom10">sexe</label>       <input type="radio" name="sexe"  value="feminin">feminin      <input type="radio" name="sexe"  value="mascul"> mascul  </div> </pre>
-
-
-
-                 
-                   <br>
-                   <pre>
-<label for="validationCustom10">age</label>       <input type="radio" name="age"  value="BéBé">BéBé      <input type="radio" name="age"  value="junior"> junior  <input type="radio" name="age"  value="Adulte"> Adulte  <input type="radio" name="age"  value="Senior"> Senior </div> </pre>
-
-
- <br>
-   <pre> <label for="validationCustom10">Region</label>   <select   class="select"     name="region"     ">
-  <option  value="Tunis">tunis</option>
-  <option    value="sfax">Sfax</option>
-  <option  value="mednine">Mednine</option>
- 
-</select>
-</pre>
-                      
-
-                    <br>
-                       <div class="input-group">
-                       <label for="img">Image pour l'article</label>
-                     
-                      <input type="file" name="img" class="form-control" id="img" required="required"  accept="image/png, image/jpeg">
-
-                    </div>  
-                      
-                    
-                    
-                   
-                  
-                
-                  
-                  
-                
-                 
-                    <button class="btn btn-dark mr-2  ms-graph-metrics">Vider</button>
-                    <button class="btn btn-primary " name="upload" type="submit">Ajouter</button>
-                  </div>
-             
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-</form>
-
-
-
-
- <!--            xttttttt          -->
-
-
 
   <!-- SCRIPTS -->
   <!-- Global Required Scripts Start -->
@@ -1095,4 +1165,7 @@ var optionArray = ['british|British','persan|Persan' , 'ragdoll|Ragdoll'];
 
 
 <!-- Mirrored from slidesigma.com/themes/html/greendash/pages/product/product-grid.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 14 Apr 2020 10:13:48 GMT -->
+</html>
+</main>
+</body>
 </html>

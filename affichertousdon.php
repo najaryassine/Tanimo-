@@ -8,8 +8,10 @@ include_once '../../controller/donC.php';
 $donC=new donC();
 $listeDon=$donC->afficherDon();
 
-$don = null ; 
-$donC = new donC(); 
+if (isset($_GET['key'])){
+  $listeDon = $donC->rechercherdon($_GET['key']);
+}
+  
 
 ?>
 
@@ -70,7 +72,7 @@ margin:auto;
 
 border : none;
 appearance: none;
-background : #f2f2f2;
+background : #ADD8E6;
 padding: 12px;
 border-radius: 3px;
 width: 150px;
@@ -91,6 +93,37 @@ display: inline-block;
 font-size: 16px;
 margin:4px 2px;
 border-radius: 2rem;
+
+  }
+    .tableau-style{
+
+border-collapse: collapse;
+min-width: 400px;
+width: auto;
+box-shadow: 0 5px 5px rgba(0,0,0,0.15);
+cursor: pointer;
+margin: 100px auto;
+border : 2px solid midnightblue;
+
+
+  }
+  thead tr {
+
+background-color: midnightblue;
+color: #F0FFFF;
+text-align: left;
+
+
+
+  }
+  th,td
+  {
+padding: 15px 20px;
+
+
+  }
+  tbody tr, td, th {
+border : 1px solid #ddd;
 
   }
 </style>
@@ -223,72 +256,83 @@ height: 'auto',
  </div> 
   
 <!--=======afficher les dons ================================-->
-
+ <form>
+                    <tr>
+                      <td>
+<div align="center"><input  type="text" name="key" class="col-x1"  placeholder="Search....">
+                    <button type="submit">Search</button>
+                      </div>
+                      </td>
+                      </tr>
+                      </form>
  
- <table border="1" align="center">
- 
-<th>type</th>
-<th>sexe</th>
 
 
 
 
-<th> couleur</th>
-<th>pelage</th>
- 
-<th>age</th>
-<th>race</th>
-<th>image</th>
-<th> supprimer </th>
- 
-  
 
+<!--=======afficher   ================================-->
+ <?php 
 
-    </tr>
-    <?php 
-
-foreach ($listeDon as $don) {
+ foreach ($listeDon as $don) {
   
 
   ?>
-  <tr>  
-<td> <?php  echo $don['type']  ; ?> </td>
-<td> <?php  echo $don['sexe']  ; ?> </td>
-<td> <?php  echo $don['couleur']  ; ?> </td>
-<td> <?php  echo $don['pelage']  ; ?> </td>
-<td> <?php  echo $don['age']  ; ?> </td>
-<td> <?php  echo $don['race']  ; ?> </td>
 
-<td> <img src="updon/<?PHP echo $don['image']; ?>" alt="aaaa"> </td>
+ <table class="tableau-style">
+      
 
-<td> 
-  <form method="POST" action="afficherCont.php">
+
+<thead>
+  <tr>
+    <th>
+      Type
+    </th>
+    <th> sexe</th>
+    <th>couleur</th>
+    <th> pelage </th>
+    <th> age </th> 
+    <th> race </th>
+    <th> image </th>
+    <th>contacter </th>
+
+
+  </tr>
+
+
+
+</thead>
+<tbody>
+  
+<tr>
+  
+<td>  <?php  echo $don['type']  ; ?></td>
+<td><?php  echo $don['sexe']  ; ?> </td>
+ <td> <?php  echo $don['couleur']  ; ?></td>
+ <td> <?php  echo $don['pelage']  ; ?></td>
+ <td>  <?php  echo $don['age']  ; ?>  </td>
+ <td> <?php  echo $don['race']  ; ?>  </td>
+ <td><img src="updon/<?PHP echo $don['image']; ?>" alt="aaaa" width="200"></td>
+ <td><form method="POST" action="afficherCont.php">
 <input type="submit" name="contacter" value="contacter">
 <input type="hidden" value = <?php  echo $don['id']; ?> name="id">
 
-</form>
+</form></td>
 
-</td>
+</tr>
 
 
- 
+</tbody>
 
-  </tr>
-  <?php 
+
+
+
+
+   </table>
+     <?php 
 }
 
 ?>
-
-
-    
-  </table>
-
- 
-
-
-
-
-
 <!--==============================footer=================================-->
 
 <footer>    

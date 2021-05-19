@@ -75,7 +75,6 @@ height: 'auto',
          <link rel="stylesheet" media="screen" href="css/ie.css">
 
          <![endif]-->
-<<<<<<< HEAD
 		 <style>
 	
 	#pr {
@@ -83,15 +82,12 @@ height: 'auto',
 	}
 	
 	</style>
-=======
->>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900
      </head>
      <body  class="page1">
 <!--==============================header=================================-->
  <header> 
   <div class="container_12">
     <div class="grid_12"> 
-<<<<<<< HEAD
 <<<<<<< HEAD:view/front/view/index.html
     <h1><a href="index.html"><img src="../images/logo.png" alt="Gerald Harris attorney at law"></a> </h1>
 =======
@@ -102,21 +98,12 @@ height: 'auto',
             <ul class="sf-menu">
                    <li class="current"><a href="index.php">Home</a></li>
                    <li class="with_ul"><a href="index-1.php">About Us </a>
-=======
-    <h1><a href="index.html"><img src="../images/logo.png" alt="Gerald Harris attorney at law"></a> </h1>
-         <div class="menu_block">
-           <nav  class="" >
-            <ul class="sf-menu">
-                   <li class="current"><a href="index.html">Home</a></li>
-                   <li class="with_ul"><a href="index-1.html">About Us </a>
->>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900
                      <ul>
                          <li><a href="#"> Testimonials</a></li>
                          <li><a href="#">Archive</a></li>
                      </ul>
                    </li>
                    <li><a href="index-2.php">Services</a></li>
-<<<<<<< HEAD
 <<<<<<< HEAD:view/front/view/index.html
                    <li><a href="index-3.html">Blog</a></li>
                    <li><a href="index-4.html">Contacts </a></li>
@@ -130,18 +117,11 @@ height: 'auto',
                      </ul>
                    </li>
 >>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900:view/front/index.php
-=======
-                   <li><a href="index-3.html">Blog</a></li>
-                   <li><a href="index-4.html">Contacts </a></li>
->>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900
                  </ul>
               </nav>
            <div class="clear"></div>
            </div>
-<<<<<<< HEAD
 		   <a href="index-6.php"><span id="pr"> <img src="../../picture/<?php echo $_SESSION['picture'];?>"  width="5%"> </span></a>
-=======
->>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900
            <div class="clear"></div>
       </div>
     </div>

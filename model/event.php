@@ -10,7 +10,11 @@
 
         
         
+<<<<<<< HEAD
+        function __construct($Id, $Titre, $Description, $DateD, $DateF, $Image){
+=======
         function __construct($Id,$Titre,$Description,$DateD,$DateF,$Image){
+>>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900
             
             $this->Id=$Id;
             $this->Titre=$Titre;
@@ -21,7 +25,11 @@
             
         }
         
+<<<<<<< HEAD
+      function getId() {
+=======
       function getid() {
+>>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900
             return $this->Id;
         }
        function getTitre() {
@@ -42,8 +50,13 @@
         
 
         
+<<<<<<< HEAD
+       function setId($Id) {
+            $this->Id=$Id;
+=======
        function setid($Id) {
             $this->id=$id;
+>>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900
         }
        function setTitre($Titre) {
             $this->Titre=$Titre;

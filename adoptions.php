@@ -1,26 +1,19 @@
-<?php 
 
+<?php
 
-include "C:/xampp/htdocs/monprojet/Tanimo--master/controller/donC.php";
-include "C:/xampp/htdocs/monprojet/Tanimo--master/controller/UtilisateurC.php";
-$donC= new donC();
-
-$don = $donC-> recupererdon($_POST["id"]);
-var_dump($don['id_u']);
-$userc = new UtilisateurC();
-$id1=$don['id_u'] ; 
- 
-$listuser = $userc->afficherUser($id1);
- 
-var_dump("sss");
+include_once 'C:/xampp/htdocs/monprojet/Tanimo--master/controller/adoptionc.php';
+include_once 'C:/xampp/htdocs/monprojet/Tanimo--master/model/adoption.php';
+$adoptionc = new adoptionc();
+$listAdoption=$adoptionc->afficheradoption();
+if (isset($_GET['key'])){
+  $listAdoption = $adoptionc->rechercherAdop($_GET['key']);
+}
+if (isset($_GET['key1'])){
+  $listAdoption = $adoptionc->trierreg();
+}
 
 
 ?>
-
-
-
-
- 
 
 
 
@@ -30,7 +23,7 @@ var_dump("sss");
 <style type="text/css">
   
   .main{
-
+background-color: rgd(0,0,0,0.5);
 width: 800px;
 margin:auto;
 
@@ -64,7 +57,27 @@ margin:4px 2px;
 border-radius: 2rem;
 
   }
-  .tableau-style{
+  .content-table{
+border-collapse: collapse;
+margin: 25px 0;
+font-size: 0.6cm;
+min-width: 400px;
+
+
+
+  }
+  .content-table thead tr {
+  	background-color: #009879;
+  	color: #ffffff;
+  	text-align: left;
+  	font-weight: bold;
+
+  }
+  .content-table th ,
+  .content-table td {
+  	padding: 12px 15px; 
+  }
+    .tableau-style{
 
 border-collapse: collapse;
 min-width: 400px;
@@ -175,109 +188,53 @@ height: 'auto',
      </head>
      <body  class="page1">
 <!--==============================header=================================-->
- <header> 
-  <div class="container_12">
-    <div class="grid_12"> 
-    <h1><a href="index.html"><img src="images/logo.png" alt="Gerald Harris attorney at law"></a> </h1>
-         <div class="menu_block">
-           <nav  class="" >
-            <ul class="sf-menu">
-                   <li class="current"><a href="index.html">Home</a></li>
-                   <li class="with_ul"><a href="index-1.html">About Us </a>
-                     <ul>
-                         <li><a href="#"> Testimonials</a></li>
-                         <li><a href="#">Archive</a></li>
-                     </ul>
-                   </li>
-                   <li><a href="index-2.html">Services</a></li>
-                   <li><a href="index-3.html">Blog</a></li>
-                   <li><a href="index-4.html">Contacts </a></li>
-                   <li><a href="index5.php">don </a></li>
-                 </ul>
-              </nav>
-           <div class="clear"></div>
-           </div>
-           <div class="clear"></div>
-      </div>
-    </div>
-</header>
-<div class="top_block">
- <div class="slider-relative">
-    <div class="slider-block">
-      <div class="slider">
-        <ul class="items">
-          <li><img src="images/slide.jpg" alt="">
-            <div class="banner">They Need  Your <span>Love</span> and <i>Care</i><p>It is so easy to make them happy</p></div>
-          </li>
-          <li><img src="images/slide1.jpg" alt="">
-            <div class="banner">They Need  Your <span>Love</span> and <i>Care</i><p>It is so easy to make them happy</p></div>
-          </li>
-          <li><img src="images/slide2.jpg" alt="">
-            <div class="banner">They Need  Your <span>Love</span> and <i>Care</i><p>It is so easy to make them happy</p></div>
-          </li>
-          <li><img src="images/slide3.jpg" alt="">
-            <div class="banner">They Need  Your <span>Love</span> and <i>Care</i><p>It is so easy to make them happy</p></div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<form method="GET">
 
- </div> 
-  
-<!--=======content================================-->
 
- 
- 
+<div align="center"><input  type="text" name="key" class="col-x1"  placeholder="Search....">
+<button type="submit">Search</button> <br>
 
- 
-    <h2>contacte</h2>
-
- 
-                <?PHP
-                foreach($listuser as $user) :
-                ?>
-                 
-     <table class="tableau-style">
-     	<thead>
-     	<tr> <th> nom </th>
-     		<th> prenom</th>
-     		<th> email </th>
-        <th> numero </th>
-        <th> ville </th>
-     	</tr>
-     		</thead>
-     		<tbody> 
-     		 <td><?PHP    echo    $user['nom']; ?> </td>
-     		 <td><?PHP    echo    $user['prenom']; ?> </td>
-     		 <td> <?PHP    echo    $user['email']; ?> </td>
- <td> <?PHP    echo    $user['numero']; ?> </td>
-           <td> <?PHP    echo    $user['ville']; ?> </td>
+<button type="submit" name="key1">trier selon l'ordre alphabétique de region  </button> <br>
 
 
 
 
-
-     		</tbody>
-     </table> 
-     
-     
-       
-    
-
-            
- 
-            
-             
-
-                <?php endforeach; ?>
+                    </form>
    
- 
- 
- 
- 
+      
+
+<!--==============================afficher adop=================================-->
+
+<table  class="tableau-style" border="1" align="center">
+	<tr>  <th> espece</th>
+
+<th> race </th>
+<th> sexe </th>
+<th> age </th>
+<th> region </th>
+<th> image </th>
+
+	</tr>
+
+	<?php
+foreach ($listAdoption as $adop ) :
+
+	 
+?>
+<tr></tr>
+<td> <?php  echo $adop['espece'];  ?></td>
+<td> <?php   echo $adop['race'];        ?></td>
+<td> <?php   echo $adop['sexe'];        ?></td>
+<td> <?php   echo $adop['age'];        ?></td>
+<td> <?php   echo $adop['region'];        ?></td>
+<td> <img src="../back/adoption/up/<?PHP  echo $adop['image'];   ?>"    alt="aaaa" width="300px" height="200px"></td>
 
 
+	
+</tr>
+<?php endforeach; ?>
+</table>
+<!--==============================ajouter don=================================-->
 
 
 <!--==============================footer=================================-->
@@ -299,3 +256,6 @@ height: 'auto',
 </footer>
 </body>
 </html>
+
+
+
