@@ -1,5 +1,6 @@
 <?php
-include "C:/wamp/www/pro/config/config.php";
+require_once 'c:/xampp/htdocs/Tanimo-/config/config.php';
+require_once 'c:/xampp/htdocs/Tanimo-/model/event.php';
 
 
   class EventC

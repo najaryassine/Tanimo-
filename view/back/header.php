@@ -118,6 +118,60 @@
         </li>
 
 
+        <!-- gestion des boutique-->
+        <li class="menu-item">
+            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#Boutique-page" aria-expanded="false" aria-controls="Boutique-page">
+                <span><i class='far fa-clipboard' style='font-size:18px;color:white'></i>Gestion Des boutiques</span>
+            </a>
+            <ul id="Boutique-page" class="collapse" aria-labelledby="Boutique-page" data-parent="#side-nav-accordion">
+                <li> <a href="boutique.php">Ajouter Une boutique</a> </li>
+                <li> <a href="afficherBoutique.php"> Afficher les boutique</a> </li>
+
+            </ul>
+        </li>
+        <!-- -->
+
+
+
+        <!-- gestion evenement -->
+        <li class="menu-item">
+            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#Evenement-page" aria-expanded="false" aria-controls="Evenement-page">
+                <span><i class='fas fa-plus-circle' style='font-size:16px;color:white'></i>Gestion Des evenements</span>
+            </a>
+            <ul id="Evenement-page" class="collapse" aria-labelledby="Evenement-page" data-parent="#side-nav-accordion">
+                <li> <a href="evenement.php">Ajouter Un evenement</a> </li>
+                <li> <a href="afficherevenement.php"> Afficher les evenements</a> </li>
+
+            </ul>
+        </li>
+
+
+
+        <!-- /gestion des utilisateurs -->
+        <li class="menu-item">
+            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#utilisateur-page" aria-expanded="false" aria-controls="utilisateur-page">
+                <span><i class='fa fa-shopping-cart' style='font-size:18px;color:white'></i>Gestion Des Utilisateurs</span>
+            </a>
+            <ul id="utilisateur-page" class="collapse" aria-labelledby="utilisateur-page" data-parent="#side-nav-accordion">
+                <li> <a href="utilisateur.php"> Afficher les utilisateurs</a> </li>
+
+            </ul>
+        </li>
+
+
+        <!-- /gestion des reclamations -->
+        <li class="menu-item">
+            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#rec-page" aria-expanded="false" aria-controls="rec-page">
+                <span><i class='fa fa-shopping-cart' style='font-size:18px;color:white'></i>Gestion Des reclamations</span>
+            </a>
+            <ul id="rec-page" class="collapse" aria-labelledby="utilisateur-page" data-parent="#side-nav-accordion">
+                <li> <a href="reclamation.php"> Afficher les reclamations</a> </li>
+
+            </ul>
+        </li>
+        <!--  -->
+
+
 
 
 

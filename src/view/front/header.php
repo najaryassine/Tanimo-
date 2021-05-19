@@ -51,8 +51,8 @@ $url = end($url);
                             </li>
                             <li><a href="../index-2.html">Compte</a></li>
                             <li><a href="../index-3.html">Nos boutiques</a></li>
-                            <li class="<?php echo $url == "vetList.php" ? 'current' : '' ?>"><a href="vetList.php">Vétérinaires </a></li>
-                            <li class="<?php echo $url == "promotionList.php" ? 'current' : '' ?>"><a href="promotionList.php">Promotion </a></li>
+                            <li class="<?php echo $url == "vetList.php" ? 'current' : '' ?>"><a href="../../../view/front/vetList.php">Vétérinaires </a></li>
+                            <li class="<?php echo $url == "promotionList.php" ? 'current' : '' ?>"><a href="../../../view/front/promotionList.php">Promotion </a></li>
 
                         </ul>
                     </nav>

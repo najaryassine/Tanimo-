@@ -1,3 +1,19 @@
+<?php
+
+require_once("../../controller/UserC.php");
+
+if(isset($_SESSION["sortName"]))
+{
+	$res =  afficherUserbynom();
+}
+else
+{
+	$res =  afficherUser();
+}
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +28,7 @@
   <!-- Iconic Fonts -->
   <link href="vendors/iconic-fonts/font-awesome/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="vendors/iconic-fonts/flat-icons/flaticon.css">
+  <link rel="stylesheet" href="../vendors/iconic-fonts/flat-icons/flaticon.css">
   <!-- Bootstrap core CSS -->
   <link href="assets/css/bootstrap.min.css" rel="stylesheet">
   <!-- jQuery UI -->
@@ -20,7 +36,7 @@
   <!-- Greendash styles -->
   <link href="assets/css/style.css" rel="stylesheet">
   <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon.ico">
 
 </head>
 
@@ -76,14 +92,14 @@
       </li>
       <!-- /Dashboard -->
 
-      <!-- gestion des boutique-->
+      <!-- gestion des categories-->
       <li class="menu-item">
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#Categorie-page" aria-expanded="false" aria-controls="Categorie-page">
-          <span><i class='fas fa-bars' style='font-size:18px;color:white'></i>Gestion Des Boutique</span>
+          <span><i class='fas fa-bars' style='font-size:18px;color:white'></i>Gestion Des Catégories</span>
         </a>
         <ul id="Categorie-page" class="collapse" aria-labelledby="Categorie-page" data-parent="#side-nav-accordion">
-          <li> <a href="boutique/boutique.html">Ajouter Un boutiques</a> </li>
-          <li> <a href="boutique/afficherBoutique.php"> Afficher les boutiques</a> </li>
+          <li> <a href="categorie/AjoutCategorie.html">Ajouter Une catégorie</a> </li>
+          <li> <a href="categorie/AfficherCategorie.html"> Afficher les Catégories</a> </li>
 
         </ul>
       </li>
@@ -94,11 +110,11 @@
       <!-- gestion des Sous Categorie-->
       <li class="menu-item">
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#SousCategorie-page" aria-expanded="false" aria-controls="SousCategorie-page">
-         <span><i class='fas fa-plus-circle' style='font-size:16px;color:white'></i>Gestion Des evenements</span>
+         <span><i class='fas fa-plus-circle' style='font-size:16px;color:white'></i>Gestion Des Sous Categories</span>
         </a>
         <ul id="SousCategorie-page" class="collapse" aria-labelledby="SousCategorie-page" data-parent="#side-nav-accordion">
-          <li> <a href="evenement.html">Ajouter Un evenement</a> </li>
-          <li> <a href="afficherevenement.php"> Afficher les evenements</a> </li>
+          <li> <a href="sousCategorie/AjoutSousCategotie.html">Ajouter Un Sous Categorie</a> </li>
+          <li> <a href="sousCategorie/AfficherSousCategorie.html"> Afficher les Sous Categories</a> </li>
          
         </ul>
       </li>
@@ -150,6 +166,26 @@
         </ul>
       </li>
       <!-- /gestion des articles -->
+	  <!-- /gestion des utilisateurs -->
+	  <li class="menu-item">
+        <a href="#" class="has-chevron" data-toggle="collapse" data-target="#utilisateur-page" aria-expanded="false" aria-controls="utilisateur-page">
+          <span><i class='fa fa-shopping-cart' style='font-size:18px;color:white'></i>Gestion Des Utilisateurs</span>
+        </a>
+        <ul id="utilisateur-page" class="collapse" aria-labelledby="utilisateur-page" data-parent="#side-nav-accordion">
+          <li> <a href="utilisateur.php"> Afficher les utilisateurs</a> </li>
+         
+        </ul>
+      </li>
+	  
+	  <li class="menu-item">
+        <a href="#" class="has-chevron" data-toggle="collapse" data-target="#rec-page" aria-expanded="false" aria-controls="rec-page">
+          <span><i class='fa fa-shopping-cart' style='font-size:18px;color:white'></i>Gestion Des reclamations</span>
+        </a>
+        <ul id="rec-page" class="collapse" aria-labelledby="utilisateur-page" data-parent="#side-nav-accordion">
+          <li> <a href="reclamation.php"> Afficher les reclamations</a> </li>
+         
+        </ul>
+      </li>
     </ul>
 
 
@@ -883,7 +919,7 @@
 
 
 
-<form action="AjoutArticle.php" method="GET" enctype="multipart/form-data" >
+
 
 
 
@@ -905,18 +941,50 @@
 
             <div class="col-xl-6 col-md-12"  >
               <div class="ms-panel ms-panel-fh" style="width:1000px ; margin-left: 120px;"  >
-                <div class="ms-panel-body"  >
-                 Hello Admin!
+                <div class="ms-panel-body"  ><p>
+				<form action="../../controller/UserC.php" method="post">
+				<input type="submit" value="par nom" name="sortName">
+				</form>
+				</p>
+<table class="table table-bordered" id="myTable">
+    <thead>
+      <tr>
+	    <th>picture</th>
+        <th>nom</th>
+        <th>email</th>
+        <th>password</th>
+		<th>adresse</th>
+		<th>phone</th>
+		<th>Action</th>
+      </tr>
+    </thead>
+	<tbody id="table1">
+	<?php
+foreach($res as $row){
+echo "<tr>";
+echo "<td><img src='picture/$row[picture]'> </td>";
+echo "<td>$row[nom]</td>";
+echo "<td>$row[email]</td>";
+echo "<td>$row[password]</td>";
+echo "<td>$row[adresse]</td>";
+echo "<td>$row[phone]</td>";
+echo "<td><a href='../../controller/UserC.php?supprimer=$row[id_user]'>supprimer</a></td>";
+echo "</tr>";
+}
+?>
+</tbody>
+  </table>
+  <input type="hidden" id="name_order" value="asc">
                 </div>
               </div>
             </div>
           </div>
         </div> 
-</form>
 
 
 
-<script src="../model/social.js"></script>
+
+
  <!--            xttttttt          -->
 
 
@@ -935,6 +1003,9 @@
 
   <!-- Settings -->
   <script src="assets/js/settings.js"></script>
+  
+  
+  
 </body>
 
 

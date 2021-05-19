@@ -7,6 +7,8 @@
      <link rel="shortcut icon" href="images/favicon.ico" />
      <link rel="stylesheet" href="css/style.css">
      <link rel="stylesheet" href="css/form.css">
+
+
      <script src="js/jquery.js"></script>
      <script src="js/forms.js"></script>
      <script src="js/jquery-migrate-1.1.1.js"></script>
@@ -128,28 +130,12 @@
 	   </form>
         
      </div>
-   </div>
-  </div>
+   </body>
+  </html>
 <!--=======content================================-->
 
 
 
 <!--==============================footer=================================-->
 
-<footer>    
-  <div class="container_12">
-    <div class="grid_12">
-      <div class="socials">
-        <a href="#"></a>
-        <a href="#"></a>
-        <a href="#"></a>
-        <a href="#"></a>
-      </div>
-     <p>Pet Club  &copy; 2013 | <a href="#">Privacy Policy</a> | Website  designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a></p><p>Professional free website templates <a href="http://www.websitetemplatesonline.com" target="_blank">at www.websitetemplatesonline.com</a>. <a href="http://www.getjoomlatemplatesfree.com/" title="Best Joomla templates">www.getjoomlatemplatesfree.com</a> - free Joomla templates for websites. </p>
-     
-    </div>
-    <div class="clear"></div>
-  </div>
-</footer>
-</html>
-</body>
+<?php include "footer.php"?>

@@ -36,10 +36,14 @@
                 <nav  class="" >
                     <ul class="sf-menu">
                         <li><a href="index.php">Accueil</a></li>
+
+
                         <li><a href="AfficherArticles.php">Articles</a></li>
-
-
                         <li><a href="HistoriqueCommande.php">Commandes</a></li>
+
+                        <li><a href="AfficherArticles.php">Boutiques</a></li>
+                        <li><a href="AfficherArticles.php">Evénements</a></li>
+
 
 
 

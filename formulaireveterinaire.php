@@ -1,6 +1,6 @@
 <?php
-    include '../../../controller/boutiqueC.php';
-    include '../../../controller/mesFuncTable.php';
+    include '../../controller/boutiqueC.php';
+    include '../../controller/mesFuncTable.php';
 
     
     

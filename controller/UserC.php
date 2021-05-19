@@ -3,8 +3,8 @@
 
 	if(isset($_POST['submit']))
 	{
-	require_once "../config/config.php";
-	require_once("../model/User.php");
+	require_once "c:/xampp/htdocs/Tanimo-/config/config.php";
+	require_once("c:/xampp/htdocs/Tanimo-/model/User.php");
 	$User=new User();
 	$User->nom= $_POST['nom'];
 	$User->email= $_POST['email'];
@@ -17,25 +17,25 @@
 	$req="INSERT into user values ('','$User->email','$User->password','$User->nom','$User->adresse','$User->phone','$User->picture' )";
 	$cnx->exec($req) or print_r($cnx->errorInfo());
 	
-	header("location:../sign up.php");
+	header("location:../view/front/sign up.php");
 	
 	}
 	else if(isset($_GET['supprimer']))
 	{
-		require_once "../config/config.php";
-		require_once("../model/User.php");
+		require_once "c:/xampp/htdocs/Tanimo-/config/config.php";
+		require_once("c:/xampp/htdocs/Tanimo-/model/User.php");
 	$a1=new User();
 	$id= $_GET['supprimer'];
 	$cnx = config::getConnexion();
     $req="DELETE from user where id_user ='$id'";
 	$cnx->exec($req) or print_r($pdo->errorInfo());
 	
-	header("location:../utilisateur.php");
+	header("location:../view/back/utilisateur.php");
 	}
 	else if(isset($_POST['mod']))
 	{
-		require_once "../config/config.php";
-		require_once("../model/User.php");
+		require_once "c:/xampp/htdocs/Tanimo-/config/config.php";
+		require_once("c:/xampp/htdocs/Tanimo-/model/User.php");
 	$User=new User();
 	$User->nom= $_POST['nom'];
 	$User->email= $_POST['email'];
@@ -47,12 +47,12 @@
 	$req="update user set nom='$User->nom',email='$User->email',password='$User->password' where id_user ='$id' ";
 	$cnx->exec($req) or print_r($cnx->errorInfo());
 	
-	header("location:../utilisateur.php");
+	header("location:../view/back/utilisateur.php");
 	}
 	else if(isset($_POST['modiff']))
 	{
 		
-		require_once "../config/config.php";
+		require_once "c:/xampp/htdocs/Tanimo-/config/config.php";
 		$id = $_SESSION['id']; 
 		$nom = $_POST["nom"];
 		$email = $_POST["email"];
@@ -83,8 +83,8 @@
 	}
 	else if(isset($_POST['login']))
 	{
-		require_once "../config/config.php";
-		require_once("../model/User.php");
+		require_once "c:/xampp/htdocs/Tanimo-/config/config.php";
+		require_once("c:/xampp/htdocs/Tanimo-/model/User.php");
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 		$a1=new User();
@@ -118,13 +118,13 @@
 	{
 		session_unset();
 		session_destroy();
-		header("location:../sign up.php");
+		header("location:../view/front/sign up.php");
 	}
 	else if (isset($_POST['sortName']))
 	{
 		session_start();
 		$_SESSION['sortName']= "name";
-		header("location:../utilisateur.php");
+		header("location:../view/back/utilisateur.php");
 	}
 	
 
@@ -135,8 +135,8 @@
 	}
 	
 	function afficherUser(){
-		require_once "config/config.php";
-	require_once("model/User.php");
+		require_once "c:/xampp/htdocs/Tanimo-/config/config.php";
+	require_once("c:/xampp/htdocs/Tanimo-/model/User.php");
 	$cnx = config::getConnexion();
   $req="SELECT * from user";	
  $res= $cnx->query($req) or die($cnx->errorInfo());
@@ -144,8 +144,8 @@
 }
 
 function afficherUserbynom(){
-	require_once "config/config.php";
-	require_once("model/User.php");
+	require_once "c:/xampp/htdocs/Tanimo-/config/config.php";
+	require_once("c:/xampp/htdocs/Tanimo-/model/User.php");
 	$cnx = config::getConnexion();
   $req="SELECT * from user order by nom";	
  $res= $cnx->query($req) or die($cnx->errorInfo());
