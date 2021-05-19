@@ -75,10 +75,7 @@ public function getimage(): ?string
 {
   return $this->image;
 }
-public function getid_u(): ?int
-{
-  return $this->id_u;
-}
+ 
 public function settype(string $type) : void {
   $this->type=$type;
 }

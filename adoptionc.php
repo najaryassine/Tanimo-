@@ -1,8 +1,6 @@
 <?php
-
 require_once 'C:/xampp/htdocs/monprojet/Tanimo--master/config/config.php';
 require_once 'C:/xampp/htdocs/monprojet/Tanimo--master/model/adoption.php';
-
 
 /**
  * 
@@ -48,7 +46,6 @@ function supprimerAdoption($id){
 		}
 
 
-
 function afficheradoption()
 		{
 			
@@ -62,7 +59,6 @@ function afficheradoption()
 				die('Erreur: '.$e->getMessage());
 			}	
 		}
-
 
 
 
@@ -86,9 +82,12 @@ function afficheradoption()
 
 		
 
+ 
 
 
-			function modifierUtilisateur($adoption, $id){
+ 
+   
+    	function modifierAdoption($adoption, $id){
 			try {
 				$db = config::getConnexion();
 				$query = $db->prepare(
@@ -97,8 +96,7 @@ function afficheradoption()
 						race = :race,
 						sexe = :sexe,
 						age = :age,
-						region = :region,
-						image = :image,
+						region = :region
 					WHERE id = :id'
 				);
 				$query->execute([
@@ -107,7 +105,6 @@ function afficheradoption()
 					'sexe' => $adoption->getsexe(),
 					'age' => $adoption->getage(),
 					'region' => $adoption->getregion(),
-					'image' => $adoption->getimage(),
 					'id' => $id
 				]);
 				echo $query->rowCount() . " records UPDATED successfully <br>";
@@ -115,13 +112,46 @@ function afficheradoption()
 				$e->getMessage();
 			}
 		}
+ 
+
+		
+function rechercherAdop($str)
+{
+$sql = "select * from adoption where id like '%".$str."%' or espece like '%".$str."%' or race like '%".$str."%' or sexe like '%".$str."%' or age  like '%".$str."%' or region like '%".$str."%' ";
+$db = config::getConnexion();
+try{
+
+$liste = $db->query($sql);
+return $liste;
+
+}
+catch (Exception $e){
+die('erreur:'. $e->getMessage());
+
+}
 
 
 }
 
 
 
+ function trierreg(){
+        $sql="SELECT * from adoption order by region ";
+        $db = config::getConnexion();
+        try{
+        $liste=$db->query($sql);
+        return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
 
+
+
+
+
+}
 
 
 ?>

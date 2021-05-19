@@ -7,18 +7,22 @@ require_once 'C:/xampp/htdocs/monprojet/Tanimo--master/model/Utilisateur.php';
 
 class UtilisateurC {
   function ajouterUtilisateur($Utilisateur){
-            $sql="INSERT INTO user (nom, prenom, email, login, password) 
-			VALUES (:nom,:prenom,:email, :login, :password)";
+            $sql="INSERT INTO user (email, password, nom, prenom, login, numero, ville) 
+			VALUES (:email,:password,:nom, :prenom, :login,:numero ,:ville)";
             $db = config::getConnexion();
             try{
                 $query = $db->prepare($sql);
 
                 $query->execute([
+                    'email' => $Utilisateur->getEmail(),
+                    'password' => $Utilisateur->getPassword(),
                     'nom' => $Utilisateur->getNom(),
                     'prenom' => $Utilisateur->getPrenom(),
-                    'email' => $Utilisateur->getEmail(),
+                    
                     'login' => $Utilisateur->getLogin(),
-                    'password' => $Utilisateur->getPassword()
+                    
+                    'numero' => $Utilisateur->getnumero(),
+                    'adresse' => $Utilisateur->getville()
                 ]);
             }
             catch (Exception $e){
@@ -38,7 +42,7 @@ function connexionUser($login,$password){
                     $message = "pseudo ou le mot de passe est incorrect";
                 } else {
                     $x=$query->fetch();
-                    $message = "cbn";
+                    $message = "c'est bon";
                 }
             }
             catch (Exception $e){
