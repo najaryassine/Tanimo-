@@ -78,7 +78,7 @@ foreach($listeboutique as $row){
   <td><?PHP echo $row['Gearnt']; ?></td>
   <td><?PHP echo $row['Description']; ?></td>
   <td><?PHP echo $row['Adresse']; ?></td>
-  <td><img class= "" src="../assets/img/<?PHP echo $row['Image']; ?>"></td>
+  <td><img class= "" src="assets/img/<?PHP echo $row['Image']; ?>"></td>
   <td><form method="POST" action="supprimerboutique.php">
   <input type="submit" name="supprimer" value="supprimer">
   <input type="hidden" value="<?PHP echo $row['Id']; ?>" name="Id">

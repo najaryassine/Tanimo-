@@ -1,8 +1,8 @@
 <?php
-set_include_path('C:\xampp\htdocs\front\ali-project-front-mvc\src');
-include 'view/back/header.php';
+//set_include_path('C:\xampp\htdocs\front\ali-project-front-mvc\src');
+require 'header.php';
 
-require_once 'controller/promotionController.php';
+require_once '../../controller/promotionController.php';
 $proms = promotionController::getAllPromotions();
 
 ?>
@@ -26,20 +26,18 @@ $proms = promotionController::getAllPromotions();
             <td> <?php echo $row["prixnouveau"] ?> </td>
             <td>
 
-            <a href="promotionModifier.php?id=<?php echo $row[">
-                <span><i class='fa fa-edit' style='font-size:18px;color:green'></i></span>
-            </a>
-            <a href="supprimerPromotion.php?id=<?php echo $row[">
-                <span><i class='fa fa-trash-alt' style='font-size:18px;color:red'></i></span>
-            </a>
+                <a href="promotionModifier.php?id=<?php echo $row["id"]; ?>">
+                    <span><i class='fa fa-edit' style='font-size:18px;color:green'></i></span>
+                </a>
+                <a href="supprimerPromotion.php?id=<?php echo $row["id"]; ?>">
+                    <span><i class='fa fa-trash-alt' style='font-size:18px;color:red'></i></span>
+                </a>
             </td>
         </tr>
-        <?php } ?>
-      
+      <?php } ?>
+
   </tbody>
 </table>
 
 
-<?php
-include 'view/back/footer.php';
-?>
+<?php require 'footer.php'; ?>

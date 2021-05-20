@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!isset($_SESSION["id"]) && empty($_SESSION["id"])){
+
+    echo $_SESSION["id"];
+header("location:sign up.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,10 +49,18 @@
                         <li><a href="AfficherArticles.php">Articles</a></li>
                         <li><a href="HistoriqueCommande.php">Commandes</a></li>
 
-                        <li><a href="AfficherArticles.php">Boutiques</a></li>
-                        <li><a href="AfficherArticles.php">Evénements</a></li>
+                        <li><a href="index-2.php">Boutiques et Evénements</a></li>
+                        <li><a href="vetList.php">Vétérinaires</a></li>
+                        <li><a href="promotionList.php">Promotions</a></li>
+                        <li><a href="adoptions.php">Adoptions</a></li>
+                        <li><a href="ProfilUser.php">Mes Dons</a></li>
 
-
+                        <li class="with_ul"><a href="#">Réclamations </a>
+                            <ul>
+                                <li><a href="index-5.php"> Réclamations</a></li>
+                                <li><a href="index-7.php">mes Réclamations</a></li>
+                            </ul>
+                        </li>
 
 
 
@@ -55,6 +71,8 @@
                 </nav>
                 <div class="clear"></div>
             </div>
+            <a href="index-6.php"><span id="pr"> <img src="../../picture/<?php echo $_SESSION['picture'];?>"  width="5%"> </span></a>
+
             <div class="clear"></div>
         </div>
     </div>

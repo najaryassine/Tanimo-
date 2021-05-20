@@ -16,17 +16,17 @@
      <script src="../js/jquery.easing.1.3.js"></script>
           <script src="../js/jquery.ui.totop.js"></script>
 =======
-     <link rel="icon" href="images/favicon.ico">
-     <link rel="shortcut icon" href="images/favicon.ico" />
-     <link rel="stylesheet" href="css/style.css">
-     <link rel="stylesheet" href="css/form.css">
-     <script src="js/jquery.js"></script>
-     <script src="js/forms.js"></script>
-     <script src="js/jquery-migrate-1.1.1.js"></script>
-     <script src="js/superfish.js"></script>     
-     <script src="js/jquery.equalheights.js"></script>
-     <script src="js/jquery.easing.1.3.js"></script>
-          <script src="js/jquery.ui.totop.js"></script>
+     <link rel="icon" href="../images/favicon.ico">
+     <link rel="shortcut icon" href="../images/favicon.ico" />
+     <link rel="stylesheet" href="../css/style.css">
+     <link rel="stylesheet" href="../css/form.css">
+     <script src="../js/jquery.js"></script>
+     <script src="../js/forms.js"></script>
+     <script src="../js/jquery-migrate-1.1.1.js"></script>
+     <script src="../js/superfish.js"></script>
+     <script src="../js/jquery.equalheights.js"></script>
+     <script src="../js/jquery.easing.1.3.js"></script>
+          <script src="../js/jquery.ui.totop.js"></script>
 >>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900:view/front/index-4.php
 
      <script>
@@ -43,10 +43,10 @@
       </div>
     <![endif]-->
     <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <link rel="stylesheet" media="screen" href="css/ie.css">
+         <script src="../js/html5shiv.js"></script>
+         <link rel="stylesheet" media="screen" href="../css/ie.css">
 
-    <![endif]-->
+         <![endif]-->
 	<style>
 	
 	#pr {
@@ -65,12 +65,12 @@
 =======
  <div class="container_12">
   <div class="grid_12"> 
-    <h1><a href="index.php"><img src="images/logo.png" alt="Gerald Harris attorney at law"></a> </h1>
+    <h1><a href="../index.php"><img src="../images/logo.png" alt="Gerald Harris attorney at law"></a> </h1>
 >>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900:view/front/index-4.php
          <div class="menu_block">
            <nav  class="" >
             <ul class="sf-menu">
-                   <li class="current"><a href="index.php">Home</a></li>
+                   <li class="current"><a href="../index.php">Home</a></li>
                    <li class="with_ul"><a href="index-1.php">About Us </a>
                      <ul>
                          <li><a href="#"> Testimonials</a></li>
@@ -86,8 +86,8 @@
                    <li><a href="index-4.php">Contacts </a></li>
 				   <li class="with_ul"><a href="#">Réclamations </a>
                      <ul>
-                         <li><a href="index-5.php"> Réclamations</a></li>
-                         <li><a href="index-7.php">mes Réclamations</a></li>
+                         <li><a href="../index-5.php"> Réclamations</a></li>
+                         <li><a href="../index-7.php">mes Réclamations</a></li>
                      </ul>
                    </li>
 >>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900:view/front/index-4.php
@@ -95,7 +95,7 @@
               </nav>
            <div class="clear"></div>
            </div>
-		  <a href="index-6.php"><span id="pr"> <img src="../../picture/<?php echo $_SESSION['picture'];?>"  width="5%"> </span></a>
+		  <a href="../index-6.php"><span id="pr"> <img src="../../picture/<?php echo $_SESSION['picture'];?>" width="5%"> </span></a>
            <div class="clear"></div>
       </div>
 	  </div>

@@ -104,33 +104,25 @@ require_once 'c:/xampp/htdocs/Tanimo-/model/event.php';
       
 
     function modifierEvent($event,$Id){
-<<<<<<< HEAD
+
         $sql="UPDATE event SET Id=:Id, Titre=:Titre, Description=:Description, DateD=:DateD, DateF=:DateF, Image=:Image WHERE Id=:Id";
-=======
-        $sql="UPDATE event SET Id=:Id,Titre=:Titre,Description=:Description,DateD=:DateD,DateF=:DateF,Image=:Image WHERE Id=:Id";
->>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900
-        
+
         $db = config::getConnexion();
        
 try{        
-<<<<<<< HEAD
-       $req = $db->prepare($sql);
-=======
+
     $req = $db->prepare($sql);
->>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900
+
        $Id=$event->getId();
        $Titre=$event->getTitre();
        $Description=$event->getDescription();
        $DateD=$event->getDateD();
        $DateF=$event->getDateF();
        $Image=$event->getImage();
-<<<<<<< HEAD
+
 
         $datas=array(':Id'=>$Id,':Titre'=>$Titre,':Description'=>$Description,':DateD'=>$DateD,':DateF'=>$DateF,':Image'=>$Image);
-        
-=======
-        $datas=array(':Id'=>$Id,':Titre'=>$Titre,':Description'=>$Description,':DateD'=>$DateD,':DateF'=>$DateF,':Image'=>$Image);
->>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900
+
         $req->bindVAlue(':Id',$Id);
         $req->bindVAlue(':Titre',$Titre);
         $req->bindVAlue(':Description',$Description);

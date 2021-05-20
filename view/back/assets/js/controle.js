@@ -4,7 +4,7 @@ function verif() {
     var Nom1 = document.querySelector('#Nom').value;
     
      var mail1=document.querySelector('#Email').value;
-    
+    var a="@";
 
     if (Nom1.charAt(0) < 'A' || Nom1.charAt(0) > 'Z') {
         //document.getElementById('erreur').innerHTML = "Le nom doit commencer par une lettre Majuscule";

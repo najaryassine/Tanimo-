@@ -1,7 +1,7 @@
 <?php
-set_include_path('C:\xampp\htdocs\front\ali-project-front-mvc\src');
-require 'controller/promotionController.php';
-require_once 'model/promotion.php';
+//set_include_path('C:\xampp\htdocs\front\ali-project-front-mvc\src');
+require_once '../../controller/promotionController.php';
+require_once '../../model/promotion.php';
 
 if ($_POST) {
   $produit = $_POST['produit'];
@@ -13,7 +13,7 @@ if ($_POST) {
     promotionController::ajouterPromotion($prom);
   
   }
-  header('Location:../promotionGestion.php');
+  header('Location: promotionGestion.php');
 
 require 'header.php';
 ?>

@@ -6,10 +6,8 @@ include "../../controller/CategorieC.php";
 include "../../controller/SousCategorieC.php";
 
 
-session_start();
-$_SESSION["user_id"] = 1;
-$_SESSION["user_name"] = "bbbb";
-
+$_SESSION["user_id"] = $_SESSION["id"];
+$_SESSION["user_name"] = $_SESSION["nom"];
 $articleC=new ArticleC();
 $categorieC = new CategorieC();
 $listeArticle = $articleC->afficherArticle();

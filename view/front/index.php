@@ -85,70 +85,9 @@ height: 'auto',
      </head>
      <body  class="page1">
 <!--==============================header=================================-->
- <header> 
-  <div class="container_12">
-    <div class="grid_12"> 
-<<<<<<< HEAD:view/front/view/index.html
-    <h1><a href="index.html"><img src="../images/logo.png" alt="Gerald Harris attorney at law"></a> </h1>
-=======
-    <h1><a href="index.php"><img src="images/logo.png" alt="Gerald Harris attorney at law"></a> </h1>
->>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900:view/front/index.php
-         <div class="menu_block">
-           <nav  class="" >
-            <ul class="sf-menu">
-                   <li class="current"><a href="index.php">Home</a></li>
-                   <li class="with_ul"><a href="index-1.php">About Us </a>
-                     <ul>
-                         <li><a href="#"> Testimonials</a></li>
-                         <li><a href="#">Archive</a></li>
-                     </ul>
-                   </li>
-                   <li><a href="index-2.php">Services</a></li>
-<<<<<<< HEAD:view/front/view/index.html
-                   <li><a href="index-3.html">Blog</a></li>
-                   <li><a href="index-4.html">Contacts </a></li>
-=======
-                   <li><a href="index-3.php">Blog</a></li>
-                   <li><a href="index-4.php">Contacts </a></li>
-				   <li class="with_ul"><a href="#">Réclamations </a>
-                     <ul>
-                         <li><a href="index-5.php"> Réclamations</a></li>
-                         <li><a href="index-7.php">mes Réclamations</a></li>
-                     </ul>
-                   </li>
->>>>>>> ce409d30636e5ca5da5f575b394012e9476d2900:view/front/index.php
-                 </ul>
-              </nav>
-           <div class="clear"></div>
-           </div>
-		   <a href="index-6.php"><span id="pr"> <img src="../../picture/<?php echo $_SESSION['picture'];?>"  width="5%"> </span></a>
-           <div class="clear"></div>
-      </div>
-    </div>
-</header>
-<div class="top_block">
- <div class="slider-relative">
-    <div class="slider-block">
-      <div class="slider">
-        <ul class="items">
-          <li><img src="../images/slide.jpg" alt="">
-            <div class="banner">They Need  Your <span>Love</span> and <i>Care</i><p>It is so easy to make them happy</p></div>
-          </li>
-          <li><img src="../images/slide1.jpg" alt="">
-            <div class="banner">They Need  Your <span>Love</span> and <i>Care</i><p>It is so easy to make them happy</p></div>
-          </li>
-          <li><img src="../images/slide2.jpg" alt="">
-            <div class="banner">They Need  Your <span>Love</span> and <i>Care</i><p>It is so easy to make them happy</p></div>
-          </li>
-          <li><img src="../images/slide3.jpg" alt="">
-            <div class="banner">They Need  Your <span>Love</span> and <i>Care</i><p>It is so easy to make them happy</p></div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<?php require_once "header.php";
 
- </div> 
+?>
  <div class="page1_block">
    <div class="container_12">
      <div class="grid_6">
@@ -255,22 +194,6 @@ height: 'auto',
     </div>
   </div>
 </div>
-<!--==============================footer=================================-->
-
-<footer>    
-  <div class="container_12">
-    <div class="grid_12">
-      <div class="socials">
-        <a href="#"></a>
-        <a href="#"></a>
-        <a href="#"></a>
-        <a href="#"></a>
-      </div>
-     <p>Pet Club  &copy; 2013 | <a href="#">Privacy Policy</a> | Website  designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a></p><p>Professional free website templates <a href="http://www.websitetemplatesonline.com" target="_blank">at www.websitetemplatesonline.com</a>. <a href="http://www.getjoomlatemplatesfree.com/" title="Best Joomla templates">www.getjoomlatemplatesfree.com</a> - free Joomla templates for websites. </p>
-     
-    </div>
-    <div class="clear"></div>
-  </div>
-</footer>
+<?php include_once "footer.php"?>
 </body>
 </html>

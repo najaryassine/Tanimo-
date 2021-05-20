@@ -1,6 +1,6 @@
 <?php
   //require 'connect.php';
-  $objectPdo = new PDO('mysql:host=localhost;dbname=pro', 'root', '');
+  $objectPdo = new PDO('mysql:host=localhost;dbname=projet_web', 'root', '');
   $pdoStat = $objectPdo->prepare('SELECT Titre,Description,DateD,DateF,Image FROM event ORDER BY Id ASC ');
   $executeIsOK = $pdoStat->execute();
   $listeEvents= $pdoStat->fetchAll(); 
@@ -100,7 +100,7 @@
                 <td><?PHP echo $listeEvents['Description']; ?></td>
                 <td><?PHP echo $listeEvents['DateD']; ?></td>
                 <td><?PHP echo $listeEvents['DateF']; ?></td>
-                <td><img style="width: 200px; height: 200px;" src="../../back/assets/img/<?PHP echo $listeEvents['Image']; ?>"></td>
+                <td><img style="width: 200px; height: 200px;" src="../back/assets/img/<?PHP echo $listeEvents['Image']; ?>"></td>
 
 
                 <td>

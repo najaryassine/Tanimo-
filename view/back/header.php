@@ -184,9 +184,33 @@
         </li>
 
 
+        <!-- /gestion des adoptions -->
+        <li class="menu-item">
+            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#adoption-page" aria-expanded="false" aria-controls="adoption-page">
+                <span><i class='far fa-address-book' style='font-size:18px;color:white'> </i> Gestion Des adoptions </span>
+            </a>
+            <ul id="adoption-page" class="collapse" aria-labelledby="adoption-page " data-parent="#side-nav-accordion">
+                <li> <a href="ajouteradoption.php">Ajouter une adoption</a> </li>
+                <li> <a href="afficheradoption.php"> Afficher les adoptions</a> </li>
+
+            </ul>
+        </li>
 
 
+        <!-- /gestion des promotions -->
+        <li class="menu-item">
+            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#promotion-page" aria-expanded="false" aria-controls="promotion-page">
+                <span><i class='far fa-address-book' style='font-size:18px;color:white'> </i> Gestion Des promotions </span>
+            </a>
+            <ul id="promotion-page" class="collapse" aria-labelledby="promotion-page " data-parent="#side-nav-accordion">
+                <li> <a href="promotionAjout.php">Ajouter une promotion</a> </li>
+                <li> <a href="promotionGestion.php.php"> Afficher les promotions</a> </li>
 
+            </ul>
+        </li>
+
+
+        <!-- /gestion des articles -->
         <li class="menu-item">
             <a href="#" class="has-chevron" data-toggle="collapse" data-target="#Article-page" aria-expanded="false" aria-controls="Article-page">
                 <span><i class='fa fa-shopping-cart' style='font-size:18px;color:white'></i>Gestion Des Articles</span>

@@ -4,13 +4,14 @@ require 'header.php';
    <!--            xttttttt          -->
 
 
-   
-   
 
 
 
 
-   <form method="post" action="ajoutboutique.php">
+    <div id="erreur" > </div>
+    <hr>
+
+   <form method="post" action="ajoutboutique.php" nom="form">
 
 
 
@@ -50,7 +51,7 @@ require 'header.php';
 
                 <label for="validationCustom10">Nom</label>
                   <div class="input-group">
-                    <input type="text" name="Nom" class="form-control" id="validationCustom10" placeholder="Entrer le nom ">
+                    <input type="text" name="Nom" class="form-control" id="Nom" placeholder="Entrer le nom ">
                      
                   </div>
 
@@ -58,7 +59,7 @@ require 'header.php';
 
                 <label for="validationCustom10">Email</label>
                  <div class="input-group">
-                  <input type="Email" name="Email" class="form-control" id="Image">
+                  <input type="Email" name="Email" class="form-control" id="Email">
                   
                 </div>
 
@@ -89,7 +90,7 @@ require 'header.php';
 
               <div class="col-md-12">
                 <button class="btn btn-dark mr-2  ms-graph-metrics">Vider</button>
-                <button class="btn btn-primary " name="submit" type="submit">Ajouter</button>
+                <button class="btn btn-primary " onclick="verif();"name="submit" type="submit">Ajouter </button>
               </div>
          
                   </div>

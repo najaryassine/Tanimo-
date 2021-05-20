@@ -5,10 +5,11 @@ include_once '../../controller/ArticleC.php';
 include "../../controller/CategorieC.php";
 include "../../controller/SousCategorieC.php";
 
+include "header.php";
 
-session_start();
-$_SESSION["user_id"] = 1;
-$_SESSION["user_name"] = "bbbb";
+$_SESSION["user_id"] = $_SESSION["id"];
+$_SESSION["user_name"] = $_SESSION["nom"];
+
 
 $articleC=new ArticleC();
 $categorieC = new CategorieC();
@@ -25,7 +26,7 @@ if(isset($_POST["cat"]) && !empty($_POST["cat"])){
 
 $categoris = $categorieC->afficherCategories();
 
-include "header.php"
+
 ?>
 <!--=======content================================-->
     <div class="page1_block">

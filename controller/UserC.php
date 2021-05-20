@@ -16,8 +16,17 @@
 	$cnx = config::getConnexion();
 	$req="INSERT into user values ('','$User->email','$User->password','$User->nom','$User->adresse','$User->phone','$User->picture' )";
 	$cnx->exec($req) or print_r($cnx->errorInfo());
-	
-	header("location:../view/front/sign up.php");
+    session_start();
+    $r= $User->GetUser($User->email);
+    $u = $r->fetch();
+    $_SESSION['id']= $u['id_user'];
+    $_SESSION['email']= $User->email;
+    $_SESSION['nom']= $User->nom;
+    $_SESSION['password']= $User->password;
+    $_SESSION['adresse']= $User->adresse;
+    $_SESSION['phone']= $User->phone;
+    $_SESSION['picture']= $User->picture;
+	header("location:../view/front/index.php");
 	
 	}
 	else if(isset($_GET['supprimer']))
@@ -78,7 +87,7 @@
 		$cnx->exec($req) or print_r($cnx->errorInfo());
 				
 				
-		header("location:../view/front/index-6.php");
+		header("location:../view/front/index.php");
 	
 	}
 	else if(isset($_POST['login']))
@@ -111,11 +120,12 @@
 		}
 		else
 		{
-			header("location:../sign up.php");
+			header("location:sign up.php");
 		}
 	}
 	else if (isset($_POST['dec']))
 	{
+        session_start();
 		session_unset();
 		session_destroy();
 		header("location:../view/front/sign up.php");
@@ -124,7 +134,7 @@
 	{
 		session_start();
 		$_SESSION['sortName']= "name";
-		header("location:../view/back/utilisateur.php");
+		header("location:../view/back/Utilisateur.php");
 	}
 	
 

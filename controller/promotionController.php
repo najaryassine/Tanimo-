@@ -1,7 +1,7 @@
 <?php
-set_include_path('C:\xampp\htdocs\front\ali-project-front-mvc\src');
-require_once('model/promotion.php');
-require 'config/config.php';
+//set_include_path('C:\xampp\htdocs\front\ali-project-front-mvc\src');
+require_once('c:/xampp/htdocs/Tanimo-/model/promotion.php');
+require_once "c:/xampp/htdocs/Tanimo-/config/config.php";
 
 class promotionController
 {

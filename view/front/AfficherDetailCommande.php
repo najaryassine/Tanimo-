@@ -8,7 +8,7 @@ session_start();
 $commandeC=new CommandeC();
 $artcomC = new ArtcomC();
 if (isset($_GET['id'])) {
-    $listeArticles = $artcomC->afficherMesCommandeByIdCmd($_GET['id'],$_SESSION["user_id"]);
+    $listeArticles = $artcomC->afficherMesCommandeByIdCmd($_GET['id'],$_SESSION["id"]);
     $commande = $commandeC->afficherCommande($_GET['id']);
 }
 include "header.php"

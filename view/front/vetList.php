@@ -1,11 +1,10 @@
 <?php
-set_include_path('C:\xampp\htdocs\front\ali-project-front-mvc\src');
-require_once 'controller/vetController.php';
-?>
+//set_include_path('C:\xampp\htdocs\front\ali-project-front-mvc\src');
+require_once '../../controller/vetController.php';
 
-<?php
-include 'view/front/header.php';
+
 $vets = VetController::getAllVet();
+include "header.php"
 ?>
 
 
@@ -73,5 +72,5 @@ $vets = VetController::getAllVet();
 </script>
 
 <?php
-include 'view/front/footer.php';
+include "footer.php"
 ?>

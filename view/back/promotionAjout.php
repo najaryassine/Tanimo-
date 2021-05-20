@@ -1,8 +1,8 @@
 <?php
-set_include_path('C:\xampp\htdocs\front\ali-project-front-mvc\src');
-include 'view/back/header.php';
+//set_include_path('C:\xampp\htdocs\front\ali-project-front-mvc\src');
+require 'header.php';
 
-require_once 'controller/promotionController.php';
+require_once '../../controller/promotionController.php';
 $articles = promotionController::getAllArticles();
 ?>
 
@@ -66,6 +66,4 @@ $articles = promotionController::getAllArticles();
     </div>
 </form>
 
-<?php
-include 'view/back/footer.php';
-?>
+<?php require 'footer.php'; ?>

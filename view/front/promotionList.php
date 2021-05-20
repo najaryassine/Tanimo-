@@ -1,10 +1,10 @@
 <?php
-set_include_path('C:\xampp\htdocs\front\ali-project-front-mvc\src');
-require_once 'controller/promotionController.php';
+//set_include_path('C:\xampp\htdocs\front\ali-project-front-mvc\src');
+require_once '../../controller/promotionController.php';
 ?>
 
 <?php
-include 'view/front/header.php';
+include "header.php" ;
 $proms = promotionController::getAllPromotions();
 $proms = $proms->fetchAll();
 $proms = array_values($proms);
@@ -29,7 +29,7 @@ if (isset($_GET["sort"])) {
         ?>
             <div class="col-4 mb-3 mt-3 vet-element">
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="./ihr" alt="product-image">
+                    <img class="card-img-top" src="../../uploads/" alt="product-image">
                     <div class="card-body">
                         <p class="card-text">
                         <div class="container">
@@ -55,6 +55,5 @@ if (isset($_GET["sort"])) {
     </div>
 </div>
 
-<?php
-include 'view/front/footer.php';
-?>
+
+<?php include "footer.php"?>

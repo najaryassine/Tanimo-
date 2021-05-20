@@ -54,7 +54,7 @@ class CommandeC
      */
     function afficherMesCommande($id){
 
-        $sql="SELECT cm.id_cmd, cm.prix,cm.etat, bt.Nom as boutique, us.nom as username FROM commandes as cm  INNER JOIN boutique as bt ON cm.id_btq = bt.Id INNER JOIN user as us ON us.id = cm.id_user WHERE cm.id_user = $id";
+        $sql="SELECT cm.id_cmd, cm.prix,cm.etat, bt.Nom as boutique, us.nom as username FROM commandes as cm  INNER JOIN boutique as bt ON cm.id_btq = bt.Id INNER JOIN user as us ON us.id_user = cm.id_user WHERE cm.id_user = $id";
         $db = config::getConnexion();
         try{
             $liste = $db->query($sql);

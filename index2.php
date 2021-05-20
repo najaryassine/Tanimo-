@@ -53,7 +53,7 @@ $adoptionc->ajouteradoption($adoption);
 <html>
 <head>
   <title> Adoption </title>
-  <link rel='stylesheet'   href='style.css'/>
+  <link rel='stylesheet'   href='view/front/style.css'/>
 
 </head>
 <body>
@@ -249,7 +249,7 @@ $adoptionc->ajouteradoption($adoption);
 <html>
 <head>
   <title> Adoption </title>
-  <link rel='stylesheet'   href='style.css'/>
+  <link rel='stylesheet'   href='view/front/style.css'/>
 
 </head>
 <body>

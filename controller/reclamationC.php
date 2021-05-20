@@ -1,7 +1,6 @@
 <?php
 
 
-
 if(isset($_POST['submit']))
 {
 	require_once("../model/Reclamation.php");
@@ -16,7 +15,7 @@ if(isset($_POST['submit']))
 	
 	ajouterRec($a1);
 	
-	header("location:../view/front/index.php");
+	header("location:../view/front/index-7.php");
 	
 }
 else if (isset($_POST['rep']))
