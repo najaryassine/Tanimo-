@@ -116,7 +116,7 @@ echo"checked";
 
 <tr>
   
-<td> <label> age</label></td>
+<td> <label for="age"> age</label></td>
 <td><input type="radio" name="age"    value="BéBé"
  <?php
 if($oldadoption['age']=='BéBé')

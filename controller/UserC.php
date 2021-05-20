@@ -157,9 +157,9 @@ function afficherUserbynom(){
 	require_once "c:/xampp/htdocs/Tanimo-/config/config.php";
 	require_once("c:/xampp/htdocs/Tanimo-/model/User.php");
 	$cnx = config::getConnexion();
-  $req="SELECT * from user order by nom";	
- $res= $cnx->query($req) or die($cnx->errorInfo());
-  return $res;	
+    $req="SELECT * from user  order by nom ASC";
+    $res= $cnx->query($req) or die($cnx->errorInfo());
+    return $res;
 }
 
 

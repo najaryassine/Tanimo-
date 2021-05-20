@@ -2,7 +2,7 @@
 
 
 if(isset($_POST['submit']))
-{
+{   session_start();
 	require_once("../model/Reclamation.php");
 
 	require_once "c:/xampp/htdocs/Tanimo-/config/config.php";
@@ -66,7 +66,7 @@ require_once("c:/xampp/htdocs/Tanimo-/model/Reclamation.php");
 
 require_once "c:/xampp/htdocs/Tanimo-/config/config.php";
 	$cnx = config::getConnexion();
-  $req="SELECT * from reclamation order by date";	
+  $req="SELECT * from reclamation order by date ASC";
  $res= $cnx->query($req) or die($cnx->errorInfo());
   return $res;
 }
@@ -76,7 +76,7 @@ require_once("c:/xampp/htdocs/Tanimo-/model/Reclamation.php");
 
 require_once "c:/xampp/htdocs/Tanimo-/config/config.php";
 	$cnx = config::getConnexion();
-  $req="SELECT * from reclamation order by type";	
+  $req="SELECT * from reclamation order by type ASC";
  $res= $cnx->query($req) or die($cnx->errorInfo());
   return $res;
 }

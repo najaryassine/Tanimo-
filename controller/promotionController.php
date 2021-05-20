@@ -8,7 +8,7 @@ class promotionController
 
     public static function getAllPromotions()
     {
-        $sql = "SELECT b.id as id, a.nom as nom, a.prix as prix, b.prixnouveau as prixnouveau, a.prix as prixancien
+        $sql = "SELECT b.id as id, a.nom as nom, a.prix as prix, b.prixnouveau as prixnouveau, a.prix as prixancien, a.image
         FROM promotion as b
         INNER JOIN articles as a ON b.produit = a.id_art;";
         $db = config::getConnexion();

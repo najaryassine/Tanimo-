@@ -29,7 +29,7 @@ if (isset($_GET["sort"])) {
         ?>
             <div class="col-4 mb-3 mt-3 vet-element">
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="../../uploads/" alt="product-image">
+                    <img class="card-img-top" src="../../uploads/<?php echo $row["image"]?>" alt="product-image">
                     <div class="card-body">
                         <p class="card-text">
                         <div class="container">

@@ -132,6 +132,24 @@ class CommandeC
     }
 
 
+    function triercommandes1()
+    {
+        $sql = "SELECT cm.id_cmd, cm.prix,cm.etat, bt.Nom as boutique, us.nom as username FROM commandes as cm  INNER JOIN boutique as bt ON cm.id_btq = bt.Id INNER JOIN user as us ON us.id_user = cm.id_user ORDER BY prix ASC";
+        $db = config::getConnexion();
+        try {
+            $req = $db->query($sql);
+            return $req;
+        } catch (Exception $e)
+        {
+            die('Erreur: ' . $e->getMessage());
+        }
+    }
+
+
+
+
+
+
     function rechercherCommande($boutique)
     {
         $sql="SELECT cm.id_cmd, cm.prix,cm.etat, bt.Nom as boutique, us.nom as username FROM commandes as cm  INNER JOIN boutique as bt ON cm.id_btq = bt.Id INNER JOIN user as us ON us.id_user = cm.id_user where cm.id_btq =$boutique";

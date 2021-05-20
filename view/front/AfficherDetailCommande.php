@@ -3,15 +3,15 @@ include_once '../../model/Commande.php';
 include_once '../../controller/CommandeC.php';
 include_once '../../controller/ArtcomC.php';
 
+include "header.php";
 
-session_start();
 $commandeC=new CommandeC();
 $artcomC = new ArtcomC();
 if (isset($_GET['id'])) {
     $listeArticles = $artcomC->afficherMesCommandeByIdCmd($_GET['id'],$_SESSION["id"]);
     $commande = $commandeC->afficherCommande($_GET['id']);
 }
-include "header.php"
+
 ?>
 
 <!--=======content================================-->

@@ -2,18 +2,16 @@
 include_once '../../model/Commande.php';
 include_once '../../controller/CommandeC.php';
 
+include "header.php";
 
 
-if(!isset($_SESSION["id"]) || empty($_SESSION["id"])){
-    header('Location:index.php');
-}
 $_SESSION["user_id"] = $_SESSION["id"];
 $_SESSION["user_name"] = $_SESSION["nom"];
 $commandeC=new CommandeC();
 
 $listeCommande=$commandeC->afficherMesCommande($_SESSION["user_id"]);
 
-include "header.php"
+
 ?>
 <!--=======content================================-->
 

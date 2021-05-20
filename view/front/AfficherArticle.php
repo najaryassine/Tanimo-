@@ -6,13 +6,13 @@ include_once '../../controller/ArticleC.php';
 include "../../controller/CategorieC.php";
 include "../../controller/SousCategorieC.php";
 
-session_start();
+include "header.php";
 
 $articleC=new ArticleC();
 if (isset($_GET['id'])) {
     $article = $articleC->recupererArticleById($_GET['id']);
 }
-include "header.php";
+
 ?>
 <!--=======content================================-->
 

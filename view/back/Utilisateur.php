@@ -1,7 +1,7 @@
 <?php
 
 require_once("../../controller/UserC.php");
-
+session_start();
 if(isset($_SESSION["sortName"]))
 {
     $res =  afficherUserbynom();
@@ -64,7 +64,7 @@ require 'header.php';
                             <?php
                             foreach($res as $row){
                                 echo "<tr>";
-                                echo "<td><img src='picture/$row[picture]'> </td>";
+                                echo "<td><img src='../../picture/$row[picture]'> </td>";
                                 echo "<td>$row[nom]</td>";
                                 echo "<td>$row[email]</td>";
                                 echo "<td>$row[password]</td>";

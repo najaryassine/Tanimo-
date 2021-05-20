@@ -6,7 +6,7 @@ session_start();
 
 
 $commandeC=new CommandeC();
-$listeCommande=$commandeC->triercommandes();
+$listeCommande=$commandeC->triercommandes1();
 
 require 'header.php';
 ?>

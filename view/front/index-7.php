@@ -1,12 +1,12 @@
 <?php
 
 require_once("../../controller/reclamationC.php");
-
+include "header.php";
 $id = $_SESSION["id"];
 
 $res = getRec($id);
 
-include "header.php";
+
 ?>
 
 
@@ -17,7 +17,7 @@ include "header.php";
             <h2>Mes Reclamation</h2><br>
             <div class="map">
 
-                <table >
+                <table  border="2" style="border-color: black">
                     <tr>
                         <th>description</th>
                         <th>date</th>

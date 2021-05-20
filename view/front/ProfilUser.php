@@ -239,28 +239,8 @@ foreach($listeDon as $don) :
 
                     <form action=" " method="POST" enctype="multipart/form-data">
                         <table align="center">
-                            <tr>
+                        
 
-                                <td>
-                                    <label for="type">type: </label>
-                                </td>
-                                <td>
-                                    <label for="sexe">sexe: </label>
-                                </td>
-                                <td>
-                                    <label for="couleur">couleur: </label>
-                                </td>
-                                <td>
-                                    <label for="pelage">pelage: </label>
-                                </td>
-                                <td>
-                                    <label for="age">age: </label>
-                                </td>
-                                <td>
-                                    <label for="race">race: </label>
-                                </td>
-
-                            </tr>
 
                         </table>
                     </form>

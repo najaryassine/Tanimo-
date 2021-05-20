@@ -115,7 +115,7 @@ if (
 
                                         <label for="prix">Prix</label>
                                         <div class="input-group">
-                                            <input type="number" name="prix" class="form-control" id="prix" placeholder="Entrer le prix " required="required" min="1" value="<?php echo $oldarticle["prix"]  ?>" >
+                                            <input type="text" name="prix" class="form-control" id="prix" placeholder="Entrer le prix " required="required" min="1.0" value="<?php echo $oldarticle["prix"] ?>">
 
                                         </div>
 
@@ -185,5 +185,22 @@ if (
     </div>
     </form>
 
+
+
     <!--            xttttttt          -->
 <?php require 'footer.php'; ?>
+
+
+
+
+<script>
+    function validateForm() {
+        var x = document.forms["addArticle"]["prix"].value;
+        x = parseFloat(x);
+        if (isNaN(x)) {
+            alert("Prix doit étre un nombre");
+            return false;
+        }
+    }
+
+</script>

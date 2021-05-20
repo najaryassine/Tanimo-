@@ -3,15 +3,22 @@
 require_once("../../controller/ReclamationC.php");
 
 
-
-if(isset($_SESSION["sdate"]))
+session_start();
+ if(isset($_SESSION["stype"]))
 {
-	$res =  afficherRecDate();
-}
-else if(isset($_SESSION["stype"]))
-{
+    if(isset($_SESSION["sdate"])){
+        $_SESSION["sdate"]= null;
+    }
 	$res =  afficherRecType();
 }
+else if(isset($_SESSION["sdate"]))
+{
+    if(isset($_SESSION["stype"])){
+       $_SESSION["stype"] = null;
+    }
+	$res =  afficherRecDate();
+}
+
 else
 {
 	$res =  afficherRec();
