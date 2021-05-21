@@ -39,7 +39,7 @@ header("location:sign up.php");
 <header>
     <div class="container_12">
         <div class="grid_12">
-            <h1><a href="index.php"><img src="images/logo.png" alt="Gerald Harris attorney at law"></a> </h1>
+            <h1><a href="index.php"><img src="../back/assets/img/dashboard/logo.png" alt="Tanimo"></a> </h1>
             <div class="menu_block">
                 <nav  class="" >
                     <ul class="sf-menu">
@@ -54,6 +54,7 @@ header("location:sign up.php");
                         <li><a href="promotionList.php">Promotions</a></li>
                         <li><a href="adoptions.php">Adoptions</a></li>
                         <li><a href="ProfilUser.php">Mes Dons</a></li>
+                        <li><a href="affichertousdon.php">Tous les dons</a></li>
 
                         <li class="with_ul"><a href="#">Réclamations </a>
                             <ul>

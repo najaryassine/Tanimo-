@@ -4,16 +4,17 @@ include_once '../../controller/ArticleC.php';
 include_once '../../controller/PanierC.php';
 include_once '../../controller/boutiqueC.php';
 
-include "header.php";
+
 $panierC=new PanierC();
 $articleC = new ArticleC();
 $boutiqueC = new BoutiqueC();
 
-
+include "header.php";
 if(!isset($_SESSION["id"]) || empty($_SESSION["id"])){
     header('Location:index.php');
 }
-$_SESSION["user_id"]=$_SESSION["id"];
+
+$_SESSION["id_user"]=$_SESSION["id"];
 $magasins = $boutiqueC->afficherBoutiques();
 
 $erreur = false;
@@ -52,7 +53,7 @@ if (!$erreur){
     switch($action){
         Case "ajout":
             $panierC->ajouterArticle($l,$q,$p);
-            header('Location:panier.php');;
+            //header('Location:panier.php');;
             break;
 
         Case "suppression":

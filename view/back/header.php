@@ -178,6 +178,7 @@
                 <span><i class='fa fa-shopping-cart' style='font-size:18px;color:white'></i>Gestion Des Vétérinaires</span>
             </a>
             <ul id="vétérinaire-page" class="collapse" aria-labelledby="vétérinaire-page" data-parent="#side-nav-accordion">
+                <li> <a href="newVet.php">Ajouter un vétérinaire</a> </li>
                 <li> <a href="vetGestion.php"> Afficher les vétérinaires</a> </li>
 
             </ul>
@@ -204,7 +205,7 @@
             </a>
             <ul id="promotion-page" class="collapse" aria-labelledby="promotion-page " data-parent="#side-nav-accordion">
                 <li> <a href="promotionAjout.php">Ajouter une promotion</a> </li>
-                <li> <a href="promotionGestion.php.php"> Afficher les promotions</a> </li>
+                <li> <a href="promotionGestion.php"> Afficher les promotions</a> </li>
 
             </ul>
         </li>

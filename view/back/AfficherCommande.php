@@ -43,6 +43,7 @@ require 'header.php';
                             </div>
                             <div class="col-xl-12 col-md-12 ">
                                 <a href="triercommandes.php">Trier Par Etat </a>
+
                             </div>
 
                             <div class="col-xl-12 col-md-12 ">

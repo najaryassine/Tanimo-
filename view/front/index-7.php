@@ -14,7 +14,7 @@ $res = getRec($id);
 <div class="content pt1"><div class="ic"></div>
     <div class="container_12">
         <div class="grid_6">
-            <h2>Mes Reclamation</h2><br>
+            <h2>Mes Reclamations</h2><br>
             <div class="map">
 
                 <table  border="2" style="border-color: black">

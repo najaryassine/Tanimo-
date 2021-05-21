@@ -10,11 +10,11 @@ class Boutique
 
 $boutique1  = new Boutique();
 $boutique1->id_btq = 1;
-$boutique1->nom = "mnihla";
+$boutique1->nom = "Menzeh6";
 
 $boutique2  = new Boutique();
 $boutique2->id_btq = 2;
-$boutique2->nom = "ben arous";
+$boutique2->nom = "Lac 1";
 
 $magasins = [$boutique1, $boutique2];
 

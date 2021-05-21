@@ -3,6 +3,8 @@
 
 
 require '../../controller/vetController.php';
+require 'header.php';
+
 
 if ($_POST) {
   $nom = $_POST['nom'];
@@ -11,7 +13,7 @@ if ($_POST) {
   $telephone = $_POST['telephone'];
 
   $name = $_FILES['image']['name'];
-  $target_dir = "../../../../upload/";
+  $target_dir = "assets\img";
   $target_file = $target_dir . basename($_FILES["image"]["name"]);
 
   // Select file type
@@ -33,7 +35,7 @@ if ($_POST) {
     move_uploaded_file($_FILES['image']['tmp_name'],$target_dir.$name);
   }
 
-    require 'header.php';
+
 ?>
 
 

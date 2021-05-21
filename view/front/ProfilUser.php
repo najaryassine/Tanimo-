@@ -21,13 +21,13 @@ if( isset($_POST["type"]) && isset($_POST["sexe"]) && isset($_POST["couleur"]) &
     {
         if (isset($_FILES['img'])) {
             $photos = $_FILES['img']['name'];
-            $upload = "updon/" . $photos;
+            $upload = "../back/assets/img/" . $photos;
             move_uploaded_file($_FILES['img']['tmp_name'], $upload);
 
 
 
 
-            $don = new don ($_POST["type"] , $_POST["sexe"], $_POST["couleur"] , $_POST["pelage"], $_POST["age"],$_POST["race"],$photos, $_SESSION['idUser']);
+            $don = new don ($_POST["type"] , $_POST["sexe"], $_POST["couleur"] , $_POST["pelage"], $_POST["age"],$_POST["race"],$photos, $_SESSION['id']);
             $donC->ajouterDon($don) ;
 
 
@@ -46,9 +46,7 @@ if( isset($_POST["type"]) && isset($_POST["sexe"]) && isset($_POST["couleur"]) &
 
 
 
-<span class="material-icons">
-question_answer
-</span>
+
 
 <button type="button" class="icon-button">  <a href="chat.php">Chat </a> </button>
 
@@ -239,7 +237,7 @@ foreach($listeDon as $don) :
 
                     <form action=" " method="POST" enctype="multipart/form-data">
                         <table align="center">
-                        
+
 
 
                         </table>
@@ -254,33 +252,56 @@ foreach($listeDon as $don) :
 
                                         <form  method="POST" enctype="multipart/form-data">
 
-                                            <div id="type">
+                                            <table border="2">
 
-                                                <h2 class="type"> Type</h2>
-                                                <input  class="type" type="text" name="type">
-                                                <h2 class="sexe">sexe</h2>
-                                                <input class="sexe" type="text" name="sexe">
-                                                <br>
-                                                <h2 class="couleur">couleur</h2>
-                                                <input class="couleur" type="text" name="couleur">
-                                                <h2 class="pelag">Pelage</h2>
+                                                <tr>
+                                                    <td><h2 class="type"> Type</h2> </td>
+                                                    <td><input  class="type" type="text" name="type"> </td>
+                                                </tr>
 
-                                                <input class="pelage" type="text" name="pelage">
-                                                <h2 class="age">age</h2>
-                                                <input class="age" type="age" name="age">
+                                                <tr>
+                                                <td> <h2 class="sexe">sexe</h2> </td>
+                                                    <td> <input class="sexe" type="text" name="sexe"> </td>
+                                                </tr>
 
-
-                                                <h2 class="race">race</h2>
-                                                <input class="race" type="text" name="race">
-                                                <br>
+                                                <tr>
+                                                    <td><h2 class="couleur">couleur</h2></td>
+                                                <td><input class="couleur" type="text" name="couleur"></td>
+                                                </tr>
 
 
+                                                <tr>
+                                                    <td><h2 class="pelag">Pelage</h2></td>
+                                               <td><input class="pelage" type="text" name="pelage"></td>
+                                                </tr>
 
-                                                <h2 for="img">Image </h2>
 
-                                                <input type="file" name="img" class="form-control" id="img"   accept="image/png, image/jpeg">
+                                                <tr>
+                                                    <td><h2 class="age">age</h2></td>
+                                                <td><input class="age" type="age" name="age"></td>
 
-                                                <button class="button" name="upload" type="submit">ajouter</button>
+                                                </tr>
+
+
+                                                <tr>
+                                                    <td> <h2 class="race">race</h2> </td>
+                                                    <td>  <input class="race" type="text" name="race"> </td>
+                                                </tr>
+
+
+                                                <tr>
+                                                    <td> <h2 for="img">Image </h2></td>
+                                                    <td> <input type="file" name="img" class="form-control" id="img"   accept="image/png, image/jpeg"> </td>
+                                                </tr>
+
+
+                                                <tr>
+                                                    <td>
+                                                        <button class="button" name="upload" type="submit">ajouter</button>
+                                                    </td>
+                                                </tr>
+
+
 
 
 
@@ -288,7 +309,7 @@ foreach($listeDon as $don) :
                                             </div>
 
 
-
+                                    </table>
 
                                         </form>
 

@@ -1,4 +1,7 @@
 <?php
+
+
+
 require 'header.php';
 ?>
    <!--            xttttttt          -->
@@ -44,7 +47,7 @@ require 'header.php';
 
               <label for="validationCustom10">id</label>
                 <div class="input-group">
-                  <input type="text" name="Id" class="form-control" id="validationCustom10" placeholder="Entrer le titre de l'article ">
+                  <input type="text" name="Id" class="form-control" id="validationCustom10" required placeholder="Entrer le titre de l'article ">
                  
                 </div>
 
@@ -71,7 +74,7 @@ require 'header.php';
 
                 <label for="validationCustom10">Description</label>
                  <div class="input-group">
-                  <input type="text" name="Description" class="form-control" id="Image">
+                  <input type="text" name="Description"  required class="form-control" id="Image">
                   
                 </div>
 
@@ -90,7 +93,7 @@ require 'header.php';
 
               <div class="col-md-12">
                 <button class="btn btn-dark mr-2  ms-graph-metrics">Vider</button>
-                <button class="btn btn-primary " onclick="verif();"name="submit" type="submit">Ajouter </button>
+                <button class="btn btn-primary " onclick="verif();" name="submit" type="submit">Ajouter </button>
               </div>
          
                   </div>
@@ -122,4 +125,8 @@ require 'header.php';
 
  <!--            xttttttt          -->
 
-    <?php require 'footer.php'; ?>
+
+
+
+
+<?php require 'footer.php'; ?>

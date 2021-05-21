@@ -47,11 +47,12 @@ require 'header.php';
                                     <h5>Afficher les commandes</h5><br>
                                 </div>
                                 <div class="col-xl-12 col-md-12 ">
-                                    <a href="triercommandes.php">Trier Par Etat</a>
+                                    <a  href="triercommandes.php">Trier Par Etat</a>
                                 </div>
                                 <div class="col-xl-12 col-md-12 ">
                                     <a href="triercommandes1.php">Trier Par Prix</a>
                                 </div>
+
                                 <table border=5 align = 'center'>
                                     <tr>
                                         <th>Id</th>

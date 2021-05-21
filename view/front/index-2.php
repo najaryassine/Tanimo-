@@ -8,7 +8,7 @@ include "header.php"
 <div class="page1_block nb">
 <div class="small-container">
             <div class="row row-2">
-                <h2>Liste des boutique  : </h2>
+                <h2>Liste des boutiques  : </h2>
                
             </div>
             <div class="row">
@@ -78,7 +78,7 @@ $listeevent=$event->afficherEvents();
 
 <div class="page1_block nb">
 <div class="small-container">
-<h2 class="ic1">Nos evenement</h2>
+<h2 class="ic1">Nos événements</h2>
        <a href="TridateD.php" class="btn">Date Debut</a>
        <a href="TridateF.php" class="btn">Date Finale</a>
             <div class="row row-2"> </div>
